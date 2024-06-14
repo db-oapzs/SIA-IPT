@@ -1,0 +1,7 @@
+CLASIF_DEPENDENCIA
+" "
+1
+2
+3
+4
+5

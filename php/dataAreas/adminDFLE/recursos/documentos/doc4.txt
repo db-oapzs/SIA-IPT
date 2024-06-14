@@ -1,0 +1,4 @@
+SEXO
+" "
+HOMBRE
+MUJER

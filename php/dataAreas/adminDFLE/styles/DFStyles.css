@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: 'Montserrat'; 
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 860px) {
+
+  .contenedor-padre {
+    flex-direction: column !important;
+    width: 95% !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px !important;
+  }
+
+  .contenedor-general{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:450px){
+  .contenedor-general{
+    margin-top: 20px !important;
+    text-align: center;
+  }
+
+  .contenedor-padre {
+    flex-direction: column !important;
+    width: 95% !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px !important;
+  }
+
+  .card{
+    width: 300px !important;
+    font-size: 15px;
+  }
+
+  .contenedor-general > h1{
+    font-size: 15px;
+  }
+
+  .btn-primary, .btn-validar{
+    font-size: 13px !important;
+  }
+
+  .btn-validar{
+    margin-top: 5px !important;
+  }
+
+  .modal-header > .modal-title{
+    font-size: 15px !important;
+  }
+
+  .modal-body > .form-check-label, .form-check-input{
+    font-size: 13px;
+  }
+
+  .modal-body > .form-check-input{
+    vertical-align: middle;
+    margin-bottom: 7px;
+  }
+  .modal-body > .list-group > .list-group-item> .form-check-label, .form-check-input{
+    font-size: 13px;
+  }
+
+  .modal-body > .list-group > .list-group-item> .form-check-input{
+    vertical-align: middle;
+    margin-bottom: 4px;
+  }
+
+  .modal-footer > .btn{
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width:310px){
+  .contenedor-general{
+    text-align: center;
+  }
+
+  .contenedor-padre {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card{
+    width: 240px !important;
+    font-size: 10px;
+  }
+
+  .contenedor-general > h1{
+    font-size: 15px;
+  }
+
+  .btn-primary, .btn-validar{
+    font-size: 10px !important;
+  }
+
+  .btn-validar{
+    margin-top: 5px !important;
+  }
+
+  .modal-header > .modal-title{
+    font-size: 15px !important;
+  }
+
+  .modal-body > .form-check-label, .form-check-input{
+    font-size: 10px;
+  }
+
+  .modal-body > .form-check-input{
+    vertical-align: middle;
+    margin-bottom: 3px;
+  }
+  .modal-body > .list-group > .list-group-item> .form-check-label, .form-check-input{
+    font-size: 10px;
+  }
+
+  .modal-body > .list-group > .list-group-item> .form-check-input{
+    vertical-align: middle;
+  }
+
+  .modal-footer > .btn{
+    font-size: 10px;
+  }
+}
+
+@media screen and (zoom: 1) {
+  .contenedor-padre {
+    flex-direction: column !important;
+  }
+}
+
+.contenedor-general{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.contenedor-padre{
+  display: flex;
+  margin-top: 150px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary:hover{
+  background-color: #894668;
+  transform: scale(1.02);
+}
+
+.btn-validar{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}

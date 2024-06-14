@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+@media screen and (max-width: 1100px){
+}
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+table{
+    height: 100%;
+    width: 90%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: left;
+  }
+  
+  th{
+    height: auto;
+    width: auto;
+    background-color: #6c1d45;
+    color: white; 
+    text-align: start;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    vertical-align: middle;
+  }
+  
+  td{
+    border-bottom: 2px solid #6b6b6b;
+    text-align: start;
+    padding: 10px;
+    height: auto; 
+    word-break: break-all;
+  }
+  button{
+    padding: 7px;
+    background-color: #6c1d45;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    width: fit-content;
+    height: fit-content;
+    font-size: 17px;
+  }
+
+  button:hover{
+    background-color: #8e255b;
+    cursor: pointer;
+}
+
+.btnEnviar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea{
+    height: 75px;
+    font-size: 13px;
+    width: 90%;
+}
+
+p{
+    font-size: 25px;
+    font-weight: 600;
+}
+.MsjInput{
+  width: 100%;
+  height: 100%;
+  border:0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.MsjInput > .btnEnviar >#Enviar-Mensaje {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none;
+  text-decoration: none;
+  padding: 15px;
+  overflow: hidden;
+}
+.MsjInput > .btnEnviar {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none;
+  text-decoration: none;
+  padding: 15px;
+  overflow: hidden;
+}
+.MsjInput > textarea {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none;
+  text-decoration: none;
+  padding: 15px;
+  overflow: hidden;
+}
+
+#pagination > button{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: "Montserrat";
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none;
+  text-decoration: none;
+  overflow: hidden;
+}
+#pagination{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none;
+  text-decoration: none;
+  overflow: hidden;
+}

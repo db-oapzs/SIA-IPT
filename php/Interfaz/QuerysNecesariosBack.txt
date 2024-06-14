@@ -1,0 +1,74 @@
+Query 1:
+
+SELECT CH.Desc_Contrasena_Hash, PA.Desc_Palabra_Aleatoria, EB.Desc_Estatus_Bloqueo, ED.Desc_Estatus_Deshabilitado FROM Usuarios_General UG JOIN Contrasena_Hash CH ON UG.id_ContrasenaHash = CH.ID_ContrasenaHash JOIN Palabra_Aleatoria PA ON UG.id_PalabraAleatoria = PA.ID_PalabraAleatoria JOIN Estatus_Bloqueado EB ON UG.id_EstatusBloqueo = EB.ID_EstatusBloqueo JOIN Estatus_Deshabilitado ED ON UG.id_EstatusDeshabilitado = ED.ID_EstatusDeshabilitado JOIN Correo_Electronico CE ON UG.id_CorreoElectronico = CE.ID_CorreoElectronico WHERE CE.Desc_Correo_Electronico = 'asolanop@ipn.mx;'
+
+
+======================================================================================
+Query 2
+
+SELECT UA.Desc_Nombre_Unidad_Academica
+FROM Usuarios_General UG
+JOIN unidades_academicas UA ON UG.id_UnidadAcademica = UA.ID_UnidadAcademica
+JOIN Correo_Electronico CE ON UG.id_CorreoElectronico = CE.ID_CorreoElectronico
+WHERE CE.Desc_Correo_Electronico = 'asolanop@ipn.mx;';
+
+======================================================================================
+Query 3
+
+SELECT NU.Desc_Nombre_Usuario
+FROM Usuarios_General UG
+JOIN nombre_usuarios NU ON UG.id_NombreUsuario = NU.ID_NombreUsuario
+JOIN Correo_Electronico CE ON UG.id_CorreoElectronico = CE.ID_CorreoElectronico
+WHERE CE.Desc_Correo_Electronico = 'asolanop@ipn.mx;';
+
+======================================================================================
+Query 4
+
+SELECT CE.Desc_Correo_Electronico, fecha, hora_creacion, COUNT(*) AS total
+FROM recuperacionContra RC
+JOIN correo_electronico CE ON RC.id_correo = CE.ID_CorreoElectronico 
+WHERE CE.Desc_Correo_Electronico = 'asolanop@ipn.mx;'
+AND fecha =  ' '
+AND hora_creacion >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 10 MINUTE), '%H:%i:%s')
+AND hora_creacion <= DATE_FORMAT(NOW(), '%H:%i:%s');
+
+===============================================================================
+Query 5
+
+UPDATE Usuarios_General AS U 
+JOIN Correo_Electronico AS CE ON U.id_CorreoElectronico = CE.ID_CorreoElectronico 
+SET U.id_EstatusBloqueo = (SELECT ID_EstatusBloqueo FROM Estatus_Bloqueado WHERE Desc_Estatus_Bloqueo = 0) 
+WHERE CE.Desc_Correo_Electronico = 'asolanop@ipn.mx;';
+
+==================================================================================
+Query 6
+INSERT INTO recuperacionContra (id_correo, clave_temporal, palabra_random, fecha, hora_creacion, hora_vencimiento) 
+VALUES ( 
+(SELECT ID_CorreoElectronico FROM Correo_Electronico WHERE Desc_Correo_Electronico = 'asolanop@ipn.mx;'), 
+'claveTemporal123', 
+'palabraRandom456', 
+'2024-04-17', 
+'12:00:00', 
+'18:00:00' );
+
+==================================================================================
+Query 7
+SELECT clave_temporal, palabra_random, hora_vencimiento 
+FROM recuperacionContra 
+WHERE id_correo = ( SELECT ID_CorreoElectronico FROM Correo_Electronico WHERE Desc_Correo_Electronico = 'asolanop@ipn.mx;' ) 
+AND hora_creacion = '12:00:00';
+
+===================================================================================
+Query 8
+UPDATE Contrasena_Hash, Palabra_Aleatoria 
+SET Contrasena_Hash.Desc_Contrasena_Hash = 'Nueva1@@', Palabra_Aleatoria.Desc_Palabra_Aleatoria = 'NuevaPalabraAleatoria' 
+WHERE Contrasena_Hash.ID_ContrasenaHash = ( 
+	SELECT Usuarios_General.id_ContrasenaHash 
+	FROM Usuarios_General 
+	INNER JOIN Correo_Electronico 
+	ON Usuarios_General.id_CorreoElectronico = Correo_Electronico.ID_CorreoElectronico 	WHERE Correo_Electronico.Desc_Correo_Electronico = 'asolanop@ipn.mx;' ) 
+AND Palabra_Aleatoria.ID_PalabraAleatoria = ( SELECT Usuarios_General.id_PalabraAleatoria 	FROM Usuarios_General 
+	INNER JOIN Correo_Electronico 
+	ON Usuarios_General.id_CorreoElectronico = Correo_Electronico.ID_CorreoElectronico 	WHERE Correo_Electronico.Desc_Correo_Electronico = 'asolanop@ipn.mx;' );
+
+

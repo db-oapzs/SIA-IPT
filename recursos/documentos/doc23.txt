@@ -1,0 +1,5 @@
+Clasificacion
+" "
+No foraneo
+Foraneo
+#N/D

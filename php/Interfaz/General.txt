@@ -1,0 +1,165 @@
+CREATE TABLE Nombre_Usuarios (
+    ID_NombreUsuario INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Nombre_Usuario VARCHAR(255) DEFAULT ' '
+);
+
+CREATE TABLE Contrasena_Hash (
+    ID_ContrasenaHash INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Contrasena_Hash VARCHAR(255) DEFAULT ' '
+);
+
+CREATE TABLE Palabra_Aleatoria (
+    ID_PalabraAleatoria INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Palabra_Aleatoria VARCHAR(255) DEFAULT ' '
+);
+
+CREATE TABLE Estatus_Bloqueado (
+    ID_EstatusBloqueo INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Estatus_Bloqueo BIT DEFAULT 0
+);
+
+CREATE TABLE Estatus_Deshabilitado (
+    ID_EstatusDeshabilitado INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Estatus_Deshabilitado BIT DEFAULT 0
+);
+
+CREATE TABLE Correo_Electronico (
+    ID_CorreoElectronico INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Correo_Electronico varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Unidades_Academicas (
+    ID_UnidadAcademica INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Nombre_Unidad_Academica varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Cargos (
+    ID_Cargo INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Cargo varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Numero_Telefono (
+    ID_NumeroTelefono INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Numero_Telefono varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Rol_Dentro_Del_Sistema (
+    ID_Rol INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Rol varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Nombres_Titulares (
+    ID_NombreTitular INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Nombre_Titular varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Niveles_Competencia(
+    ID_Competencia INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Nivel_De_Competencia varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Idiomas(
+    ID_Idioma INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Idioma varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Tipo_Poblacion(
+    ID_TipoPoblacion INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_TipoPoblacion varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE Nivel_Educativo(
+    ID_NivelEducativo INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_NivelEducativo varchar(255) DEFAULT ' '
+);
+
+CREATE TABLE IF NOT EXISTS recuperacionContra (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_correo INT,
+    clave_temporal VARCHAR(255) NOT NULL,
+    palabra_random VARCHAR(255) NOT NULL,
+    fecha VARCHAR(255) NOT NULL,
+    hora_creacion VARCHAR(255) NOT NULL,
+    hora_vencimiento VARCHAR(255) NOT NULL,
+    
+    FOREIGN KEY (id_correo) REFERENCES correo_electronico(ID_CorreoElectronico)
+);
+
+
+CREATE TABLE Vigencia(
+    ID_Vigencia INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Vigencia varchar(255) DEFAULT ' ',
+    id_Idioma INT,
+    id_UnidadAcademica INT,
+    
+    FOREIGN KEY (id_Idioma) REFERENCES Idiomas(ID_Idioma),
+    FOREIGN KEY (id_UnidadAcademica) REFERENCES Unidades_Academicas(ID_UnidadAcademica)
+);
+
+CREATE TABLE Cantidades_Formato_11(
+    ID_Registro_11 INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Hombres INT DEFAULT 0,
+    Desc_Mujeres INT DEFAULT 0,
+    id_UnidadCenlex INT,
+    id_Idioma INT,
+    
+    FOREIGN KEY (id_UnidadCenlex) REFERENCES Unidades_Academicas(ID_UnidadAcademica),
+    FOREIGN KEY (id_Idioma) REFERENCES Idiomas(ID_Idioma)
+);
+    
+CREATE TABLE Cantidades_Alumnos(
+    ID_Registro INT AUTO_INCREMENT PRIMARY KEY,
+    Desc_Hombres INT DEFAULT 0,
+    Desc_Mujeres INT DEFAULT 0,
+    id_UnidadAcademica INT,
+    id_Competencia INT,
+    id_Idioma INT,
+    id_TipoPoblacion INT,
+    id_NivelEducativo INT,
+    
+    FOREIGN KEY (id_UnidadAcademica) REFERENCES Unidades_Academicas(ID_UnidadAcademica),
+    FOREIGN KEY (id_Competencia) REFERENCES Niveles_Competencia(ID_Competencia),
+    FOREIGN KEY (id_Idioma) REFERENCES Idiomas(ID_Idioma),
+    FOREIGN KEY (id_TipoPoblacion) REFERENCES Tipo_Poblacion(ID_TipoPoblacion),
+    FOREIGN KEY (id_NivelEducativo) REFERENCES Nivel_Educativo(ID_NivelEducativo)
+);
+
+CREATE TABLE Titular_Unidad(
+    ID_Titular INT AUTO_INCREMENT PRIMARY KEY,
+    id_NombreTitular INT,
+    id_Cargo INT,
+    id_NumeroTelefono INT,
+    id_CorreoElectronico INT, 
+    id_UnidadAcademica INT,
+    
+    FOREIGN KEY (id_NombreTitular) REFERENCES Nombres_Titulares(ID_NombreTitular),
+    FOREIGN KEY (id_Cargo) REFERENCES Cargos(ID_Cargo),
+    FOREIGN KEY (id_NumeroTelefono) REFERENCES Numero_Telefono(ID_NumeroTelefono),
+    FOREIGN KEY (id_CorreoElectronico) REFERENCES Correo_Electronico(ID_CorreoElectronico),
+    FOREIGN KEY (id_UnidadAcademica) REFERENCES Unidades_Academicas(ID_UnidadAcademica)
+    );
+    
+CREATE TABLE Usuarios_General (
+    ID_Usuario INT AUTO_INCREMENT PRIMARY KEY,
+    id_NombreUsuario INT,
+    id_ContrasenaHash INT,
+    id_PalabraAleatoria INT,
+    id_EstatusBloqueo INT,
+    id_EstatusDeshabilitado INT,
+    id_CorreoElectronico INT,
+    id_UnidadAcademica INT,
+    id_Cargo INT,
+    id_NumeroTelefono INT,
+    id_Rol INT,
+    
+    FOREIGN KEY (id_NombreUsuario) REFERENCES Nombre_Usuarios(ID_NombreUsuario),
+    FOREIGN KEY (id_ContrasenaHash) REFERENCES Contrasena_Hash(ID_ContrasenaHash),
+    FOREIGN KEY (id_PalabraAleatoria) REFERENCES Palabra_Aleatoria(ID_PalabraAleatoria),
+    FOREIGN KEY (id_EstatusBloqueo) REFERENCES Estatus_Bloqueado(ID_EstatusBloqueo),
+    FOREIGN KEY (id_EstatusDeshabilitado) REFERENCES Estatus_Deshabilitado(ID_EstatusDeshabilitado),
+    FOREIGN KEY (id_CorreoElectronico) REFERENCES Correo_Electronico(ID_CorreoElectronico),
+    FOREIGN KEY (id_UnidadAcademica) REFERENCES Unidades_Academicas(ID_UnidadAcademica),
+    FOREIGN KEY (id_Cargo) REFERENCES Cargos(ID_Cargo),
+    FOREIGN KEY (id_NumeroTelefono) REFERENCES Numero_Telefono(ID_NumeroTelefono),
+    FOREIGN KEY (id_Rol) REFERENCES Rol_Dentro_Del_Sistema(ID_Rol)
+);

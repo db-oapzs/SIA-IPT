@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: 'Montserrat'; 
+    margin: 0;
+    padding: 0;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .flex-containerF2{
+        flex-direction: column !important; 
+    }
+    
+#BGuardarF2{
+    grid-row: 17/17 !important; 
+}
+
+#BEnviarF2{
+    grid-row: 17/17 !important;
+}
+}
+
+@media screen and (max-width: 550px){
+    #HeaderF2{
+        padding: 10px !important;
+        font-size: 13px;
+    }
+
+    #Header2F2{
+        padding: 10px !important;
+        font-size: 13px;
+    }
+    
+    #Header3F2{
+        padding: 10px !important;
+        font-size: 13px;
+    }
+
+    .TablaPF2{
+        width: 320px !important;
+        height: 100px !important;
+    }
+
+    #Subheader1F2{
+        font-size: 10px;
+    }
+    #Subheader2F2{
+
+        font-size: 10px;
+    }
+    #Subheader3F2{
+
+        font-size: 10px;
+    }
+    #Subheader4F2{
+        padding: 10px;
+        font-size: 10px;
+    }
+    #Subheader5F2{
+        font-size: 10px;
+    }
+    #Subheader6F2{
+        font-size: 10px;
+    }
+    
+    .V1F2{
+        font-size: 10px;
+    }
+    .V2F2{
+        font-size: 10px;
+    }
+    .V3F2{
+
+        font-size: 10px;
+    }
+
+    .TablaVPF2{
+        height: 100px !important;
+    }
+
+    #HeaderVPF2{
+        font-size: 13px;
+    }
+
+    .VPF2{
+        font-size: 13px;
+    }
+
+    .JInputF2{
+        width: 320px !important;
+    }
+
+    #JustLabelF2{
+        font-size: 13px !important;
+    }
+
+    #TextInputF2{
+        font-size: 12px;
+    }
+
+    #BGuardarF2{
+        grid-column: 1/4 !important;
+        width: 60px !important;
+        font-size: 10px !important;
+        height: 20px !important;
+    }
+    
+    #BEnviarF2{
+        grid-column: 4/8 !important;
+        width: 60px !important;
+        font-size: 10px !important;
+        height: 20px !important;
+    }
+}
+
+.flex-containerF2{
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    gap: 20px;
+}
+
+.TablasF2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+.SelectorF2{
+    width: 400px;
+    height: 100px;
+}
+
+.TablaPF2{
+    display: grid;
+    width: auto;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-auto-flow: column;
+    height: auto;
+    text-align: center;
+}
+
+#HeaderF2{
+    grid-column:1/3;
+    grid-row:1/1;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    border-top-left-radius: 7px;
+    justify-content: center;
+    height: auto;
+}
+
+#Header2F2{
+    grid-column:3/5;
+    grid-row:1/1;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    justify-content: center;
+    height: auto;
+    padding: 10px;
+}
+
+#Header3F2{
+    grid-column:5/7;
+    grid-row:1/1;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    border-top-right-radius: 7px;
+    justify-content: center;
+    height: auto;
+    padding: 10px;
+}
+
+.THF2{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.V1F2{
+    grid-column: 1/3;
+    grid-row: 2/3;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    text-align: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-bottom: solid 1px #333333;
+    border-left: solid 1px #333333;
+
+}
+.V2F2{
+    grid-column: 3/5;
+    grid-row: 2/3;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+    
+}
+.V3F2{
+    grid-column: 5/7;
+    grid-row: 2/3;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+    border-right: solid 1px #333333;
+}
+
+.TablaVPF2{
+    display: grid;
+    width: 200px;
+    height: 70px;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+#HeaderVPF2{
+    grid-column: 1/1;
+    grid-row: 1/2;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 13px;
+}
+
+.VPF2{
+    grid-column: 1/1;
+    grid-row: 2/3;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 13px;
+    border: solid 1px #333333;
+}
+
+
+.JInputF2{
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(27, 1fr);
+    width: 500px;
+    height: 600px;
+}
+
+#JustLabelF2{
+    padding-bottom: 10px;
+    grid-column: 1/14;
+    grid-row: 2/3;
+    font-size: medium;
+    font-weight: 400;
+    
+}
+
+#TextInputF2{
+    grid-column: 1/14;
+    grid-row: 3/16;
+    border: solid 1px #333333;
+    border-radius: 7px;
+    padding: 10px; 
+    text-indent: 10px; 
+    overflow: hidden;
+}
+
+#BGuardarF2{
+    grid-column: 12/14;
+    grid-row: 18/18;
+    color: #FFFFFF !important;
+    font-size: 13px;
+    border-radius: 5px;
+    height: 30px;
+    border: none;
+    background: #631A3F;
+}
+
+#BEnviarF2{
+    grid-column: 9/11;
+    grid-row: 18/18;
+    color: #FFFFFF !important;
+    font-size: 13px;
+    border-radius: 5px;
+    border: none;
+    background: #631A3F;
+}
+
+.SelectorF2{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 300px;
+    height: 70px;
+}
+
+#IdiomLabelF2{
+    grid-column: 1/2;
+    grid-row: 1/1;
+    font-size: medium;
+    font-weight: 400;
+}
+
+#SelectorNivelF2 {
+    margin-bottom: 5px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    border: 1px solid #333333;
+    border-radius: 3px;
+    height: 35px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#BGuardarF2:hover {
+    background-color: #894668;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+#BEnviarF2:hover {
+    background-color: #894668;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+h1{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 30px;
+    color: #333333;
+}
+

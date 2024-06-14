@@ -1,0 +1,496 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat";
+  font-size: 100%;
+}
+
+.clasDiplay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.btnPadm:hover {
+  cursor: pointer;
+  background: #78234d;
+  transform: scale(1.02);
+}
+
+.btnPadm {
+  width: 70%;
+  height: 35px;
+  background: #6c1d45;
+  color: #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 0px;
+  text-transform: uppercase;
+  font-size: 90%;
+  letter-spacing: 2px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  text-align: center;
+  border-radius: 5px;
+  transition: 100ms all linear;
+}
+
+#modalAgUsr {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  z-index: 99999;
+}
+#modalAgUsr > #contBtnCerrarModAgrAdm {
+  width: 100%;
+  height: 50px;
+  background: #6c1d45;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 25px;
+  align-items: center;
+  overflow: hidden;
+}
+#modalAgUsr > #contBtnCerrarModAgrAdm > #btnAgrCrmod:hover {
+  cursor: pointer;
+  background: #78234d;
+  transform: scale(1.02);
+}
+#modalAgUsr > #contBtnCerrarModAgrAdm > #btnAgrCrmod {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  transition: 100ms all linear;
+}
+#modalAgUsr > #formModAgrUsNew {
+  width: 50%;
+  height: calc(100% - 100px);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#modalAgUsr > #formModAgrUsNew > label {
+  width: 90%;
+  height: auto;
+  text-transform: capitalize;
+  font-size: 90%;
+  letter-spacing: 2px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  text-align: justify;
+  padding-left: 10px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+}
+#modalAgUsr > #formModAgrUsNew > input[type=text],
+#modalAgUsr > #formModAgrUsNew > input[type=password],
+#modalAgUsr > #formModAgrUsNew > input[type=tel],
+#modalAgUsr > #formModAgrUsNew > input[type=email],
+#modalAgUsr > #formModAgrUsNew > input[type=submit],
+#modalAgUsr > #formModAgrUsNew > select {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #e4e4e4;
+  text-transform: none;
+  font-size: 90%;
+  letter-spacing: 2px;
+  color: #121212;
+  font-family: "Montserrat";
+  font-weight: 400;
+  text-align: justify;
+  border: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 2.5px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  border-radius: 2px;
+}
+#modalAgUsr > #formModAgrUsNew > input[type=submit]:hover {
+  cursor: pointer;
+  background: #78234d;
+  transform: scale(1.01);
+}
+#modalAgUsr > #formModAgrUsNew > input[type=submit] {
+  width: 50% !important;
+  background: #6c1d45 !important;
+  text-align: center;
+  color: #ccc;
+  padding-top: 5px;
+  padding-top: 5px;
+  transition: 100 all linear;
+}
+
+#contCab {
+  width: 88%;
+  height: 100px;
+  background: #6c1d45;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#contCab > li {
+  color: #fff;
+  font-size: 110%;
+  letter-spacing: 1px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#contPpadmin {
+  width: 100vw;
+  height: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+#contPpadmin > #contBtnAgrUser {
+  width: 50%;
+  height: 100px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 10px;
+}
+#contPpadmin > #txtBinvPa {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 0px;
+  text-transform: capitalize;
+  font-size: 100%;
+  letter-spacing: 5px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  overflow: hidden;
+  padding: 0px 10px 0px 10px;
+}
+#contPpadmin > #searchForm {
+  width: 80%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#contPpadmin > #searchForm > #barrSearch {
+  width: 50%;
+  height: 30px;
+  background: #e0e0e0;
+  border: 0px;
+  text-transform: none;
+  font-size: 100%;
+  letter-spacing: 2px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 0px 10px 0px 10px;
+  margin-right: 10px;
+}
+#contPpadmin > #searchForm > button {
+  margin-left: 10px;
+  width: 100px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 100%;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  color: #ccc;
+  background: #6c1d45;
+}
+#contPpadmin > #contTableData {
+  width: calc(100% - 20px);
+  height: 500px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-weight: 400;
+}
+#contPpadmin > #contTableData > #contTable {
+  width: calc(90% - 20px);
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#contPpadmin > #contTableData > #contTable > #tableBody {
+  width: 100%;
+  height: auto;
+  padding-top: auto;
+  padding-bottom: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#contPpadmin > #contTableData > #contTable > #tableBody > tr {
+  border-bottom: 1px solid #ccc;
+}
+#contPpadmin > #contTableData > #contTable > #tableBody > tr > th {
+  font-family: "Montserrat";
+  font-size: 80%;
+  text-align: justify;
+  text-transform: capitalize;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 2px;
+  overflow: hidden;
+}
+#contPpadmin #pginacion {
+  width: calc(90% - 20px);
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+#contPpadmin #pginacion > .itemPag, #contPpadmin #pginacion > a {
+  width: 50px;
+  height: 50px;
+  background: rgb(183, 183, 183);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  color: #000000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dtPasado {
+  background: #ccc;
+  border: 0px !important;
+}
+
+.contModModif {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 99999;
+  overflow: hidden;
+}
+.contModModif > .contBtnCloseMod {
+  width: 100%;
+  height: 50px;
+  background: #6c1d45;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-items: center;
+  overflow: hidden;
+}
+.contModModif > .contBtnCloseMod > .conTbtnCls:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background: #78234d;
+}
+.contModModif > .contBtnCloseMod > .conTbtnCls {
+  width: 50px;
+  height: 50px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  transition: 100ms all linear;
+}
+.contModModif > .formMoD {
+  width: 90%;
+  height: 70%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 50px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.contModModif > .formMoD > .txtModePadm {
+  width: 100%;
+  height: auto;
+  font-size: 120%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-align: center;
+  flex-wrap: wrap;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 600;
+  font-family: "Montserrat";
+  overflow: hidden;
+}
+.contModModif > .formMoD > .conInpLab {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.contModModif > .formMoD > .conInpLab > label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 110%;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 2px;
+  overflow: hidden;
+}
+.contModModif > .formMoD > .conInpLab > input, .contModModif > .formMoD > .conInpLab > select {
+  width: 40%;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 100%;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 2px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.contModModif > .formMoD > input[type=submit]:hover {
+  cursor: pointer;
+  background: #78234d;
+  transform: scale(1.01);
+}
+.contModModif > .formMoD > input[type=submit] {
+  width: 200px;
+  height: 30px;
+  background: #6c1d45;
+  align-items: center;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: 400;
+  color: #ccc;
+  font-size: 105%;
+  font-family: "Montserrat";
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.btnModifUser:hover, .btnElimUser:hover {
+  background: #78234d;
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.btnModifUser, .btnElimUser {
+  width: 70%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #6c1d45;
+  font-family: "Montserrat";
+  font-size: 110%;
+  color: #ccc;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: 400;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 0;
+  border-radius: 5px;
+  transition: 100ms all linear;
+}
+
+/*# sourceMappingURL=stylesPanelAdmin.css.map */

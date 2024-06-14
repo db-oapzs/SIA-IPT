@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+@media screen and (max-width: 1100px){
+  .container-tabla {
+    width: 100% !important;
+  }
+  
+  Table {
+    width: 90% !important;
+  }
+
+  th{
+    font-size: 13px !important;
+  }
+
+  td{
+    font-size: 13px !important;
+  }
+
+  button{
+    font-size: 8px !important;
+  }
+
+  #contModal-1 >#hijo{
+    width: auto !important;
+  }
+
+  .hijo3{
+    width: auto !important;
+  }
+
+  label{
+    font-size: 13px !important;
+  }
+
+  input{
+    width: auto !important;
+    height: auto !important;
+  }
+
+  #contModal-2 > .hijo2{
+    width: 200px !important;
+    height: 100px !important;
+  }
+
+  h1{
+    font-size: 18px !important;
+  }
+  
+  h2{
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+  }
+
+  #btnGuardar{
+    width: fit-content;
+    padding: 7px !important;
+    font-size: 9px !important;
+  }
+
+  #cancelar{
+    font-size: 8px !important;
+    padding: 7px !important;
+  }
+
+
+}
+
+@media screen and (max-width: 460px){
+  .container-tabla {
+    width: 100% !important;
+  }
+  
+  Table {
+    width: 90% !important;
+  }
+
+  th{
+    font-size: 7px !important;
+  }
+
+  td{
+    font-size: 5px !important;
+  }
+
+  button{
+    font-size: 5px !important;
+    padding: 4px !important;
+  }
+  
+  #contModal-1 >#hijo{
+    display: flex !important;
+    height: 90% !important;
+    width: 90% !important;
+    overflow: auto !important;
+  }
+
+  .hijo3{
+    width: auto !important;
+  }
+
+  label{
+    font-size: 11px !important;
+  }
+
+  input{
+    width: 200px !important;
+    height: auto !important;
+  }
+  
+  #contModal-2 > .hijo2{
+    width: 200px !important;
+    height: 100px !important;
+  }
+
+  h1{
+    font-size: 18px !important;
+  }
+  
+  h2{
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+  }
+
+  #btnGuardar{
+    width: fit-content !important;
+    padding: 7px !important;
+    font-size: 7px !important;
+  }
+
+  #cancelar{
+    font-size: 7px !important;
+    padding: 7px !important;
+  }
+
+  #formData{
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+}
+
+.container-tabla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+  }
+
+Table{
+  height: 100%;
+  width: 90%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 1px;
+  text-align: left;
+}
+
+th{
+  height: auto;
+  width: auto;
+  background-color: #6c1d45;
+  color: white; 
+  text-align: start;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+td{
+  border-bottom: 2px solid #6b6b6b;
+  text-align: start;
+  padding: 10px;
+  height: auto; 
+}
+  
+.BotonesC{
+    display: flex;
+    margin: 5px;
+    justify-content: space-around;
+}
+
+.AgregCont{
+    display: flex;
+    justify-content: center;
+}
+
+#Btn-AgregarReg{
+  background-color: #ffffff;
+  color: rgb(51, 51, 51);
+}
+
+button{
+  padding: 7px;
+  background-color: #6c1d45;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  width: fit-content;
+  height: fit-content;
+}
+
+#btnGuardar{
+    padding: 7px;
+    background-color: #6c1d45;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    width: fit-content;
+    height: fit-content;
+}
+
+#cancelar{
+    padding: 7px;
+    background-color: #7a5668;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    width: fit-content;
+    height: fit-content;
+}
+
+button:active{
+    background-color: #49142f;
+    cursor: pointer;
+}
+
+#cancelar:active{
+    background-color: #6c1d45;
+    cursor: pointer;
+}
+
+#btnGuardar:active{
+  background-color: #49142f;
+  cursor: pointer;
+}
+
+
+#contModal-1{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#contModal-1 > #hijo{
+    width: auto;
+    height: auto;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 15px;
+    position: relative;
+}
+
+#contModal-1 >#hijo > #contbtn{
+    width:28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: rgb(116, 116, 116);
+    position: absolute; 
+    top: 15px; /* Position from top at 15px */
+    right: 20px; /* Position from right at 15px */
+}
+
+#formData{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+label{
+    padding-bottom: 5px;
+    color: rgb(31, 31, 31);
+}
+
+input{
+    margin-bottom: 10px;
+    border: 2px solid #e4e3e3;
+    text-align: center;
+    border-radius: 3px;
+    width: 300px;
+    height: 35px;
+}
+
+#statusBloqOld{
+    background-color: #e4e3e3;
+    color: rgb(31, 31, 31);
+    cursor: not-allowed;
+}
+
+#statusDeshOld{
+    background-color: #e4e3e3;
+    color: rgb(31, 31, 31);
+    cursor: not-allowed;
+}
+
+#id{
+    background-color: #e4e3e3;
+    color: rgb(31, 31, 31);
+    cursor: not-allowed;
+}
+
+#nombreOld{
+    background-color: #e4e3e3;
+    color: rgb(31, 31, 31);
+    cursor: not-allowed;
+}
+
+#telefonoOld{
+    background-color: #e4e3e3;
+    color: rgb(31, 31, 31);
+    cursor: not-allowed;
+}
+
+#unidadOld{
+    background-color: #e4e3e3;
+    color: rgb(31, 31, 31);
+    cursor: not-allowed;
+}
+
+#correoOld{
+    background-color: #e4e3e3;
+    color: rgb(31, 31, 31);
+    cursor: not-allowed;
+}
+
+#cargoOld{
+    background-color: #e4e3e3;
+    color: rgb(31, 31, 31);
+    cursor: not-allowed;
+}
+
+#contModal-2{
+  width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#contModal-2 > .hijo2{
+  width: 250px;
+  height: 150px;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  justify-content: space-between;
+}
+#contModal-2 >.hijo2 > #contbtn2{
+  width:100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+#contModal-2 >.hijo2 > .contbtn2{
+  width:100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+#alerta{
+  text-align: center;
+}
+
+h1{
+  color: #6c1d45;
+  font-size: 25px;
+}
+
+h2{
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#contModal-3{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+ .hijo3{
+  width: auto;
+  height: auto;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+}
+.hijo3 > #contbtn3{
+  width:28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: rgb(116, 116, 116);
+  position: absolute; /* Make #contbtn absolute */
+  top: 15px; /* Position from top at 15px */
+  right: 20px; /* Position from right at 15px */
+}
+
+p{
+  font-size: 25px;
+  font-weight: 600;
+}

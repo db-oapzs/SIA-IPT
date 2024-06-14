@@ -1,0 +1,1881 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#con-header {
+  width: 100vw;
+  height: 150px;
+  display: flex;
+  position: fixed;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  z-index: 9999 !important;
+}
+#con-header > #cont-logo1 {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+  overflow: hidden;
+}
+#con-header > #cont-logo1 > img:nth-child(1) {
+  width: 90px;
+  height: 100px;
+  background: white;
+}
+#con-header > #cont-logo1 > img:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  background: white;
+}
+#con-header #cont-name {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 2px solid #ccc;
+}
+#con-header #cont-name > h2 {
+  font-size: 25px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  text-align: center;
+}
+#con-header #cont-logoipn {
+  width: 10%;
+  height: 100%;
+  overflow: hidden;
+  border-bottom: 2px solid #ccc;
+}
+#con-header #cont-menu {
+  width: 25%;
+  height: 100%;
+  border-bottom: 2px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#con-header #cont-menu > img {
+  width: 100px;
+  height: 100px;
+}
+#con-header #cont-menu > #contIcoMenu {
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  z-index: 9999;
+}
+#con-header #cont-menu > #contIcoMenu > li:hover {
+  background: #e2e2e2;
+  cursor: pointer;
+}
+#con-header #cont-menu > #contIcoMenu > li {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  transition: 100ms all linear;
+}
+#con-header #cont-menu > #contIcoMenu > li > #btnNotifi {
+  opacity: 0% !important;
+}
+#con-header #cont-menu > #contIcoMenu > li > #btnNotifi, #con-header #cont-menu > #contIcoMenu > li > #btnMuser {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#con-header #cont-menu > #contIcoMenu > li > #btnNotifi > span, #con-header #cont-menu > #contIcoMenu > li > #btnMuser > span {
+  transform: scale(2);
+}
+#con-header #cont-menu > #contIcoMenu > li > #menuNotifi, #con-header #cont-menu > #contIcoMenu > li > #menuUser {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  top: 150px;
+  background: white;
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+#con-header #cont-menu > #contIcoMenu > li > #menuNotifi > a:hover, #con-header #cont-menu > #contIcoMenu > li > #menuUser > a:hover {
+  background: #e2e2e2;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+#con-header #cont-menu > #contIcoMenu > li > #menuNotifi > a, #con-header #cont-menu > #contIcoMenu > li > #menuNotifi > li, #con-header #cont-menu > #contIcoMenu > li > #menuUser > a, #con-header #cont-menu > #contIcoMenu > li > #menuUser > li {
+  width: 100%;
+  height: 40px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  justify-content: center;
+  color: #000;
+  align-items: center;
+  font-size: 18px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  text-align: center;
+  overflow: hidden;
+  z-index: 9999;
+  transition: 100ms all linear;
+}
+
+#menuLateral {
+  width: 20%;
+  height: 100vh;
+  background: white;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 150px;
+  overflow: hidden;
+  border-right: 2px solid #ccc;
+  box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+#menuLateral > a:hover {
+  cursor: pointer;
+  background: #afafaf;
+  transform: translateX(20px);
+  border-left: 20px solid #656565;
+  color: #2e2e2e;
+}
+#menuLateral > a {
+  width: 100%;
+  height: 40px;
+  background: #cccccc;
+  text-align: justify;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  font-family: "Montserrat";
+  text-decoration: none;
+  color: #3e3e3e;
+  margin-top: 20px;
+  text-transform: Capitalize;
+  font-weight: 600;
+  padding-left: 20px;
+  transition: 200ms all linear;
+}
+
+#contDataForm {
+  width: 80%;
+  height: 900px;
+  background: #fff;
+  float: right;
+  box-shadow: inset 0px 0px 19px 5px rgba(0, 0, 0, 0.37);
+  overflow: hidden;
+}
+#contDataForm > #headerData {
+  width: 100%;
+  height: 100px;
+  padding-top: 150px;
+  overflow: hidden;
+}
+#contDataForm > #headerData > #formIdioma {
+  width: 750px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+#contDataForm > #headerData > #formIdioma > label {
+  font-size: 22px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  font-weight: 500;
+}
+#contDataForm > #headerData > #formIdioma .optionIdiomas {
+  font-size: 18px;
+  font-family: "Montserrat" !important;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+#contDataForm > #headerData > #formIdioma > #selectCont, #contDataForm > #headerData > #formIdioma > input[type=submit] {
+  width: 200px;
+  height: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+}
+#contDataForm > #headerData > #formIdioma > #selectCont > option, #contDataForm > #headerData > #formIdioma > input[type=submit] > option {
+  font-size: 18px;
+  font-family: "Montserrat" !important;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+#contDataForm > #headerData > #formIdioma > input[type=submit] {
+  width: 100px;
+  height: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+#contDataForm > #contMData {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#contDataForm > #contMData > #idiomaData {
+  width: 200px;
+  height: 100%;
+  padding-top: 50px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#contDataForm > #contMData > #idiomaData > #contIdiomaSelect {
+  width: 75%;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #6c1d45;
+  font-size: 15px;
+  color: #ccc;
+  border-radius: 5px;
+  float: right;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  font-weight: 500;
+  border: 2px solid #8d8d8d;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #idiomaData > #formIdioma:hover {
+  cursor: pointer;
+  background: #7a234f;
+}
+#contDataForm > #contMData > #idiomaData > #formIdioma {
+  width: 86%;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #6c1d45;
+  font-size: 15px;
+  color: #ccc;
+  margin-top: 30px;
+  border-radius: 5px;
+  float: right;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  font-weight: 500;
+  flex-wrap: wrap;
+  border: 2px solid #8d8d8d;
+  transition: 100ms all linear;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #idiomaData > #formIdioma > input[type=submit]:hover {
+  cursor: pointer;
+  background: #7a234f;
+  transform: scale(1.02);
+}
+#contDataForm > #contMData > #idiomaData > #formIdioma > input[type=submit] {
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #6c1d45;
+  font-size: 0.9em;
+  color: #ccc;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  transition: 100ms all linear;
+  border: 0px;
+}
+#contDataForm > #contMData > #idiomaData > #contbtnT:hover {
+  cursor: pointer;
+  background: #7a234f;
+}
+#contDataForm > #contMData > #idiomaData > #contbtnT {
+  display: none;
+}
+#contDataForm > #contMData > #contDtaIdioma {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 75px;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form {
+  width: 95%;
+  height: 70%;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable {
+  width: 100%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(133, 1fr);
+  border: 2px solid #8d8d8d;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > .texttable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ccc;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  background: #682444;
+  z-index: 100;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #nivel {
+  width: 100%;
+  height: 100%;
+  grid-column: 1/2;
+  grid-row: 1/8;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #sexo {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 1/8;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #Nbasico {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 1/8;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #Nintermedio {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 1/8;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #Navanzado {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 1/8;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #nsuperior {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 1/8;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #ntotales {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 1/8;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivMS {
+  width: 100%;
+  height: 100%;
+  background: #682444;
+  grid-column: 1/2;
+  grid-row: 8/29;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivS:hover, #contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivPos:hover, #contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivEg:hover, #contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivEmp:hover, #contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivPG:hover, #contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivMS:hover {
+  cursor: pointer;
+  background: #762b4e;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivS {
+  width: 100%;
+  height: 100%;
+  background: #682444;
+  grid-column: 1/2;
+  grid-row: 29/50;
+  border: 2px solid #000;
+  transition: 100ms linear all;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivPos {
+  width: 100%;
+  height: 100%;
+  background: #682444;
+  grid-column: 1/2;
+  grid-row: 50/71;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivEg {
+  width: 100%;
+  height: 100%;
+  background: #682444;
+  grid-column: 1/2;
+  grid-row: 71/92;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivEmp {
+  width: 100%;
+  height: 100%;
+  background: #682444;
+  grid-column: 1/2;
+  grid-row: 92/113;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #nivPG {
+  width: 100%;
+  height: 100%;
+  background: #682444;
+  grid-column: 1/2;
+  grid-row: 113/134;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable .dataCeldas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #383838;
+  background: #bdbdbd;
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: capitalize;
+  z-index: 100;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataHms1 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 8/15;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataMms1 {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 2/3;
+  grid-row: 15/22;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataTms1 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 22/29;
+  background: #ccc;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataHms2 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 29/36;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataMms2 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 36/43;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataTms2 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 43/50;
+  background: #ccc;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataHms3 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 50/57;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataMms3 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 57/64;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataTms3 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 64/71;
+  background: #ccc;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataHms4 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 71/78;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataMms4 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 78/85;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataTms4 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 85/92;
+  background: #ccc;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataHms5 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 92/99;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataMms5 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 99/106;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataTms5 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 106/113;
+  background: #ccc;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataHms6 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 113/120;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataMms6 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  grid-row: 120/127;
+  background: #fff;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable #dataTms6 {
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  background: #ccc;
+  grid-row: 127/134;
+  border: 2px solid #000;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable .inputs {
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #383838;
+  background: #fff;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HbasicMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 8/15;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MbasicMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 15/22;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 22/30;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicMs > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HbasicSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 29/36;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MbasicSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 36/43;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 43/50;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicSup > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HbasicPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 50/57;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MbasicPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 57/64;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 64/71;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicPos > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HbasicEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 71/78;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MbasicEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 78/85;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 85/92;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicEgr > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HbasicEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 92/99;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MbasicEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 99/106;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 106/113;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicEmp > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HbasicPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 113/120;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MbasicPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 120/127;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 3/4;
+  grid-row: 127/134;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TbasicPg > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HinterMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 8/15;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MinterMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 15/22;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 22/30;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterMs > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HinterSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 29/36;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MinterSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 36/43;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 43/50;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterSup > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HinterPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 50/57;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MinterPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 57/64;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 64/71;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterPos > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HinterEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 71/78;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MinterEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 78/85;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 85/92;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterEgr > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HinterEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 92/99;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MinterEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 99/106;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 106/113;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterEmp > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HinterPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 113/120;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MinterPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 120/127;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 4/5;
+  grid-row: 127/134;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TinterPg > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HavanzMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 8/15;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MavanzMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 15/22;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 22/30;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzMs > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HavanzSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 29/36;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MavanzSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 36/43;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 43/50;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzSup > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HavanzPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 50/57;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MavanzPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 57/64;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 64/71;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzPos > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HavanzEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 71/78;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MavanzEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 78/85;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 85/92;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzEgr > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HavanzEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 92/99;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MavanzEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 99/106;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 106/113;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzEmp > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HavanzPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 113/120;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MavanzPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 120/127;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 5/6;
+  grid-row: 127/134;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TavanzPg > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HsupMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 8/15;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MsupMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 15/22;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 22/30;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupMs > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HsupSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 29/36;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MsupSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 36/43;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 43/50;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupSup > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HsupPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 50/57;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MsupPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 57/64;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 64/71;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupPos > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HsupEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 71/78;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MsupEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 78/85;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 85/92;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupEgr > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HsupEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 92/99;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MsupEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 99/106;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 106/113;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupEmp > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HsupPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 113/120;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MsupPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 120/127;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 6/7;
+  grid-row: 127/134;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TsupPg > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 8/15;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalMs > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 15/22;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalMs > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalMs {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 22/30;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalMs > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 29/36;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalSup > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 36/43;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalSup > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalSup {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 43/50;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalSup > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 50/57;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalPos > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 57/64;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalPos > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalPos {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 64/71;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalPos > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 71/78;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalEgr > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 78/85;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalEgr > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalEgr {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 85/92;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalEgr > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 92/99;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalEmp > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 99/106;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalEmp > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalEmp {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 106/113;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalEmp > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 113/120;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #HtotalPg > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 120/127;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #MtotalPg > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalPg {
+  width: 100%;
+  height: 100%;
+  grid-column: 7/8;
+  grid-row: 127/134;
+  z-index: 99;
+  border: 0px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #TtotalPg > input {
+  background: #ccc;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont0 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2/8;
+  grid-row: 8/29;
+  z-index: 110;
+  font-weight: 200;
+  font-size: 10px;
+  overflow: hidden;
+  color: #fff !important;
+  font-family: "Montserrat";
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont1 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2/8;
+  grid-row: 29/50;
+  z-index: 110;
+  font-size: 10px;
+  font-weight: 200;
+  overflow: hidden;
+  color: #fff !important;
+  font-family: "Montserrat";
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont1 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2/8;
+  grid-row: 29/50;
+  z-index: 110;
+  font-weight: 200;
+  font-size: 10px;
+  overflow: hidden;
+  color: #fff !important;
+  font-family: "Montserrat";
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont2 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2/8;
+  grid-row: 50/71;
+  z-index: 110;
+  font-size: 10px;
+  overflow: hidden;
+  font-weight: 200;
+  color: #fff !important;
+  font-family: "Montserrat";
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont3 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2/8;
+  grid-row: 71/92;
+  z-index: 110;
+  font-weight: 200;
+  font-size: 10px;
+  overflow: hidden;
+  color: #fff !important;
+  font-family: "Montserrat";
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont4 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2/8;
+  grid-row: 92/113;
+  z-index: 110;
+  font-size: 10px;
+  font-weight: 200;
+  overflow: hidden;
+  color: #fff !important;
+  font-family: "Montserrat";
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont5 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fff !important;
+  font-weight: 200;
+  grid-column: 2/8;
+  grid-row: 113/134;
+  z-index: 110;
+  font-size: 10px;
+  overflow: hidden;
+  font-family: "Montserrat";
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #footerData {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #footerData > #contVigencia {
+  width: 300px;
+  height: 100px;
+  color: #000;
+  display: flex;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 0;
+  transition: 100ms linear all;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #footerData > #contVigencia > label {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  font-weight: 500;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #footerData > #contVigencia > input {
+  width: 200px;
+  height: 50px;
+  background: #682444;
+  color: #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  text-transform: capitalize;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: 100ms linear all;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #footerData > input:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  background: #7e2d53;
+}
+#contDataForm > #contMData > #contDtaIdioma > form > #footerData > input {
+  width: 200px;
+  height: 50px;
+  background: #682444;
+  color: #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  text-transform: capitalize;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: 100ms linear all;
+}

@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#cont-modalCorreo {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7490196078);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  overflow: hidden;
+}
+#cont-modalCorreo > #modalCorreo {
+  width: 350px;
+  height: 200px;
+  background: #b1b9ba;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  overflow: hidden;
+  padding: 20px;
+}
+#cont-modalCorreo > #modalCorreo > #cont-btnclose {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+  overflow: hidden;
+}
+#cont-modalCorreo > #modalCorreo > #cont-btnclose > #btncloss {
+  width: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 100ms all linear;
+}
+#cont-modalCorreo > #modalCorreo > #cont-btnclose > #btncloss:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+#cont-modalCorreo > #modalCorreo > #cont-datamodal {
+  width: 100%;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  text-transform: capitalize;
+  font-family: "Montserrat";
+  text-align: justify;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=modaleslogin.css.map */

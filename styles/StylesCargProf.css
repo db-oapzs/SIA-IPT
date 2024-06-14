@@ -1,0 +1,1196 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  font-family: "Montserrat";
+  padding: 0;
+  margin: 0;
+}
+
+#contpadre {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#contpadre > #conthijo {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 150px;
+  padding-left: 40%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  float: right;
+}
+#contpadre > #conthijo > #contTable, #contpadre > #conthijo > #contTableZAC {
+  width: 100%;
+  height: 100%;
+  float: right;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(35, 1fr);
+  grid-template-rows: repeat(35, 1fr);
+  overflow: hidden;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+}
+#contpadre > #conthijo > #contTable .dataCeldas, #contpadre > #conthijo > #contTableZAC .dataCeldas {
+  width: 100%;
+  height: 100%;
+  border: 0px solid transparent;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  overflow: hidden;
+  z-index: 100;
+}
+#contpadre > #conthijo > #contTable .inputs, #contpadre > #conthijo > #contTableZAC .inputs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 100;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+#contpadre > #conthijo > #contTable > #contbloq-1, #contpadre > #conthijo > #contTableZAC > #contbloq-1 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 7/9;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-2, #contpadre > #conthijo > #contTableZAC > #contbloq-2 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 9/11;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-3, #contpadre > #conthijo > #contTableZAC > #contbloq-3 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 11/13;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-4, #contpadre > #conthijo > #contTableZAC > #contbloq-4 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 13/15;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-5, #contpadre > #conthijo > #contTableZAC > #contbloq-5 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 15/17;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-6, #contpadre > #conthijo > #contTableZAC > #contbloq-6 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 17/19;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-7, #contpadre > #conthijo > #contTableZAC > #contbloq-7 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 19/21;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-8, #contpadre > #conthijo > #contTableZAC > #contbloq-8 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 21/23;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-9, #contpadre > #conthijo > #contTableZAC > #contbloq-9 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 23/25;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-10, #contpadre > #conthijo > #contTableZAC > #contbloq-10 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 25/27;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-11, #contpadre > #conthijo > #contTableZAC > #contbloq-11 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 27/29;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-12, #contpadre > #conthijo > #contTableZAC > #contbloq-12 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 29/31;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > #contbloq-13, #contpadre > #conthijo > #contTableZAC > #contbloq-13 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.725);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 12/24;
+  grid-row: 31/33;
+  z-index: 900;
+}
+#contpadre > #conthijo > #contTable > .contBlock, #contpadre > #conthijo > #contTableZAC > .contBlock {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+#contpadre > #conthijo > #contTable > .contBlock > *, #contpadre > #conthijo > #contTableZAC > .contBlock > * {
+  font-family: "Montserrat";
+  font-size: 16px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: #ccc;
+}
+#contpadre > #conthijo > #contTable > #ContTitle, #contpadre > #conthijo > #contTableZAC > #ContTitle {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 2/28;
+  grid-row: 2/4;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+}
+#contpadre > #conthijo > #contTable > .texttable, #contpadre > #conthijo > #contTableZAC > .texttable {
+  font-family: "Montserrat" !important;
+  text-transform: capitalize !important;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  cursor: pointer !important;
+  color: #ccc !important;
+}
+#contpadre > #conthijo > #contTable > .texttable:hover, #contpadre > #conthijo > #contTableZAC > .texttable:hover {
+  background: #7d2853 !important;
+}
+#contpadre > #conthijo > #contTable > #idSubmitGdr:hover, #contpadre > #conthijo > #contTable > #idSubmitEnv:hover, #contpadre > #conthijo > #contTable > #idDataOld:hover,
+#contpadre > #conthijo > #contTable > #btnZac1:hover, #contpadre > #conthijo > #contTable > #btnZac2:hover, #contpadre > #conthijo > #contTable > #btnZac3:hover, #contpadre > #conthijo > #contTableZAC > #idSubmitGdr:hover, #contpadre > #conthijo > #contTableZAC > #idSubmitEnv:hover, #contpadre > #conthijo > #contTableZAC > #idDataOld:hover,
+#contpadre > #conthijo > #contTableZAC > #btnZac1:hover, #contpadre > #conthijo > #contTableZAC > #btnZac2:hover, #contpadre > #conthijo > #contTableZAC > #btnZac3:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  background: #7d2853 !important;
+}
+#contpadre > #conthijo > #contTable > #idSubmitEnv, #contpadre > #conthijo > #contTable > #btnZac2, #contpadre > #conthijo > #contTableZAC > #idSubmitEnv, #contpadre > #conthijo > #contTableZAC > #btnZac2 {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  border-radius: 5px;
+  grid-column: 2/5;
+  grid-row: 12/15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #6c1d45;
+  color: #fff;
+  transition: 100ms all linear;
+}
+#contpadre > #conthijo > #contTable > #idSubmitGdr, #contpadre > #conthijo > #contTable > #btnZac1, #contpadre > #conthijo > #contTableZAC > #idSubmitGdr, #contpadre > #conthijo > #contTableZAC > #btnZac1 {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  border-radius: 5px;
+  grid-column: 2/5;
+  grid-row: 7/10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #6c1d45;
+  color: #fff;
+  transition: 100ms all linear;
+}
+#contpadre > #conthijo > #contTable > #idDataOld, #contpadre > #conthijo > #contTable > #btnZac3, #contpadre > #conthijo > #contTableZAC > #idDataOld, #contpadre > #conthijo > #contTableZAC > #btnZac3 {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  border-radius: 5px;
+  grid-column: 2/5;
+  grid-row: 17/20;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Montserrat";
+  border: 1px solid #6c1d45;
+  color: #fff;
+  transition: 100ms all linear;
+}
+#contpadre > #conthijo > #contTable > #leng, #contpadre > #conthijo > #contTableZAC > #leng {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 5/7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #6c1d45;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #lengIng, #contpadre > #conthijo > #contTableZAC > #lengIng {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 7/9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #lengFra, #contpadre > #conthijo > #contTableZAC > #lengFra {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 9/11;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #lengAle, #contpadre > #conthijo > #contTableZAC > #lengAle {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 11/13;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #lengIta, #contpadre > #conthijo > #contTableZAC > #lengIta {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 13/15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #lengJap, #contpadre > #conthijo > #contTableZAC > #lengJap {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 15/17;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #lengChiM, #contpadre > #conthijo > #contTableZAC > #lengChiM {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 17/19;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center !important;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #lengPor, #contpadre > #conthijo > #contTableZAC > #lengPor {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 19/21;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #lengRus, #contpadre > #conthijo > #contTableZAC > #lengRus {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 21/23;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #legNah, #contpadre > #conthijo > #contTableZAC > #legNah {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 23/25;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #legEsp, #contpadre > #conthijo > #contTableZAC > #legEsp {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 25/27;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #legSeñM, #contpadre > #conthijo > #contTableZAC > #legSeñM {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 27/29;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #legCor, #contpadre > #conthijo > #contTableZAC > #legCor {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 29/31;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #Total, #contpadre > #conthijo > #contTableZAC > #Total {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 6/12;
+  grid-row: 31/33;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #Hombres, #contpadre > #conthijo > #contTableZAC > #Hombres {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 12/15;
+  grid-row: 5/7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #Mujeres, #contpadre > #conthijo > #contTableZAC > #Mujeres {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 15/18;
+  grid-row: 5/7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #TotalF, #contpadre > #conthijo > #contTableZAC > #TotalF {
+  width: 100%;
+  height: 100%;
+  background: #6c1d45;
+  grid-column: 18/24;
+  grid-row: 5/7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  color: #fff;
+}
+#contpadre > #conthijo > #contTable > #hIngst, #contpadre > #conthijo > #contTableZAC > #hIngst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 7/9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hFrast, #contpadre > #conthijo > #contTableZAC > #hFrast {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 9/11;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hAlest, #contpadre > #conthijo > #contTableZAC > #hAlest {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 11/13;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hItast, #contpadre > #conthijo > #contTableZAC > #hItast {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 13/15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hJapst, #contpadre > #conthijo > #contTableZAC > #hJapst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 15/17;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hChiMst, #contpadre > #conthijo > #contTableZAC > #hChiMst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 17/19;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hPorst, #contpadre > #conthijo > #contTableZAC > #hPorst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 19/21;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hRusst, #contpadre > #conthijo > #contTableZAC > #hRusst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 21/23;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hNahst, #contpadre > #conthijo > #contTableZAC > #hNahst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 23/25;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hEspst, #contpadre > #conthijo > #contTableZAC > #hEspst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 25/27;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hSeñMst, #contpadre > #conthijo > #contTableZAC > #hSeñMst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 27/29;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hCorst, #contpadre > #conthijo > #contTableZAC > #hCorst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 12/15;
+  grid-row: 29/31;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #hTotalst, #contpadre > #conthijo > #contTableZAC > #hTotalst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 12/15;
+  grid-row: 31/33;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #hTotalst > *, #contpadre > #conthijo > #contTableZAC > #hTotalst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #mIngst, #contpadre > #conthijo > #contTableZAC > #mIngst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 7/9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mFrast, #contpadre > #conthijo > #contTableZAC > #mFrast {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 9/11;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mAlest, #contpadre > #conthijo > #contTableZAC > #mAlest {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 11/13;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mItast, #contpadre > #conthijo > #contTableZAC > #mItast {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 13/15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mJapst, #contpadre > #conthijo > #contTableZAC > #mJapst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 15/17;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mChiMst, #contpadre > #conthijo > #contTableZAC > #mChiMst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 17/19;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mPorst, #contpadre > #conthijo > #contTableZAC > #mPorst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 19/21;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mRusst, #contpadre > #conthijo > #contTableZAC > #mRusst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 21/23;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mNahst, #contpadre > #conthijo > #contTableZAC > #mNahst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 23/25;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mEspst, #contpadre > #conthijo > #contTableZAC > #mEspst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 25/27;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mSeñMst, #contpadre > #conthijo > #contTableZAC > #mSeñMst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 27/29;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mCorst, #contpadre > #conthijo > #contTableZAC > #mCorst {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  grid-column: 15/18;
+  grid-row: 29/31;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+}
+#contpadre > #conthijo > #contTable > #mTotalst, #contpadre > #conthijo > #contTableZAC > #mTotalst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 15/18;
+  grid-row: 31/33;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #mTotalst > *, #contpadre > #conthijo > #contTableZAC > #mTotalst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tIngst, #contpadre > #conthijo > #contTableZAC > #tIngst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 7/9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tIngst > *, #contpadre > #conthijo > #contTableZAC > #tIngst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tFrast, #contpadre > #conthijo > #contTableZAC > #tFrast {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 9/11;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tFrast > *, #contpadre > #conthijo > #contTableZAC > #tFrast > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tAlest, #contpadre > #conthijo > #contTableZAC > #tAlest {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 11/13;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tAlest > *, #contpadre > #conthijo > #contTableZAC > #tAlest > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tItast, #contpadre > #conthijo > #contTableZAC > #tItast {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 13/15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tItast > *, #contpadre > #conthijo > #contTableZAC > #tItast > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tJapst, #contpadre > #conthijo > #contTableZAC > #tJapst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 15/17;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tJapst > *, #contpadre > #conthijo > #contTableZAC > #tJapst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tChiMst, #contpadre > #conthijo > #contTableZAC > #tChiMst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 17/19;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #ccc;
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tChiMst > *, #contpadre > #conthijo > #contTableZAC > #tChiMst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tPorst, #contpadre > #conthijo > #contTableZAC > #tPorst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 19/21;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tPorst > *, #contpadre > #conthijo > #contTableZAC > #tPorst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tRusst, #contpadre > #conthijo > #contTableZAC > #tRusst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 21/23;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tRusst > *, #contpadre > #conthijo > #contTableZAC > #tRusst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tNahst, #contpadre > #conthijo > #contTableZAC > #tNahst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 23/25;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tNahst > *, #contpadre > #conthijo > #contTableZAC > #tNahst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tEspst, #contpadre > #conthijo > #contTableZAC > #tEspst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 25/27;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tEspst > *, #contpadre > #conthijo > #contTableZAC > #tEspst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tSeñMst, #contpadre > #conthijo > #contTableZAC > #tSeñMst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 27/29;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tSeñMst > *, #contpadre > #conthijo > #contTableZAC > #tSeñMst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tCorst, #contpadre > #conthijo > #contTableZAC > #tCorst {
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  grid-column: 18/24;
+  grid-row: 29/31;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tCorst > *, #contpadre > #conthijo > #contTableZAC > #tCorst > * {
+  background: #ccc;
+  border: 0;
+}
+#contpadre > #conthijo > #contTable > #tTotalst, #contpadre > #conthijo > #contTableZAC > #tTotalst {
+  width: 100%;
+  height: 100%;
+  background: #979797;
+  grid-column: 18/24;
+  grid-row: 31/33;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  border: 1px solid #000;
+}
+#contpadre > #conthijo > #contTable > #tTotalst > *, #contpadre > #conthijo > #contTableZAC > #tTotalst > * {
+  background: #ccc;
+  border: 0;
+}
+
+/*# sourceMappingURL=StylesCargProf.css.map */

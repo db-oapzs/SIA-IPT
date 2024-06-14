@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: 'Montserrat'; 
+    margin: 0;
+    padding: 0;
+}
+
+
+@media screen and (max-width: 1650px) {
+    .flex-container{
+        flex-direction: column !important; 
+        height: auto !important;
+        padding: 15px;
+    }
+    
+    .flex-container >.Derecha,
+    .flex-container >.Izquierda{
+        width: 95% !important;
+    }
+
+    #BGuardar,#BEnviar{
+        grid-row: 17/17 !important; 
+    }   
+}
+
+@media screen and (max-width: 680px){
+    #Header, #Header2, #Header3, #Header4, #Header5, #JustLabel, p, #HeaderVP{
+        font-size: 13px !important;
+    }
+
+    .TablaP{
+        width: 320px !important;
+        height: 100px !important;
+    }
+
+    .TablaVP{
+        width: 170px !important;
+        height: 60px !important;
+    }
+
+    #Subheader1, #Subheader2, #Subheader3, #Subheader4, #Subheader5, #Subheader6,
+    #Subheader8, #Subheader9{
+        font-size: 9px !important;
+    }
+    
+    .V1, .V2, .V3, .V4, .V5, .V6, .V7, .V8{
+        font-size: 9px !important;
+    }
+
+    .Subheader7, .V9{
+        padding: 20px 0 !important;
+        font-size: 13px;
+    }
+
+    .flex-container >.Derecha{
+        padding-top: 0px !important;
+        justify-content: center !important;
+        row-gap: 30px !important;
+    }
+
+    .TablaTP2{
+        width: 250px !important;
+        height: 100px !important;
+    }
+
+    .JInput{
+        width: 320px !important;
+    }
+
+    #TextInput{
+        font-size: 12px;
+    }
+
+    #BGuardar{
+        grid-column: 1/4 !important;
+        width: 60px !important;
+        font-size: 10px !important;
+        height: 20px !important;
+    }
+    
+    #BEnviar{
+        grid-column: 4/8 !important;
+        width: 60px !important;
+        font-size: 10px !important;
+        height: 20px !important;
+    }
+}
+
+.flex-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    justify-content: center;
+    row-gap: 20px;
+    padding-top: 30px;
+}
+
+.Selector{
+    width: 400px;
+    height: 100px;
+}
+
+.TablaP{
+    display: grid;
+    width: 640px;
+    height: 130px;
+    grid-template-columns: repeat(15,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-auto-flow: column;
+}
+
+#Header{
+    grid-column:1/7;
+    grid-row:1/1;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    border-top-left-radius: 7px;
+    padding: 13px;
+}
+
+#Header2{
+    grid-column:7/13 ;
+    grid-row:1/1;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    padding: 13px;
+}
+
+#Header3{
+    grid-column:13/16 ;
+    grid-row:1/1;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    border-top-right-radius: 7px;
+    padding: 13px;
+    text-align: center;
+}
+
+#Subheader1{
+    grid-column: 1/3;
+    grid-row: 2/3;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-left: solid 1px #333333;
+}
+#Subheader2{
+    grid-column: 3/5;
+    grid-row: 2/3;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+#Subheader3{
+    grid-column: 5/7;
+    grid-row: 2/3;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+#Subheader4{
+    grid-column: 7/9;
+    grid-row: 2/3;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+#Subheader5{
+    grid-column: 9/11;
+    grid-row: 2/3;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+#Subheader6{
+    grid-column: 11/13;
+    grid-row: 2/3;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+
+.Subheader7{
+    grid-column: 13/16;
+    grid-row: 2/4;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 33px 0;
+    border-right: solid 1px #333333;
+    border-bottom: solid 1px #333333;    
+}
+
+.V1{
+    grid-column: 1/3;
+    grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-left: solid 1px #333333;
+    border-bottom: solid 1px #333333;
+}
+
+.V2{
+    grid-column: 3/5;
+    grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+}
+
+.V3{
+    grid-column: 5/7;
+    grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+}
+
+.V4{
+    grid-column: 7/9;
+    grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+}
+
+.V5{
+    grid-column: 9/11;
+    grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+}
+
+.V6{
+    grid-column: 11/13;
+    grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+}
+
+.TablaVP{
+    display: grid;
+    width: 200px;
+    height: 70px;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+#HeaderVP{
+    grid-column: 1/1;
+    grid-row: 1/2;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 13px;
+}
+
+.VP{
+    grid-column: 1/1;
+    grid-row: 2/3;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 13px;
+    border: solid 1px #333333;
+}
+
+
+.JInput{
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(27, 1fr);
+    width: 500px;
+    height: 600px;
+}
+
+#JustLabel{
+    padding-bottom: 10px;
+    grid-column: 1/14;
+    grid-row: 2/3;
+    font-size: medium;
+    font-weight: 400;
+}
+
+#TextInput{
+    grid-column: 1/14;
+    grid-row: 3/16;
+    border: none;
+    padding: 10px; 
+    text-indent: 10px; 
+    overflow: hidden;
+    border: solid 1px #333333;
+    border-radius: 7px;
+}
+
+#BGuardar{
+    grid-column: 12/14;
+    grid-row: 18/18;
+    color: #FFFFFF !important;
+    font-size: 13px;
+    border-radius: 5px;
+    height: 30px;
+    border: none;
+    background: #631A3F;
+}
+
+#BEnviar{
+    grid-column: 9/11;
+    grid-row: 18/18;
+    color: #FFFFFF !important;
+    font-size: 13px;
+    border-radius: 5px;
+    border: none;
+    background: #631A3F;
+}
+
+.Selector{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 300px;
+    height: 70px;
+    padding-top: 20px;
+}
+
+#IdiomLabel{
+    grid-column: 1/2;
+    grid-row: 1/1;
+    font-size: medium;
+    font-weight: 400;
+    padding-bottom: 10px;
+
+}
+
+#SelectorIdioma {
+    margin-bottom: 5px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    border: none;
+    border-radius: 3px;
+    height: 35px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#BGuardar:hover {
+    background-color: #894668;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+#BEnviar:hover {
+    background-color: #894668;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+p{
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.TablaTP2{
+    display: grid;
+    width: 300px;
+    height: 130px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+#Header4{
+    grid-column:1/3;
+    grid-row:1/2;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    border-top-left-radius: 7px;
+    padding: 13px;
+}
+
+#Header5{
+    grid-column:3/5;
+    grid-row:1/2;
+    background-color: #6c1d45;
+    color: white;
+    font-weight: 600;
+    border-top-right-radius: 7px;
+    padding: 13px;
+    text-align: center;
+}
+
+#Subheader8{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-left: solid 1px #333333;
+}
+
+#Subheader9{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+
+.V7{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+    border-left: solid 1px #333333;
+}
+
+.V8{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+}
+
+.V9{
+    grid-column: 3/5;
+    grid-row: 2/4;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 33px 0;
+    border-bottom: solid 1px #333333;
+    border-right: solid 1px #333333;
+}
+
+h1{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 30px;
+    color: #333333;
+}
