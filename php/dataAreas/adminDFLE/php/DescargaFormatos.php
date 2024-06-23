@@ -17,10 +17,10 @@ $anio = (string)date('Y');
 
 // Nombres de los archivos a buscar
 $archivosEstadisticos = [
-    "1 DFLE_4T_".$anio." Unid Acad CELEX obs gfl 2",
-    "2 DFLE_4T_".$anio." IDIOMAS POR NIVEL gf",
-    "3 DFLE_4T_".$anio." ACUMULADO Y COMPARATIVO",
-    "5 DFLE_4T_".$anio." ACCIONES DE FORMACION DOCENTE"
+    "1 DFLE_",
+    "2 DFLE_",
+    "3 DFLE_",
+    "5 DFLE_"
 ];
 
 // Arrays para clasificar los archivos
@@ -31,7 +31,7 @@ $otrosArchivos = [];
 if ($handle = opendir($ficheroArchivos)) {
     while (false !== ($entry = readdir($handle))) {
         if ($entry != "." && $entry != "..") {
-            if (strpos($entry, "4 DFLE_4T_".$anio." ") !== false) {
+            if (strpos($entry, "4 DFLE_") !== false) {
                 $archivos4T[] = $entry;
             } else {
                 foreach ($archivosEstadisticos as $archivoEstadistico) {

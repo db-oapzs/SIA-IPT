@@ -4,6 +4,7 @@
     include 'menuFinal.php';
 ?>
 <script src="../scripts/UCelexS.js" async defer></script>
+
 <body>
     <div  id="contpadre">
         <form id="DataCelex" method="post" action="">
@@ -22,13 +23,8 @@
             <div id="contbody">
                 <div id="contEncabezado">
                     <div id="ContUA">Unidad Academica</div>
-                    <div id="ContUAcelex">Unidades Academicas que cuentas con Celex</div>
                     <div id="SupA">Supervisión Academica al Celex</div>
                     <div id="Total">Total de Supervisiones Realizadas</div>
-                    <div id="Trim1">Trim 1</div>
-                    <div id="Trim2">Trim 2</div>
-                    <div id="Trim3">Trim 3</div>
-                    <div id="Trim4">Trim 4</div>
                     <div id="Trim1S">Trim 1</div>
                     <div id="Trim2S">Trim 2</div>
                     <div id="Trim3S">Trim 3</div>
@@ -57,94 +53,6 @@
                     <div id="ConCecyt19">CECyT 19</div>
                     <div id="ConCet1">CET 1</div>
                     <div id="Total1">Total</div>
-
-                    <div id="ConCecyt1Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt1Trim1X" value="1"></div>
-                    <div id="ConCecyt2Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt2Trim1X" value="1"></div>
-                    <div id="ConCecyt3Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt3Trim1X" value="1"></div>
-                    <div id="ConCecyt4Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt4Trim1X" value="1"></div>
-                    <div id="ConCecyt5Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt5Trim1X" value="1"></div>
-                    <div id="ConCecyt6Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt6Trim1X" value="1"></div>
-                    <div id="ConCecyt7Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt7Trim1X" value="1"></div>
-                    <div id="ConCecyt8Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt8Trim1X" value="1"></div>
-                    <div id="ConCecyt9Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt9Trim1X" value="1"></div>
-                    <div id="ConCecyt10Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt10Trim1X" value="1"></div>
-                    <div id="ConCecyt11Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt11Trim1X" value="1"></div>
-                    <div id="ConCecyt12Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt12Trim1X" value="1"></div>
-                    <div id="ConCecyt13Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt13Trim1X" value="1"></div>
-                    <div id="ConCecyt14Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt14Trim1X" value="1"></div>
-                    <div id="ConCecyt15Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt15Trim1X" value="1"></div>
-                    <div id="ConCecyt16Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt16Trim1X" value="1"></div>
-                    <div id="ConCecyt17Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt17Trim1X" value="1"></div>
-                    <div id="ConCecyt18Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt18Trim1X" value="1"></div>
-                    <div id="ConCecyt19Trim1" class="Trim1MS"><input type="checkbox" name="Cecyt19Trim1X" value="1"></div>
-                    <div id="ConCet1Trim1" class="Trim1MS"><input type="checkbox" name="Cet1Trim1X" value="1"></div>
-                    <div id="TotalTrim1" class="Trim1MST" name="TotalTrim1X"></div>
-                    
-                    <div id="ConCecyt1Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt2Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt2Trim2X" value="1"></div>
-                    <div id="ConCecyt3Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt3Trim2X" value="1"></div>
-                    <div id="ConCecyt4Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt4Trim2X" value="1"></div>
-                    <div id="ConCecyt5Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt5Trim2X" value="1"></div>
-                    <div id="ConCecyt6Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt6Trim2X" value="1"></div>
-                    <div id="ConCecyt7Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt7Trim2X" value="1"></div>
-                    <div id="ConCecyt8Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt8Trim2X" value="1"></div>
-                    <div id="ConCecyt9Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt9Trim2X" value="1"></div>
-                    <div id="ConCecyt10Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt10Trim2X" value="1"></div>
-                    <div id="ConCecyt11Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt11Trim2X" value="1"></div>
-                    <div id="ConCecyt12Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt12Trim2X" value="1"></div>
-                    <div id="ConCecyt13Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt13Trim2X" value="1"></div>
-                    <div id="ConCecyt14Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt14Trim2X" value="1"></div>
-                    <div id="ConCecyt15Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt15Trim2X" value="1"></div>
-                    <div id="ConCecyt16Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt16Trim2X" value="1"></div>
-                    <div id="ConCecyt17Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt17Trim2X" value="1"></div>
-                    <div id="ConCecyt18Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt18Trim2X" value="1"></div>
-                    <div id="ConCecyt19Trim2" class="Trim2MS"><input type="checkbox" name="Cecyt19Trim2X" value="1"></div>
-                    <div id="ConCet1Trim2" class="Trim2MS"><input type="checkbox" name="Cet1Trim2X" value="1"></div>
-                    <div id="TotalTrim2" class="Trim2MST" name="TotalTrim2X"></div>
-                    
-                    <div id="ConCecyt1Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt1Trim3X" value="1"></div>
-                    <div id="ConCecyt2Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt2Trim3X" value="1"></div>
-                    <div id="ConCecyt3Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt3Trim3X" value="1"></div>
-                    <div id="ConCecyt4Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt4Trim3X" value="1"></div>
-                    <div id="ConCecyt5Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt5Trim3X" value="1"></div>
-                    <div id="ConCecyt6Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt6Trim3X" value="1"></div>
-                    <div id="ConCecyt7Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt7Trim3X" value="1"></div>
-                    <div id="ConCecyt8Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt8Trim3X" value="1"></div>
-                    <div id="ConCecyt9Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt9Trim3X" value="1"></div>
-                    <div id="ConCecyt10Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt10Trim3X" value="1"></div>
-                    <div id="ConCecyt11Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt11Trim3X" value="1"></div>
-                    <div id="ConCecyt12Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt12Trim3X" value="1"></div>
-                    <div id="ConCecyt13Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt13Trim3X" value="1"></div>
-                    <div id="ConCecyt14Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt14Trim3X" value="1"></div>
-                    <div id="ConCecyt15Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt15Trim3X" value="1"></div>
-                    <div id="ConCecyt16Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt16Trim3X" value="1"></div>
-                    <div id="ConCecyt17Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt17Trim3X" value="1"></div>
-                    <div id="ConCecyt18Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt18Trim3X" value="1"></div>
-                    <div id="ConCecyt19Trim3" class="Trim3MS"><input type="checkbox" name="Cecyt19Trim3X" value="1"></div>
-                    <div id="ConCet1Trim3" class="Trim3MS"><input type="checkbox" name="Cet1Trim3X" value="1"></div>
-                    <div id="TotalTrim3" class="Trim3MST" name="Cet1Trim3X"></div>
-                    
-                    <div id="ConCecyt1Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt1Trim4X" value="1"></div>
-                    <div id="ConCecyt2Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt2Trim4X" value="1"></div>
-                    <div id="ConCecyt3Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt3Trim4X" value="1"></div>
-                    <div id="ConCecyt4Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt4Trim4X" value="1"></div>
-                    <div id="ConCecyt5Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt5Trim4X" value="1"></div>
-                    <div id="ConCecyt6Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt6Trim4X" value="1"></div>
-                    <div id="ConCecyt7Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt7Trim4X" value="1"></div>
-                    <div id="ConCecyt8Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt8Trim4X" value="1"></div>
-                    <div id="ConCecyt9Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt9Trim4X" value="1"></div>
-                    <div id="ConCecyt10Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt10Trim4X" value="1"></div>
-                    <div id="ConCecyt11Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt11Trim4X" value="1"></div>
-                    <div id="ConCecyt12Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt12Trim4X" value="1"></div>
-                    <div id="ConCecyt13Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt13Trim4X" value="1"></div>
-                    <div id="ConCecyt14Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt14Trim4X" value="1"></div>
-                    <div id="ConCecyt15Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt15Trim4X" value="1"></div>
-                    <div id="ConCecyt16Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt16Trim4X" value="1"></div>
-                    <div id="ConCecyt17Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt17Trim4X" value="1"></div>
-                    <div id="ConCecyt18Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt18Trim4X" value="1"></div>
-                    <div id="ConCecyt19Trim4" class="Trim4MS"><input type="checkbox" name="Cecyt19Trim4X" value="1"></div>
-                    <div id="ConCet1Trim4" class="Trim4MS"><input type="checkbox" name="Cet1Trim4X" value="1"></div>
-                    <div id="TotalTrim4" class="Trim4MST" name="TotalTrim4X"></div>
                     
                     <div id="ConCecyt1Trim1S" class="Trim1SMS SumMDS1"><input type="checkbox" name="Cecyt1Trim1SX" value="1"></div>
                     <div id="ConCecyt2Trim1S" class="Trim1SMS SumMDS2"><input type="checkbox" name="Cecyt2Trim1SX" value="1"></div>
@@ -169,26 +77,26 @@
                     <div id="TotalTrim1S" class="Trim1SMST" name="TotalTrim1SX"></div>
                     
                     <div id="ConCecyt1Trim2S" class="Trim2SMS SumMDS1"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt2Trim2S" class="Trim2SMS SumMDS2"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt3Trim2S" class="Trim2SMS SumMDS3"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt4Trim2S" class="Trim2SMS SumMDS4"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt5Trim2S" class="Trim2SMS SumMDS5"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt6Trim2S" class="Trim2SMS SumMDS6"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt7Trim2S" class="Trim2SMS SumMDS7"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt8Trim2S" class="Trim2SMS SumMDS8"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt9Trim2S" class="Trim2SMS SumMDS9"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt10Trim2S" class="Trim2SMS SumMDS10"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt11Trim2S" class="Trim2SMS SumMDS11"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt12Trim2S" class="Trim2SMS SumMDS12"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt13Trim2S" class="Trim2SMS SumMDS13"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt14Trim2S" class="Trim2SMS SumMDS14"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt15Trim2S" class="Trim2SMS SumMDS15"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt16Trim2S" class="Trim2SMS SumMDS16"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt17Trim2S" class="Trim2SMS SumMDS17"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt18Trim2S" class="Trim2SMS SumMDS18"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCecyt19Trim2S" class="Trim2SMS SumMDS19"><input type="checkbox" name="Cecyt1Trim2SX" value="1"></div>
-                    <div id="ConCet1Trim2S" class="Trim2SMS SumCetMDS1"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="TotalTrim2S" class="Trim2SMST" name="Cecyt1Trim2X"></div>
+                    <div id="ConCecyt2Trim2S" class="Trim2SMS SumMDS2"><input type="checkbox" name="Cecyt2Trim2SX" value="1"></div>
+                    <div id="ConCecyt3Trim2S" class="Trim2SMS SumMDS3"><input type="checkbox" name="Cecyt3Trim2SX" value="1"></div>
+                    <div id="ConCecyt4Trim2S" class="Trim2SMS SumMDS4"><input type="checkbox" name="Cecyt4Trim2SX" value="1"></div>
+                    <div id="ConCecyt5Trim2S" class="Trim2SMS SumMDS5"><input type="checkbox" name="Cecyt5Trim2SX" value="1"></div>
+                    <div id="ConCecyt6Trim2S" class="Trim2SMS SumMDS6"><input type="checkbox" name="Cecyt6Trim2SX" value="1"></div>
+                    <div id="ConCecyt7Trim2S" class="Trim2SMS SumMDS7"><input type="checkbox" name="Cecyt7Trim2SX" value="1"></div>
+                    <div id="ConCecyt8Trim2S" class="Trim2SMS SumMDS8"><input type="checkbox" name="Cecyt8Trim2SX" value="1"></div>
+                    <div id="ConCecyt9Trim2S" class="Trim2SMS SumMDS9"><input type="checkbox" name="Cecyt9Trim2SX" value="1"></div>
+                    <div id="ConCecyt10Trim2S" class="Trim2SMS SumMDS10"><input type="checkbox" name="Cecyt10Trim2SX" value="1"></div>
+                    <div id="ConCecyt11Trim2S" class="Trim2SMS SumMDS11"><input type="checkbox" name="Cecyt11Trim2SX" value="1"></div>
+                    <div id="ConCecyt12Trim2S" class="Trim2SMS SumMDS12"><input type="checkbox" name="Cecyt12Trim2SX" value="1"></div>
+                    <div id="ConCecyt13Trim2S" class="Trim2SMS SumMDS13"><input type="checkbox" name="Cecyt13Trim2SX" value="1"></div>
+                    <div id="ConCecyt14Trim2S" class="Trim2SMS SumMDS14"><input type="checkbox" name="Cecyt14Trim2SX" value="1"></div>
+                    <div id="ConCecyt15Trim2S" class="Trim2SMS SumMDS15"><input type="checkbox" name="Cecyt15Trim2SX" value="1"></div>
+                    <div id="ConCecyt16Trim2S" class="Trim2SMS SumMDS16"><input type="checkbox" name="Cecyt16Trim2SX" value="1"></div>
+                    <div id="ConCecyt17Trim2S" class="Trim2SMS SumMDS17"><input type="checkbox" name="Cecyt17Trim2SX" value="1"></div>
+                    <div id="ConCecyt18Trim2S" class="Trim2SMS SumMDS18"><input type="checkbox" name="Cecyt18Trim2SX" value="1"></div>
+                    <div id="ConCecyt19Trim2S" class="Trim2SMS SumMDS19"><input type="checkbox" name="Cecyt19Trim2SX" value="1"></div>
+                    <div id="ConCet1Trim2S" class="Trim2SMS SumCetMDS1"><input type="checkbox" name="Cet1Trim2SX" value="1"></div>
+                    <div id="TotalTrim2S" class="Trim2SMST" name="Cecyt1Trim2SX"></div>
                     
                     <div id="ConCecyt1Trim3S" class="Trim3SMS SumMDS1"><input type="checkbox" name="Cecyt1Trim3SX" value="1"></div>
                     <div id="ConCecyt2Trim3S" class="Trim3SMS SumMDS2"><input type="checkbox" name="Cecyt2Trim3SX" value="1"></div>
@@ -212,26 +120,26 @@
                     <div id="ConCet1Trim3S" class="Trim3SMS SumCetMDS1"><input type="checkbox" name="Cet1Trim3SX" value="1"></div>
                     <div id="TotalTrim3S" class="Trim3SMST" name="TotalTrim3SX"></div>
                     
-                    <div id="ConCecyt1Trim4S" class="Trim4SMS SumMDS1"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt2Trim4S" class="Trim4SMS SumMDS2"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt3Trim4S" class="Trim4SMS SumMDS3"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt4Trim4S" class="Trim4SMS SumMDS4"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt5Trim4S" class="Trim4SMS SumMDS5"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt6Trim4S" class="Trim4SMS SumMDS6"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt7Trim4S" class="Trim4SMS SumMDS7"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt8Trim4S" class="Trim4SMS SumMDS8"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt9Trim4S" class="Trim4SMS SumMDS9"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt10Trim4S" class="Trim4SMS SumMDS10"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt11Trim4S" class="Trim4SMS SumMDS11"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt12Trim4S" class="Trim4SMS SumMDS12"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt13Trim4S" class="Trim4SMS SumMDS13"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt14Trim4S" class="Trim4SMS SumMDS14"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt15Trim4S" class="Trim4SMS SumMDS15"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt16Trim4S" class="Trim4SMS SumMDS16"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt17Trim4S" class="Trim4SMS SumMDS17"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt18Trim4S" class="Trim4SMS SumMDS18"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCecyt19Trim4S" class="Trim4SMS SumMDS19"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
-                    <div id="ConCet1Trim4S" class="Trim4SMS SumCetMDS1"><input type="checkbox" name="Cecyt1Trim2X" value="1"></div>
+                    <div id="ConCecyt1Trim4S" class="Trim4SMS SumMDS1"><input type="checkbox" name="Cecyt1Trim4SX" value="1"></div>
+                    <div id="ConCecyt2Trim4S" class="Trim4SMS SumMDS2"><input type="checkbox" name="Cecyt2Trim4SX" value="1"></div>
+                    <div id="ConCecyt3Trim4S" class="Trim4SMS SumMDS3"><input type="checkbox" name="Cecyt3Trim4SX" value="1"></div>
+                    <div id="ConCecyt4Trim4S" class="Trim4SMS SumMDS4"><input type="checkbox" name="Cecyt4Trim4SX" value="1"></div>
+                    <div id="ConCecyt5Trim4S" class="Trim4SMS SumMDS5"><input type="checkbox" name="Cecyt5Trim4SX" value="1"></div>
+                    <div id="ConCecyt6Trim4S" class="Trim4SMS SumMDS6"><input type="checkbox" name="Cecyt6Trim4SX" value="1"></div>
+                    <div id="ConCecyt7Trim4S" class="Trim4SMS SumMDS7"><input type="checkbox" name="Cecyt7Trim4SX" value="1"></div>
+                    <div id="ConCecyt8Trim4S" class="Trim4SMS SumMDS8"><input type="checkbox" name="Cecyt8Trim4SX" value="1"></div>
+                    <div id="ConCecyt9Trim4S" class="Trim4SMS SumMDS9"><input type="checkbox" name="Cecyt9Trim4SX" value="1"></div>
+                    <div id="ConCecyt10Trim4S" class="Trim4SMS SumMDS10"><input type="checkbox" name="Cecyt10Trim4SX" value="1"></div>
+                    <div id="ConCecyt11Trim4S" class="Trim4SMS SumMDS11"><input type="checkbox" name="Cecyt11Trim4SX" value="1"></div>
+                    <div id="ConCecyt12Trim4S" class="Trim4SMS SumMDS12"><input type="checkbox" name="Cecyt12Trim4SX" value="1"></div>
+                    <div id="ConCecyt13Trim4S" class="Trim4SMS SumMDS13"><input type="checkbox" name="Cecyt13Trim4SX" value="1"></div>
+                    <div id="ConCecyt14Trim4S" class="Trim4SMS SumMDS14"><input type="checkbox" name="Cecyt14Trim4SX" value="1"></div>
+                    <div id="ConCecyt15Trim4S" class="Trim4SMS SumMDS15"><input type="checkbox" name="Cecyt15Trim4SX" value="1"></div>
+                    <div id="ConCecyt16Trim4S" class="Trim4SMS SumMDS16"><input type="checkbox" name="Cecyt16Trim4SX" value="1"></div>
+                    <div id="ConCecyt17Trim4S" class="Trim4SMS SumMDS17"><input type="checkbox" name="Cecyt17Trim4SX" value="1"></div>
+                    <div id="ConCecyt18Trim4S" class="Trim4SMS SumMDS18"><input type="checkbox" name="Cecyt18Trim4SX" value="1"></div>
+                    <div id="ConCecyt19Trim4S" class="Trim4SMS SumMDS19"><input type="checkbox" name="Cecyt19Trim4SX" value="1"></div>
+                    <div id="ConCet1Trim4S" class="Trim4SMS SumCetMDS1"><input type="checkbox" name="Cet1Trim4SX" value="1"></div>
                     <div id="TotalTrim4S" class="Trim4SMST" name="Cecyt1Trim2X"></div>
                     
                     <div id="ConCecyt1T" class="TotalCecyt1" name="Cecyt1TX"></div>
@@ -290,143 +198,6 @@
                     <div id="ConUPIITA">UPIITA</div>
                     <div id="ConUPIIZ">UPIIZ</div>
                     <div id="Total2">Total</div>
-                
-                    
-                    <div id="ConCICSmaTrim1" class="Trim1S"><input type="checkbox" name="CICSmaTrim1X" value="1"></div>
-                    <div id="ConCICSstTrim1" class="Trim1S"><input type="checkbox" name="CICSstTrim1X" value="1"></div>
-                    <div id="ConENBATrim1" class="Trim1S"><input type="checkbox" name="ENBATrim1X" value="1"></div>
-                    <div id="ConENCBTrim1" class="Trim1S"><input type="checkbox" name="ENCBTrim1X" value="1"></div>
-                    <div id="ConENMHTrim1" class="Trim1S"><input type="checkbox" name="ENMHTrim1X" value="1"></div>
-                    <div id="ConESCAstTrim1" class="Trim1S"><input type="checkbox" name="ESCAstTrim1X" value="1"></div>
-                    <div id="ConESCAtTrim1" class="Trim1S"><input type="checkbox" name="ESCAtTrim1X" value="1"></div>
-                    <div id="ConESCOMTrim1" class="Trim1S"><input type="checkbox" name="ESCOMTrim1X" value="1"></div>
-                    <div id="ConESETrim1" class="Trim1S"><input type="checkbox" name="ESETrim1X" value="1"></div>
-                    <div id="ConESEOTrim1" class="Trim1S"><input type="checkbox" name="ESEOTrim1X" value="1"></div>
-                    <div id="ConESFEMTrim1" class="Trim1S"><input type="checkbox" name="ESFEMTrim1X" value="1"></div>
-                    <div id="ConESIAtecTrim1" class="Trim1S"><input type="checkbox" name="ESIAtecTrim1X" value="1"></div>
-                    <div id="ConESIAtTrim1" class="Trim1S"><input type="checkbox" name="ESIAtTrim1X" value="1"></div>
-                    <div id="ConESIAzTrim1" class="Trim1S"><input type="checkbox" name="ESIAzTrim1X" value="1"></div>
-                    <div id="ConESIMEaTrim1" class="Trim1S"><input type="checkbox" name="ESIMEaTrim1X" value="1"></div>
-                    <div id="ConESIMEcTrim1" class="Trim1S"><input type="checkbox" name="ESIMEcTrim1X" value="1"></div>
-                    <div id="ConESIMEtTrim1" class="Trim1S"><input type="checkbox" name="ESIMEtTrim1X" value="1"></div>
-                    <div id="ConESIMEzTrim1" class="Trim1S"><input type="checkbox" name="ESIMEzTrim1X" value="1"></div>
-                    <div id="ConESIQUIETrim1" class="Trim1S"><input type="checkbox" name="ESIQUIETrim1X" value="1"></div>
-                    <div id="ConESITTrim1" class="Trim1S"><input type="checkbox" name="ESITTrim1X" value="1"></div>
-                    <div id="ConConESMTrim1" class="Trim1S"><input type="checkbox" name="ConESMTrim1X" value="1"></div>
-                    <div id="ConESTTrim1" class="Trim1S"><input type="checkbox" name="ESTTrim1X" value="1"></div>
-                    <div id="ConUPIBITrim1" class="Trim1S"><input type="checkbox" name="UPIBITrim1X" value="1"></div>
-                    <div id="ConUPIEMTrim1" class="Trim1S"><input type="checkbox" name="UPIEMTrim1X" value="1"></div>
-                    <div id="ConUPIICTrim1" class="Trim1S"><input type="checkbox" name="UPIICTrim1X" value="1"></div>
-                    <div id="ConUPIICSATrim1" class="Trim1S"><input type="checkbox" name="UPIICSATrim1X" value="1"></div>
-                    <div id="ConUPIIGTrim1" class="Trim1S"><input type="checkbox" name="UPIIGTrim1X" value="1"></div>
-                    <div id="ConUPIIHTrim1" class="Trim1S"><input type="checkbox" name="UPIIHTrim1X" value="1"></div>
-                    <div id="ConUPIIPTrim1" class="Trim1S"><input type="checkbox" name="UPIIPTrim1X" value="1"></div>
-                    <div id="ConUPIITTrim1" class="Trim1S"><input type="checkbox" name="UPIITTrim1X" value="1"></div>
-                    <div id="ConUPIITATrim1" class="Trim1S"><input type="checkbox" name="UPIITATrim1X" value="1"></div>
-                    <div id="ConUPIIZTrim1" class="Trim1S"><input type="checkbox" name="UPIIZTrim1X" value="1"></div>
-                    <div id="Total2Trim1" class="Trim1ST" name="Total2Trim1X"></div>
-                    
-                    <div id="ConCICSmaTrim2" class="Trim2S"><input type="checkbox" name="CICSmaTrim2X" value="1"></div>
-                    <div id="ConCICSstTrim2" class="Trim2S"><input type="checkbox" name="CICSstTrim2X" value="1"></div>
-                    <div id="ConENBATrim2" class="Trim2S"><input type="checkbox" name="ENBATrim2X" value="1"></div>
-                    <div id="ConENCBTrim2" class="Trim2S"><input type="checkbox" name="ENCBTrim2X" value="1"></div>
-                    <div id="ConENMHTrim2" class="Trim2S"><input type="checkbox" name="ENMHTrim2X" value="1"></div>
-                    <div id="ConESCAstTrim2" class="Trim2S"><input type="checkbox" name="ESCAstTrim2X" value="1"></div>
-                    <div id="ConESCAtTrim2" class="Trim2S"><input type="checkbox" name="ESCAtTrim2X" value="1"></div>
-                    <div id="ConESCOMTrim2" class="Trim2S"><input type="checkbox" name="ESCOMTrim2X" value="1"></div>
-                    <div id="ConESETrim2" class="Trim2S"><input type="checkbox" name="ESETrim2X" value="1"></div>
-                    <div id="ConESEOTrim2" class="Trim2S"><input type="checkbox" name="ESEOTrim2X" value="1"></div>
-                    <div id="ConESFEMTrim2" class="Trim2S"><input type="checkbox" name="ESFEMTrim2X" value="1"></div>
-                    <div id="ConESIAtecTrim2" class="Trim2S"><input type="checkbox" name="ESIAtecTrim2X" value="1"></div>
-                    <div id="ConESIAtTrim2" class="Trim2S"><input type="checkbox" name="ESIAtTrim2X" value="1"></div>
-                    <div id="ConESIAzTrim2" class="Trim2S"><input type="checkbox" name="ESIAzTrim2X" value="1"></div>
-                    <div id="ConESIMEaTrim2" class="Trim2S"><input type="checkbox" name="ESIMEaTrim2X" value="1"></div>
-                    <div id="ConESIMEcTrim2" class="Trim2S"><input type="checkbox" name="ESIMEcTrim2X" value="1"></div>
-                    <div id="ConESIMEtTrim2" class="Trim2S"><input type="checkbox" name="ESIMEtTrim2X" value="1"></div>
-                    <div id="ConESIMEzTrim2" class="Trim2S"><input type="checkbox" name="ESIMEzTrim2X" value="1"></div>
-                    <div id="ConESIQUIETrim2" class="Trim2S"><input type="checkbox" name="ESIQUIETrim2X" value="1"></div>
-                    <div id="ConESITTrim2" class="Trim2S"><input type="checkbox" name="ESITTrim2X" value="1"></div>
-                    <div id="ConConESMTrim2" class="Trim2S"><input type="checkbox" name="ConESMTrim2X" value="1"></div>
-                    <div id="ConESTTrim2" class="Trim2S"><input type="checkbox" name="ESTTrim2X" value="1"></div>
-                    <div id="ConUPIBITrim2" class="Trim2S"><input type="checkbox" name="UPIBITrim2X" value="1"></div>
-                    <div id="ConUPIEMTrim2" class="Trim2S"><input type="checkbox" name="UPIEMTrim2X" value="1"></div>
-                    <div id="ConUPIICTrim2" class="Trim2S"><input type="checkbox" name="UPIICTrim2X" value="1"></div>
-                    <div id="ConUPIICSATrim2" class="Trim2S"><input type="checkbox" name="UPIICSATrim2X" value="1"></div>
-                    <div id="ConUPIIGTrim2" class="Trim2S"><input type="checkbox" name="UPIIGTrim2X" value="1"></div>
-                    <div id="ConUPIIHTrim2" class="Trim2S"><input type="checkbox" name="UPIIHTrim2X" value="1"></div>
-                    <div id="ConUPIIPTrim2" class="Trim2S"><input type="checkbox" name="UPIIPTrim2X" value="1"></div>
-                    <div id="ConUPIITTrim2" class="Trim2S"><input type="checkbox" name="UPIITTrim2X" value="1"></div>
-                    <div id="ConUPIITATrim2" class="Trim2S"><input type="checkbox" name="UPIITATrim2X" value="1"></div>
-                    <div id="ConUPIIZTrim2" class="Trim2S"><input type="checkbox" name="UPIIZTrim2X" value="1"></div>
-                    <div id="Total2Trim2" class="Trim2ST" name="Total2Trim2X"></div>
-                    
-                    <div id="ConCICSmaTrim3" class="Trim3S"><input type="checkbox" name="CICSmaTrim3X" value="1"></div>
-                    <div id="ConCICSstTrim3" class="Trim3S"><input type="checkbox" name="CICSstTrim3X" value="1"></div>
-                    <div id="ConENBATrim3" class="Trim3S"><input type="checkbox" name="ENBATrim3X" value="1"></div>
-                    <div id="ConENCBTrim3" class="Trim3S"><input type="checkbox" name="ENCBTrim3X" value="1"></div>
-                    <div id="ConENMHTrim3" class="Trim3S"><input type="checkbox" name="ENMHTrim3X" value="1"></div>
-                    <div id="ConESCAstTrim3" class="Trim3S"><input type="checkbox" name="ESCAstTrim3X" value="1"></div>
-                    <div id="ConESCAtTrim3" class="Trim3S"><input type="checkbox" name="ESCAtTrim3X" value="1"></div>
-                    <div id="ConESCOMTrim3" class="Trim3S"><input type="checkbox" name="ESCOMTrim3X" value="1"></div>
-                    <div id="ConESETrim3" class="Trim3S"><input type="checkbox" name="ESETrim3X" value="1"></div>
-                    <div id="ConESEOTrim3" class="Trim3S"><input type="checkbox" name="ESEOTrim3X" value="1"></div>
-                    <div id="ConESFEMTrim3" class="Trim3S"><input type="checkbox" name="ESFEMTrim3X" value="1"></div>
-                    <div id="ConESIAtecTrim3" class="Trim3S"><input type="checkbox" name="ESIAtecTrim3X" value="1"></div>
-                    <div id="ConESIAtTrim3" class="Trim3S"><input type="checkbox" name="ESIAtTrim3X" value="1"></div>
-                    <div id="ConESIAzTrim3" class="Trim3S"><input type="checkbox" name="ESIAzTrim3X" value="1"></div>
-                    <div id="ConESIMEaTrim3" class="Trim3S"><input type="checkbox" name="ESIMEaTrim3X" value="1"></div>
-                    <div id="ConESIMEcTrim3" class="Trim3S"><input type="checkbox" name="ESIMEcTrim3X" value="1"></div>
-                    <div id="ConESIMEtTrim3" class="Trim3S"><input type="checkbox" name="ESIMEtTrim3X" value="1"></div>
-                    <div id="ConESIMEzTrim3" class="Trim3S"><input type="checkbox" name="ESIMEzTrim3X" value="1"></div>
-                    <div id="ConESIQUIETrim3" class="Trim3S"><input type="checkbox" name="ESIQUIETrim3X" value="1"></div>
-                    <div id="ConESITTrim3" class="Trim3S"><input type="checkbox" name="ESITTrim3X" value="1"></div>
-                    <div id="ConConESMTrim3" class="Trim3S"><input type="checkbox" name="ConESMTrim3X" value="1"></div>
-                    <div id="ConESTTrim3" class="Trim3S"><input type="checkbox" name="ESTTrim3X" value="1"></div>
-                    <div id="ConUPIBITrim3" class="Trim3S"><input type="checkbox" name="UPIBITrim3X" value="1"></div>
-                    <div id="ConUPIEMTrim3" class="Trim3S"><input type="checkbox" name="UPIEMTrim3X" value="1"></div>
-                    <div id="ConUPIICTrim3" class="Trim3S"><input type="checkbox" name="UPIICTrim3X" value="1"></div>
-                    <div id="ConUPIICSATrim3" class="Trim3S"><input type="checkbox" name="UPIICSATrim3X" value="1"></div>
-                    <div id="ConUPIIGTrim3" class="Trim3S"><input type="checkbox" name="UPIIGTrim3X" value="1"></div>
-                    <div id="ConUPIIHTrim3" class="Trim3S"><input type="checkbox" name="UPIIHTrim3X" value="1"></div>
-                    <div id="ConUPIIPTrim3" class="Trim3S"><input type="checkbox" name="UPIIPTrim3X" value="1"></div>
-                    <div id="ConUPIITTrim3" class="Trim3S"><input type="checkbox" name="UPIITTrim3X" value="1"></div>
-                    <div id="ConUPIITATrim3" class="Trim3S"><input type="checkbox" name="UPIITATrim3X" value="1"></div>
-                    <div id="ConUPIIZTrim3" class="Trim3S"><input type="checkbox" name="UPIIZTrim3X" value="1"></div>
-                    <div id="Total2Trim3" class="Trim3ST" name="Total2Trim3X"></div>
-                
-                    <div id="ConCICSmaTrim4" class="Trim4S"><input type="checkbox" name="CICSmaTrim4X" value="1"></div>
-                    <div id="ConCICSstTrim4" class="Trim4S"><input type="checkbox" name="CICSstTrim4X" value="1"></div>
-                    <div id="ConENBATrim4" class="Trim4S"><input type="checkbox" name="ENBATrim4X" value="1"></div>
-                    <div id="ConENCBTrim4" class="Trim4S"><input type="checkbox" name="ENCBTrim4X" value="1"></div>
-                    <div id="ConENMHTrim4" class="Trim4S"><input type="checkbox" name="ENMHTrim4X" value="1"></div>
-                    <div id="ConESCAstTrim4" class="Trim4S"><input type="checkbox" name="ESCAstTrim4X" value="1"></div>
-                    <div id="ConESCAtTrim4" class="Trim4S"><input type="checkbox" name="ESCAtTrim4X" value="1"></div>
-                    <div id="ConESCOMTrim4" class="Trim4S"><input type="checkbox" name="ESCOMTrim4X" value="1"></div>
-                    <div id="ConESETrim4" class="Trim4S"><input type="checkbox" name="ESETrim4X" value="1"></div>
-                    <div id="ConESEOTrim4" class="Trim4S"><input type="checkbox" name="ESEOTrim4X" value="1"></div>
-                    <div id="ConESFEMTrim4" class="Trim4S"><input type="checkbox" name="ESFEMTrim4X" value="1"></div>
-                    <div id="ConESIAtecTrim4" class="Trim4S"><input type="checkbox" name="ESIAtecTrim4X" value="1"></div>
-                    <div id="ConESIAtTrim4" class="Trim4S"><input type="checkbox" name="ESIAtTrim4X" value="1"></div>
-                    <div id="ConESIAzTrim4" class="Trim4S"><input type="checkbox" name="ESIAzTrim4X" value="1"></div>
-                    <div id="ConESIMEaTrim4" class="Trim4S"><input type="checkbox" name="ESIMEaTrim4X" value="1"></div>
-                    <div id="ConESIMEcTrim4" class="Trim4S"><input type="checkbox" name="ESIMEcTrim4X" value="1"></div>
-                    <div id="ConESIMEtTrim4" class="Trim4S"><input type="checkbox" name="ESIMEtTrim4X" value="1"></div>
-                    <div id="ConESIMEzTrim4" class="Trim4S"><input type="checkbox" name="ESIMEzTrim4X" value="1"></div>
-                    <div id="ConESIQUIETrim4" class="Trim4S"><input type="checkbox" name="ESIQUIETrim4X" value="1"></div>
-                    <div id="ConESITTrim4" class="Trim4S"><input type="checkbox" name="ESITTrim4X" value="1"></div>
-                    <div id="ConConESMTrim4" class="Trim4S"><input type="checkbox" name="ConESMTrim4X" value="1"></div>
-                    <div id="ConESTTrim4" class="Trim4S"><input type="checkbox" name="ESTTrim4X" value="1"></div>
-                    <div id="ConUPIBITrim4" class="Trim4S"><input type="checkbox" name="UPIBITrim4X" value="1"></div>
-                    <div id="ConUPIEMTrim4" class="Trim4S"><input type="checkbox" name="UPIEMTrim4X" value="1"></div>
-                    <div id="ConUPIICTrim4" class="Trim4S"><input type="checkbox" name="UPIICTrim4X" value="1"></div>
-                    <div id="ConUPIICSATrim4" class="Trim4S"><input type="checkbox" name="UPIICSATrim4X" value="1"></div>
-                    <div id="ConUPIIGTrim4" class="Trim4S"><input type="checkbox" name="UPIIGTrim4X" value="1"></div>
-                    <div id="ConUPIIHTrim4" class="Trim4S"><input type="checkbox" name="UPIIHTrim4X" value="1"></div>
-                    <div id="ConUPIIPTrim4" class="Trim4S"><input type="checkbox" name="UPIIPTrim4X" value="1"></div>
-                    <div id="ConUPIITTrim4" class="Trim4S"><input type="checkbox" name="UPIITTrim4X" value="1"></div>
-                    <div id="ConUPIITATrim4" class="Trim4S"><input type="checkbox" name="UPIITATrim4X" value="1"></div>
-                    <div id="ConUPIIZTrim4" class="Trim4S"><input type="checkbox" name="UPIIZTrim4X" value="1"></div>
-                    <div id="Total2Trim4" class="Trim4ST" name="Total2Trim4X"></div>
                     
                     <div id="ConCICSmaTrim1S" class="Trim1SS SumSS1"><input type="checkbox" name="CICSmaTrim1SX" value="1"></div>
                     <div id="ConCICSstTrim1S" class="Trim1SS SumSS2"><input type="checkbox" name="CICSstTrim1SX" value="1"></div>
@@ -438,7 +209,7 @@
                     <div id="ConESCOMTrim1S" class="Trim1SS SumSS8"><input type="checkbox" name="ESCOMTrim1SX" value="1"></div>
                     <div id="ConESETrim1S" class="Trim1SS SumSS9"><input type="checkbox" name="ESETrim1SX" value="1"></div>
                     <div id="ConESEOTrim1S" class="Trim1SS SumSS10"><input type="checkbox" name="ESEOTrim1SX" value="1"></div>
-                    <div id="ConESFEMTrim1S" class="Trim1SS SumSS11"><input type="checkbox" name="ESFEMTrim1SX" value="1"></div>
+                    <div id="ConESFEMTrim1S" class="Trim1SS SumSS11"><input type="checkbox" name="ESFMTrim1SX" value="1"></div>
                     <div id="ConESIAtecTrim1S" class="Trim1SS SumSS12"><input type="checkbox" name="ESIAtecTrim1SX" value="1"></div>
                     <div id="ConESIAtTrim1S" class="Trim1SS SumSS13"><input type="checkbox" name="ESIAtTrim1SX" value="1"></div>
                     <div id="ConESIAzTrim1S" class="Trim1SS SumSS14"><input type="checkbox" name="ESIAzTrim1SX" value="1"></div>
@@ -446,11 +217,11 @@
                     <div id="ConESIMEcTrim1S" class="Trim1SS SumSS16"><input type="checkbox" name="ESIMEcTrim1SX" value="1"></div>
                     <div id="ConESIMEtTrim1S" class="Trim1SS SumSS17"><input type="checkbox" name="ESIMEtTrim1SX" value="1"></div>
                     <div id="ConESIMEzTrim1S" class="Trim1SS SumSS18"><input type="checkbox" name="ESIMEzTrim1SX" value="1"></div>
-                    <div id="ConESIQUIETrim1S" class="Trim1SS SumSS19"><input type="checkbox" name="ESIQUIETrim1SX" value="1"></div>
+                    <div id="ConESIQUIETrim1S" class="Trim1SS SumSS19"><input type="checkbox" name="ESIQIETrim1SX" value="1"></div>
                     <div id="ConESITTrim1S" class="Trim1SS SumSS20"><input type="checkbox" name="ESITTrim1SX" value="1"></div>
-                    <div id="ConConESMTrim1S" class="Trim1SS SumSS21"><input type="checkbox" name="ConESMTrim1SX" value="1"></div>
+                    <div id="ConConESMTrim1S" class="Trim1SS SumSS21"><input type="checkbox" name="ESMTrim1SX" value="1"></div>
                     <div id="ConESTTrim1S" class="Trim1SS SumSS22"><input type="checkbox" name="ESTTrim1SX" value="1"></div>
-                    <div id="ConUPIBITrim1S" class="Trim1SS SumSS23"><input type="checkbox" name="UPIBITrim1X" value="1"></div>
+                    <div id="ConUPIBITrim1S" class="Trim1SS SumSS23"><input type="checkbox" name="UPIBITrim1SX" value="1"></div>
                     <div id="ConUPIEMTrim1S" class="Trim1SS SumSS24"><input type="checkbox" name="UPIEMTrim1SX" value="1"></div>
                     <div id="ConUPIICTrim1S" class="Trim1SS SumSS25"><input type="checkbox" name="UPIICTrim1SX" value="1"></div>
                     <div id="ConUPIICSATrim1S" class="Trim1SS SumSS26"><input type="checkbox" name="UPIICSATrim1SX" value="1"></div>
@@ -472,7 +243,7 @@
                     <div id="ConESCOMTrim2S" class="Trim2SS SumSS8"><input type="checkbox" name="ESCOMTrim2SX" value="1"></div>
                     <div id="ConESETrim2S" class="Trim2SS SumSS9"><input type="checkbox" name="ESETrim2SX" value="1"></div>
                     <div id="ConESEOTrim2S" class="Trim2SS SumSS10"><input type="checkbox" name="ESEOTrim2SX" value="1"></div>
-                    <div id="ConESFEMTrim2S" class="Trim2SS SumSS11"><input type="checkbox" name="ESFEMTrim2SX" value="1"></div>
+                    <div id="ConESFEMTrim2S" class="Trim2SS SumSS11"><input type="checkbox" name="ESFMTrim2SX" value="1"></div>
                     <div id="ConESIAtecTrim2S" class="Trim2SS SumSS12"><input type="checkbox" name="ESIAtecTrim2SX" value="1"></div>
                     <div id="ConESIAtTrim2S" class="Trim2SS SumSS13"><input type="checkbox" name="ESIAtTrim2SX" value="1"></div>
                     <div id="ConESIAzTrim2S" class="Trim2SS SumSS14"><input type="checkbox" name="ESIAzTrim2SX" value="1"></div>
@@ -480,9 +251,9 @@
                     <div id="ConESIMEcTrim2S" class="Trim2SS SumSS16"><input type="checkbox" name="ESIMEcTrim2SX" value="1"></div>
                     <div id="ConESIMEtTrim2S" class="Trim2SS SumSS17"><input type="checkbox" name="ESIMEtTrim2SX" value="1"></div>
                     <div id="ConESIMEzTrim2S" class="Trim2SS SumSS18"><input type="checkbox" name="ESIMEzTrim2SX" value="1"></div>
-                    <div id="ConESIQUIETrim2S" class="Trim2SS SumSS19"><input type="checkbox" name="ESIQUIETrim2SX" value="1"></div>
+                    <div id="ConESIQUIETrim2S" class="Trim2SS SumSS19"><input type="checkbox" name="ESIQIETrim2SX" value="1"></div>
                     <div id="ConESITTrim2S" class="Trim2SS SumSS20"><input type="checkbox" name="ESITTrim2SX" value="1"></div>
-                    <div id="ConConESMTrim2S" class="Trim2SS SumSS21"><input type="checkbox" name="ConESMTrim2SX" value="1"></div>
+                    <div id="ConConESMTrim2S" class="Trim2SS SumSS21"><input type="checkbox" name="ESMTrim2SX" value="1"></div>
                     <div id="ConESTTrim2S" class="Trim2SS SumSS22"><input type="checkbox" name="ESTTrim2SX" value="1"></div>
                     <div id="ConUPIBITrim2S" class="Trim2SS SumSS23"><input type="checkbox" name="UPIBITrim2SX" value="1"></div>
                     <div id="ConUPIEMTrim2S" class="Trim2SS SumSS24"><input type="checkbox" name="UPIEMTrim2SX" value="1"></div>
@@ -506,7 +277,7 @@
                     <div id="ConESCOMTrim3S" class="Trim3SS SumSS8"><input type="checkbox" name="ESCOMTrim3SX" value="1"></div>
                     <div id="ConESETrim3S" class="Trim3SS SumSS19"><input type="checkbox" name="ESETrim3SX" value="1"></div>
                     <div id="ConESEOTrim3S" class="Trim3SS SumSS10"><input type="checkbox" name="ESEOTrim3SX" value="1"></div>
-                    <div id="ConESFEMTrim3S" class="Trim3SS SumSS11"><input type="checkbox" name="ESFEMTrim3SX" value="1"></div>
+                    <div id="ConESFEMTrim3S" class="Trim3SS SumSS11"><input type="checkbox" name="ESFMTrim3SX" value="1"></div>
                     <div id="ConESIAtecTrim3S" class="Trim3SS SumSS12"><input type="checkbox" name="ESIAtecTrim3SX" value="1"></div>
                     <div id="ConESIAtTrim3S" class="Trim3SS SumSS13"><input type="checkbox" name="ESIAtTrim3SX" value="1"></div>
                     <div id="ConESIAzTrim3S" class="Trim3SS SumSS14"><input type="checkbox" name="ESIAzTrim3SX" value="1"></div>
@@ -514,9 +285,9 @@
                     <div id="ConESIMEcTrim3S" class="Trim3SS SumSS16"><input type="checkbox" name="ESIMEcTrim3SX" value="1"></div>
                     <div id="ConESIMEtTrim3S" class="Trim3SS SumSS17"><input type="checkbox" name="ESIMEtTrim3SX" value="1"></div>
                     <div id="ConESIMEzTrim3S" class="Trim3SS SumSS18"><input type="checkbox" name="ESIMEzTrim3SX" value="1"></div>
-                    <div id="ConESIQUIETrim3S" class="Trim3SS SumSS19"><input type="checkbox" name="ESIQUIETrim3SX" value="1"></div>
+                    <div id="ConESIQUIETrim3S" class="Trim3SS SumSS19"><input type="checkbox" name="ESIQIETrim3SX" value="1"></div>
                     <div id="ConESITTrim3S" class="Trim3SS SumSS20"><input type="checkbox" name="ESITTrim3SX" value="1"></div>
-                    <div id="ConConESMTrim3S" class="Trim3SS SumSS21"><input type="checkbox" name="ConESMTrim3SX" value="1"></div>
+                    <div id="ConConESMTrim3S" class="Trim3SS SumSS21"><input type="checkbox" name="ESMTrim3SX" value="1"></div>
                     <div id="ConESTTrim3S" class="Trim3SS SumSS22"><input type="checkbox" name="ESTTrim3SX" value="1"></div>
                     <div id="ConUPIBITrim3S" class="Trim3SS SumSS23"><input type="checkbox" name="UPIBITrim3SX" value="1"></div>
                     <div id="ConUPIEMTrim3S" class="Trim3SS SumSS24"><input type="checkbox" name="UPIEMTrim3SX" value="1"></div>
@@ -540,7 +311,7 @@
                     <div id="ConESCOMTrim4S" class="Trim4SS SumSS8"><input type="checkbox" name="ESCOMTrim4SX" value="1"></div>
                     <div id="ConESETrim4S" class="Trim4SS SumSS9"><input type="checkbox" name="ESETrim4SX" value="1"></div>
                     <div id="ConESEOTrim4S" class="Trim4SS SumSS10"><input type="checkbox" name="ESEOTrim4SX" value="1"></div>
-                    <div id="ConESFEMTrim4S" class="Trim4SS SumSS11"><input type="checkbox" name="ESFEMTrim4SX" value="1"></div>
+                    <div id="ConESFEMTrim4S" class="Trim4SS SumSS11"><input type="checkbox" name="ESFMTrim4SX" value="1"></div>
                     <div id="ConESIAtecTrim4S" class="Trim4SS SumSS12"><input type="checkbox" name="ESIAtecTrim4SX" value="1"></div>
                     <div id="ConESIAtTrim4S" class="Trim4SS SumSS13"><input type="checkbox" name="ESIAtTrim4SX" value="1"></div>
                     <div id="ConESIAzTrim4S" class="Trim4SS SumSS14"><input type="checkbox" name="ESIAzTrim4SX" value="1"></div>
@@ -548,9 +319,9 @@
                     <div id="ConESIMEcTrim4S" class="Trim4SS SumSS16"><input type="checkbox" name="ESIMEcTrim4SX" value="1"></div>
                     <div id="ConESIMEtTrim4S" class="Trim4SS SumSS17"><input type="checkbox" name="ESIMEtTrim4SX" value="1"></div>
                     <div id="ConESIMEzTrim4S" class="Trim4SS SumSS18"><input type="checkbox" name="ESIMEzTrim4SX" value="1"></div>
-                    <div id="ConESIQUIETrim4S" class="Trim4SS SumSS19"><input type="checkbox" name="ESIQUIETrim4SX" value="1"></div>
+                    <div id="ConESIQUIETrim4S" class="Trim4SS SumSS19"><input type="checkbox" name="ESIQIETrim4SX" value="1"></div>
                     <div id="ConESITTrim4S" class="Trim4SS SumSS20"><input type="checkbox" name="ESITTrim4SX" value="1"></div>
-                    <div id="ConConESMTrim4S" class="Trim4SS SumSS21"><input type="checkbox" name="ConESMTrim4SX" value="1"></div>
+                    <div id="ConConESMTrim4S" class="Trim4SS SumSS21"><input type="checkbox" name="ESMTrim4SX" value="1"></div>
                     <div id="ConESTTrim4S" class="Trim4SS SumSS22"><input type="checkbox" name="ESTTrim4SX" value="1"></div>
                     <div id="ConUPIBITrim4S" class="Trim4SS SumSS23"><input type="checkbox" name="UPIBITrim4SX" value="1"></div>
                     <div id="ConUPIEMTrim4S" class="Trim4SS SumSS24"><input type="checkbox" name="UPIEMTrim4SX" value="1"></div>
@@ -620,90 +391,6 @@
                     <div id="CBG">CBD</div>
                     <div id="CIECAS">CIECAS</div>
                     <div id="Total3">Total</div>
-
-                    <div id="CICICTrim1" class="Trim1CI"><input type="checkbox" name="CICICTrim1X" value="1"></div>
-                    <div id="CICITEDITrim1" class="Trim1CI"><input type="checkbox" name="CICITEDITrim1X" value="1"></div>
-                    <div id="CICICATALTrim1" class="Trim1CI"><input type="checkbox" name="CICICATALTrim1X" value="1"></div>
-                    <div id="CICICATAATrim1" class="Trim1CI"><input type="checkbox" name="CICICATAATrim1X" value="1"></div>
-                    <div id="CICICATAQTrim1" class="Trim1CI"><input type="checkbox" name="CICICATAQTrim1X" value="1"></div>
-                    <div id="CICICATAMTrim1" class="Trim1CI"><input type="checkbox" name="CICICATAMTrim1X" value="1"></div>
-                    <div id="CIBATTrim1" class="Trim1CI"><input type="checkbox" name="CIBATTrim1X" value="1"></div>
-                    <div id="CIITECTrim1" class="Trim1CI"><input type="checkbox" name="CIITECTrim1X" value="1"></div>
-                    <div id="CIDETECTrim1" class="Trim1CI"><input type="checkbox" name="CIDETECTrim1X" value="1"></div>
-                    <div id="CMPLTrim1" class="Trim1CI"><input type="checkbox" name="CMPLTrim1X" value="1"></div>
-                    <div id="CICIMARTrim1" class="Trim1CI"><input type="checkbox" name="CICIMARTrim1X" value="1"></div>
-                    <div id="CIIEMADTrim1" class="Trim1CI"><input type="checkbox" name="CIIEMADTrim1X" value="1"></div>
-                    <div id="CEPROBITrim1" class="Trim1CI"><input type="checkbox" name="CEPROBITrim1X" value="1"></div>
-                    <div id="CIIDIRDTrim1" class="Trim1CI"><input type="checkbox" name="CIIDIRDTrim1X" value="1"></div>
-                    <div id="CIIDIRMTrim1" class="Trim1CI"><input type="checkbox" name="CIIDIRMTrim1X" value="1"></div>
-                    <div id="CIIDIROTrim1" class="Trim1CI"><input type="checkbox" name="CIIDIROTrim1X" value="1"></div>
-                    <div id="CIIDIRSTrim1" class="Trim1CI"><input type="checkbox" name="CIIDIRSTrim1X" value="1"></div>
-                    <div id="CBGTrim1" class="Trim1CI"><input type="checkbox" name="CBGTrim1X" value="1"></div>
-                    <div id="CIECASTrim1" class="Trim1CI"><input type="checkbox" name="CIECASTrim1X" value="1"></div>
-                    <div id="Total3Trim1" class="Trim1CIT"></div>
-                    
-                    <div id="CICICTrim2" class="Trim2CI"><input type="checkbox" name="CICICTrim2X" value="1"></div>
-                    <div id="CICITEDITrim2" class="Trim2CI"><input type="checkbox" name="CICITEDITrim2X" value="1"></div>
-                    <div id="CICICATALTrim2" class="Trim2CI"><input type="checkbox" name="CICICATALTrim2X" value="1"></div>
-                    <div id="CICICATAATrim2" class="Trim2CI"><input type="checkbox" name="CICICATAATrim2X" value="1"></div>
-                    <div id="CICICATAQTrim2" class="Trim2CI"><input type="checkbox" name="CICICATAQTrim2X" value="1"></div>
-                    <div id="CICICATAMTrim2" class="Trim2CI"><input type="checkbox" name="CICICATAMTrim2X" value="1"></div>
-                    <div id="CIBATTrim2" class="Trim2CI"><input type="checkbox" name="CIBATTrim2X" value="1"></div>
-                    <div id="CIITECTrim2" class="Trim2CI"><input type="checkbox" name="CIITECTrim2X" value="1"></div>
-                    <div id="CIDETECTrim2" class="Trim2CI"><input type="checkbox" name="CIDETECTrim2X" value="1"></div>
-                    <div id="CMPLTrim2" class="Trim2CI"><input type="checkbox" name="CMPLTrim2X" value="1"></div>
-                    <div id="CICIMARTrim2" class="Trim2CI"><input type="checkbox" name="CICIMARTrim2X" value="1"></div>
-                    <div id="CIIEMADTrim2" class="Trim2CI"><input type="checkbox" name="CIIEMADTrim2X" value="1"></div>
-                    <div id="CEPROBITrim2" class="Trim2CI"><input type="checkbox" name="CEPROBITrim2X" value="1"></div>
-                    <div id="CIIDIRDTrim2" class="Trim2CI"><input type="checkbox" name="CIIDIRDTrim2X" value="1"></div>
-                    <div id="CIIDIRMTrim2" class="Trim2CI"><input type="checkbox" name="CIIDIRMTrim2X" value="1"></div>
-                    <div id="CIIDIROTrim2" class="Trim2CI"><input type="checkbox" name="CIIDIROTrim2X" value="1"></div>
-                    <div id="CIIDIRSTrim2" class="Trim2CI"><input type="checkbox" name="CIIDIRSTrim2X" value="1"></div>
-                    <div id="CBGTrim2" class="Trim2CI"><input type="checkbox" name="CBGTrim2X" value="1"></div>
-                    <div id="CIECASTrim2" class="Trim2CI"><input type="checkbox" name="CIECASTrim2X" value="1"></div>
-                    <div id="Total3Trim2" class="Trim2CIT"></div>
-                    
-                    <div id="CICICTrim3" class="Trim3CI"><input type="checkbox" name="CICICTrim3X" value="1"></div>
-                    <div id="CICITEDITrim3" class="Trim3CI"><input type="checkbox" name="CICITEDITrim3X" value="1"></div>
-                    <div id="CICICATALTrim3" class="Trim3CI"><input type="checkbox" name="CICICATALTrim3X" value="1"></div>
-                    <div id="CICICATAATrim3" class="Trim3CI"><input type="checkbox" name="CICICATAATrim3X" value="1"></div>
-                    <div id="CICICATAQTrim3" class="Trim3CI"><input type="checkbox" name="CICICATAQTrim3X" value="1"></div>
-                    <div id="CICICATAMTrim3" class="Trim3CI"><input type="checkbox" name="CICICATAMTrim3X" value="1"></div>
-                    <div id="CIBATTrim3" class="Trim3CI"><input type="checkbox" name="CIBATTrim3X" value="1"></div>
-                    <div id="CIITECTrim3" class="Trim3CI"><input type="checkbox" name="CIITECTrim3X" value="1"></div>
-                    <div id="CIDETECTrim3" class="Trim3CI"><input type="checkbox" name="CIDETECTrim3X" value="1"></div>
-                    <div id="CMPLTrim3" class="Trim3CI"><input type="checkbox" name="CMPLTrim3X" value="1"></div>
-                    <div id="CICIMARTrim3" class="Trim3CI"><input type="checkbox" name="CICIMARTrim3X" value="1"></div>
-                    <div id="CIIEMADTrim3" class="Trim3CI"><input type="checkbox" name="CIIEMADTrim3X" value="1"></div>
-                    <div id="CEPROBITrim3" class="Trim3CI"><input type="checkbox" name="CEPROBITrim3X" value="1"></div>
-                    <div id="CIIDIRDTrim3" class="Trim3CI"><input type="checkbox" name="CIIDIRDTrim3X" value="1"></div>
-                    <div id="CIIDIRMTrim3" class="Trim3CI"><input type="checkbox" name="CIIDIRMTrim3X" value="1"></div>
-                    <div id="CIIDIROTrim3" class="Trim3CI"><input type="checkbox" name="CIIDIROTrim3X" value="1"></div>
-                    <div id="CIIDIRSTrim3" class="Trim3CI"><input type="checkbox" name="CIIDIRSTrim3X" value="1"></div>
-                    <div id="CBGTrim3" class="Trim3CI"><input type="checkbox" name="CBGTrim3X" value="1"></div>
-                    <div id="CIECASTrim3" class="Trim3CI"><input type="checkbox" name="CIECASTrim3X" value="1"></div>
-                    <div id="Total3Trim3" class="Trim3CIT"></div>
-                    
-                    <div id="CICICTrim4" class="Trim4CI"><input type="checkbox" name="CICICTrim4X" value="1"></div>
-                    <div id="CICITEDITrim4" class="Trim4CI"><input type="checkbox" name="CICITEDITrim4X" value="1"></div>
-                    <div id="CICICATALTrim4" class="Trim4CI"><input type="checkbox" name="CICICATALTrim4X" value="1"></div>
-                    <div id="CICICATAATrim4" class="Trim4CI"><input type="checkbox" name="CICICATAATrim4X" value="1"></div>
-                    <div id="CICICATAQTrim4" class="Trim4CI"><input type="checkbox" name="CICICATAQTrim4X" value="1"></div>
-                    <div id="CICICATAMTrim4" class="Trim4CI"><input type="checkbox" name="CICICATAMTrim4X" value="1"></div>
-                    <div id="CIBATTrim4" class="Trim4CI"><input type="checkbox" name="CIBATTrim4X" value="1"></div>
-                    <div id="CIITECTrim4" class="Trim4CI"><input type="checkbox" name="CIITECTrim4X" value="1"></div>
-                    <div id="CIDETECTrim4" class="Trim4CI"><input type="checkbox" name="CIDETECTrim4X" value="1"></div>
-                    <div id="CMPLTrim4" class="Trim4CI"><input type="checkbox" name="CMPLTrim4X" value="1"></div>
-                    <div id="CICIMARTrim4" class="Trim4CI"><input type="checkbox" name="CICIMARTrim4X" value="1"></div>
-                    <div id="CIIEMADTrim4" class="Trim4CI"><input type="checkbox" name="CIIEMADTrim4X" value="1"></div>
-                    <div id="CEPROBITrim4" class="Trim4CI"><input type="checkbox" name="CEPROBITrim4X" value="1"></div>
-                    <div id="CIIDIRDTrim4" class="Trim4CI"><input type="checkbox" name="CIIDIRDTrim4X" value="1"></div>
-                    <div id="CIIDIRMTrim4" class="Trim4CI"><input type="checkbox" name="CIIDIRMTrim4X" value="1"></div>
-                    <div id="CIIDIROTrim4" class="Trim4CI"><input type="checkbox" name="CIIDIROTrim4X" value="1"></div>
-                    <div id="CIIDIRSTrim4" class="Trim4CI"><input type="checkbox" name="CIIDIRSTrim4X" value="1"></div>
-                    <div id="CBGTrim4" class="Trim4CI"><input type="checkbox" name="CBGTrim4X" value="1"></div>
-                    <div id="CIECASTrim4" class="Trim4CI"><input type="checkbox" name="CIECASTrim4X" value="1"></div>
-                    <div id="Total3Trim4" class="Trim4CIT"></div>
                     
                     <div id="CICICTrim1S" class="Trim1CIS SumCIS1"><input type="checkbox" name="CICICTrim1SX" value="1"></div>
                     <div id="CICITEDITrim1S" class="Trim1CIS SumCIS2"><input type="checkbox" name="CICITEDITrim1SX" value="1"></div>
@@ -829,78 +516,6 @@
                     <div id="CVDRP">CVDR PUEBLA</div>
                     <div id="Total4">Total</div>
 
-                    <div id="CVDRCJTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRCJTrim1X" value="1"></div>
-                    <div id="CVDRCHTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRCHTrim1X" value="1"></div>
-                    <div id="CVDRCNTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRCNTrim1X" value="1"></div>
-                    <div id="CVDRCLTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRCLTrim1X" value="1"></div>
-                    <div id="CVDRDTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRDTrim1X" value="1"></div>
-                    <div id="CVDRLMTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRLMTrim1X" value="1"></div>
-                    <div id="CVDRMZTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRMZTrim1X" value="1"></div>
-                    <div id="CVDRMRTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRMRTrim1X" value="1"></div>
-                    <div id="CVDROXTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDROXTrim1X" value="1"></div>
-                    <div id="CVDRTMTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRTMTrim1X" value="1"></div>
-                    <div id="CVDRTJTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRTJTrim1X" value="1"></div>
-                    <div id="CVDRTXTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRTXTrim1X" value="1"></div>
-                    <div id="CVDRCHITrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRCHITrim1X" value="1"></div>
-                    <div id="CVDRVTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRVTrim1X" value="1"></div>
-                    <div id="CVDRGTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRGTrim1X" value="1"></div>
-                    <div id="CVDRPTrim1" class="Trim1CVDR"><input type="checkbox" name="CVDRPTrim1X" value="1"></div>
-                    <div id="Total4Trim1" class="Trim1CVDRT"></div>
-                    
-                    <div id="CVDRCJTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRCJTrim2X" value="1"></div>
-                    <div id="CVDRCHTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRCHTrim2X" value="1"></div>
-                    <div id="CVDRCNTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRCNTrim2X" value="1"></div>
-                    <div id="CVDRCLTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRCLTrim2X" value="1"></div>
-                    <div id="CVDRDTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRDTrim2X" value="1"></div>
-                    <div id="CVDRLMTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRLMTrim2X" value="1"></div>
-                    <div id="CVDRMZTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRMZTrim2X" value="1"></div>
-                    <div id="CVDRMRTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRMRTrim2X" value="1"></div>
-                    <div id="CVDROXTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDROXTrim2X" value="1"></div>
-                    <div id="CVDRTMTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRTMTrim2X" value="1"></div>
-                    <div id="CVDRTJTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRTJTrim2X" value="1"></div>
-                    <div id="CVDRTXTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRTXTrim2X" value="1"></div>
-                    <div id="CVDRCHITrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRCHITrim2X" value="1"></div>
-                    <div id="CVDRVTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRVTrim2X" value="1"></div>
-                    <div id="CVDRGTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRGTrim2X" value="1"></div>
-                    <div id="CVDRPTrim2" class="Trim2CVDR"><input type="checkbox" name="CVDRPTrim2X" value="1"></div>
-                    <div id="Total4Trim2" class="Trim2CVDRT"></div>
-                    
-                    <div id="CVDRCJTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRCJTrim3X" value="1"></div>
-                    <div id="CVDRCHTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRCHTrim3X" value="1"></div>
-                    <div id="CVDRCNTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRCNTrim3X" value="1"></div>
-                    <div id="CVDRCLTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRCLTrim3X" value="1"></div>
-                    <div id="CVDRDTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRDTrim3X" value="1"></div>
-                    <div id="CVDRLMTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRLMTrim3X" value="1"></div>
-                    <div id="CVDRMZTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRMZTrim3X" value="1"></div>
-                    <div id="CVDRMRTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRMRTrim3X" value="1"></div>
-                    <div id="CVDROXTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDROXTrim3X" value="1"></div>
-                    <div id="CVDRTMTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRTMTrim3X" value="1"></div>
-                    <div id="CVDRTJTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRTJTrim3X" value="1"></div>
-                    <div id="CVDRTXTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRTXTrim3X" value="1"></div>
-                    <div id="CVDRCHITrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRCHITrim3X" value="1"></div>
-                    <div id="CVDRVTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRVTrim3X" value="1"></div>
-                    <div id="CVDRGTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRGTrim3X" value="1"></div>
-                    <div id="CVDRPTrim3" class="Trim3CVDR"><input type="checkbox" name="CVDRPTrim3X" value="1"></div>
-                    <div id="Total4Trim3" class="Trim3CVDRT"></div>
-                    
-                    <div id="CVDRCJTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRCJTrim4X" value="1"></div>
-                    <div id="CVDRCHTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRCHTrim4X" value="1"></div>
-                    <div id="CVDRCNTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRCNTrim4X" value="1"></div>
-                    <div id="CVDRCLTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRCLTrim4X" value="1"></div>
-                    <div id="CVDRDTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRDTrim4X" value="1"></div>
-                    <div id="CVDRLMTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRLMTrim4X" value="1"></div>
-                    <div id="CVDRMZTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRMZTrim4X" value="1"></div>
-                    <div id="CVDRMRTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRMRTrim4X" value="1"></div>
-                    <div id="CVDROXTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDROXTrim4X" value="1"></div>
-                    <div id="CVDRTMTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRTMTrim4X" value="1"></div>
-                    <div id="CVDRTJTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRTJTrim4X" value="1"></div>
-                    <div id="CVDRTXTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRTXTrim4X" value="1"></div>
-                    <div id="CVDRCHITrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRCHITrim4X" value="1"></div>
-                    <div id="CVDRVTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRVTrim4X" value="1"></div>
-                    <div id="CVDRGTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRGTrim4X" value="1"></div>
-                    <div id="CVDRPTrim4" class="Trim4CVDR"><input type="checkbox" name="CVDRPTrim4X" value="1"></div>
-                    <div id="Total4Trim4" class="Trim4CVDRT"></div>
-                    
                     <div id="CVDRCJTrim1S" class="Trim1SCVDR SumCVDRS1"><input type="checkbox" name="CVDRCJTrim1SX" value="1"></div>
                     <div id="CVDRCHTrim1S" class="Trim1SCVDR SumCVDRS2"><input type="checkbox" name="CVDRCHTrim1SX" value="1"></div>
                     <div id="CVDRCNTrim1S" class="Trim1SCVDR SumCVDRS3"><input type="checkbox" name="CVDRCNTrim1SX" value="1"></div>
@@ -994,14 +609,13 @@
             </div>
             <div id="contfooter">
                 <input id="Save" type="submit" value="Guardar"/>
-                <input id="idioma" type="hidden" value=""/>
                 <input id="Back" type="submit" value="Recuperar datos pasados"/>
                 <input id="Send" type="submit" value="Enviar"/>
+                <input id="idioma" type="hidden" value=""/>
             </div>
         </form>
     </div>
 </body>
-
 
 <script type="text/javascript">
     

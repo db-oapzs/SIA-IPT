@@ -75,71 +75,155 @@ sqlsrv_close($connection);
     <script src="../../scripts/scriptInicioUA.js" async defer></script>
     <script src="../../scripts/modaleslogin.js" async defer></script>
     <script src="../../scripts/SumaSt.js" async defer></script>
+    <link rel="stylesheet" href="adminDFLE/styles/bootstrap.css">
+    <link rel="stylesheet" href="adminDFLE/styles/stylesmenu.css">
+    <script src="adminDFLE/scripts/bootstrap.js" async defer></script>
+
+
+    <link rel="stylesheet" href="../../styles/stylesmenuSIA.css">
 </head>
-
 <body>
-<header id="con-header" styles="z-index:9999">
-        <div id="cont-logo1">
-            <img src="../../recursos/multimedia/Logos/SIA Logo.png">
-            <img src="../../recursos/multimedia/Idiomas/<?php echo $img.'.png'?>">
-        </div>
-        <div id="cont-name">
-            <h2>
-                <?php echo $nombre_usuario; ?>
-            </h2>
-        </div>
-        <div id="cont-logoipn"></div>
-        <div id="cont-menu">
-            <img src="../../recursos/multimedia/Logos/DII.jpg">
-            <ul id="contIcoMenu">
-                <li>
-                        <div id="btnNotifi"><span class="gg-notifications"></span></div>
-                        <ul id="menuNotifi">
-                            <a><li>Noti 1</li></a>
-                            <a><li>Noti 2</li></a>
-                            <a><li>Noti 3</li></a>
-                        </ul>
-                </li>
-                <li>
-                <div id="btnMuser"><span class="gg-user"></span></div>
-                        <ul id="menuUser">
-                            <a href="cerrarSession.php"><li>Cerrar Sesion</li></a>
-                            <a><li>data 2</li></a>
-                            <a><li>data 3</li></a>
-                        </ul>
-                </li>
-            </ul>
-        </div>
-    </header>
-    <nav id="menuLateral">
-        <a href="inicio.php">Inicio</a>
-        <a href="Dashboard.php">Dashboard data</a>
-        <a href="cargarData.php">Carga de datos</a>
-        <?php
-        
-            if(
-                $nombre_usuario === 'CENTRO DE LENGUAS EXTRANJERAS UNIDAD ZACATENCO' 
-            ){
-                echo '
-                    <a href="cargaProfesoresZAC.php">Carga de Profesores ZAC</a>
-                ';
-            }
-        
-            if(
-                $nombre_usuario === 'CENTRO DE LENGUAS EXTRANJERAS UNIDAD SANTO TOMÁS' 
-            ){
-                echo '
-                    <a href="cargaProfesoresST.php">Carga de Profesores ST</a>
-                ';
-            }
-        ?>
-        <a id="btnExcel" href="decargarData.php">Descargar Excel</a>
-        <a href="status.php">status</a>
-        <a href="cerrarSession.php">Cerrar sesion</a>
-
-    </nav>
-    <div id="contModal-carga">
-            <img src="../../recursos/multimedia/Logos/LOGOSIAGIF.gif" alt="Logo de Carga">
-            <div class="loader"></div>
-    </div>
     
+    <div class="sidebarSIA">
+            <div class="logo_contenidoSIA">
+                <div class="logoSIA">
+                    <img style="width:50px; height: 50px;" src="../../recursos/multimedia/Logos/LogoFondoGuinda.png" alt="logo">
+                    <div class="logo_nombreSIA">Sistema de Información de Autoevaluación</div>
+                </div>
+            </div>
+
+            <div class="cont-menuSIA" id="btn-menuSIA">
+                <i class="gg-menu" id="btnggmenu"></i>
+            </div>
+            <i class="gg-close" id="btn-closeSIA" style="display: none;"></i>
+            
+
+            <div class="nav-listSIA">
+                <div class="cont-linksSIA">
+                    <a href="inicio.php" id="btnesNavSIA">
+                        <div class="contenedor-icoSIA">
+                            <i class="gg-home-alt"></i>
+                        </div>
+                        <div class="contenedor-txticoSIA">
+                            <span class="links_nombresSIA">Inicio</span>
+                        </div>
+                    </a>
+                </div>
+
+        
+                <div class="cont-linksSIA">
+                    <a href="Dashboard.php" id="btnesNavSIA">
+                        <div class="contenedor-icoSIA">
+                            <i class="gg-insights"></i>
+                        </div>
+                        <div class="contenedor-txticoSIA">
+                            <span class="links_nombresSIA">Dashboard</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="cont-linksSIA">
+                    <a href="cargarData.php" id="btnesNavSIA">
+                        <div class="contenedor-icoSIA">
+                            <i class="gg-file-document"></i>
+                        </div>
+                        <div class="contenedor-txticoSIA">
+                            <span class="links_nombresSIA">FAE</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="cont-linksSIA">
+                    <a href="decargarData.php" id="btnesNavSIA">
+                        <div class="contenedor-icoSIA">
+                            <i class="gg-software-download"></i>
+                        </div>
+                        <div class="contenedor-txticoSIA">
+                            <span class="links_nombresSIA">Descarga de Archivos</span>
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="cont-linksSIA">
+                    <a href="status.php" id="btnesNavSIA">
+                        <div class="contenedor-icoSIA">
+                            <i class="gg-extension-add"></i>
+                        </div>
+                        <div class="contenedor-txticoSIA">
+                            <span class="links_nombresSIA">Carga de Datos</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="cont-linksSIA">
+                    <div class="dropdownSIA">
+                    <div id="btnesNavSIA" class="dropbtnSIA" style="cursor: pointer;">
+                        <div class="contenedor-icoSIA">
+                            <i class="gg-extension"></i>
+                        </div>
+                        <div class="contenedor-txticoSIA">
+                            <span class="links_nombresSIA">Carga de Profesores</span>
+                            <i class="gg-chevron-down"></i>
+                        </div>
+                    </div> 
+                    <div class="dropdown-contentSIA">       
+                        <?php
+                        
+                        if(
+                            $nombre_usuario === 'CENTRO DE LENGUAS EXTRANJERAS UNIDAD ZACATENCO' 
+                        ){
+                            echo '
+                                <a id="btnesDropSIA" href="cargaProfesoresZAC.php">Zacatenco</a>
+                            ';
+                        }
+                    
+                        if(
+                            $nombre_usuario === 'CENTRO DE LENGUAS EXTRANJERAS UNIDAD SANTO TOMÁS' 
+                        ){
+                            echo '
+                                <a id="btnesDropSIA" href="cargaProfesoresST.php">Santo Tomás</a>
+                            ';
+                        }
+                    ?>
+                      </div>
+                    </div>
+                </div>
+
+
+                </div>
+                
+                <div class="cont-logoutSIA">
+                    <a href="cerrarSession.php">
+                        <div class="contenedor-icoSIA">
+                            <i class="gg-log-out"></i>
+                        </div>
+                        <div class="contenedor-txticoSIA">
+                            <span class="links_nombresSIA">Cerrar Sesión</span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+
+    <script>
+        let btnMenu = document.querySelector("#btn-menuSIA");
+        let sidebar = document.querySelector(".sidebarSIA");
+        let btnClose = document.querySelector("#btn-closeSIA");
+
+        btnMenu.onclick = function() {
+            sidebar.classList.add("active");
+            btnMenu.style.display = "none";
+            btnClose.style.display = "block";
+        }
+
+        btnClose.onclick = function() {
+            sidebar.classList.remove("active");
+            btnMenu.style.display = "block";
+            btnClose.style.display = "none";
+        }
+
+    </script>
+
+</body>
+</html>

@@ -210,6 +210,31 @@ if ($stmt === false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Mensajes</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #searchForm{
+            width: 800px;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #searchForm > #searchInput{
+            width: 500px;
+            height: 40px;
+            border:1px solid #ccc;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 5px;
+        }
+        #searchForm > #clearSearch{
+            width: 150px;
+            height: 40px;
+            padding-left: 10px;
+            border-radius: 5px;
+            padding-right: 10px;
+        }
+    </style>
 </head>
 <body>
 

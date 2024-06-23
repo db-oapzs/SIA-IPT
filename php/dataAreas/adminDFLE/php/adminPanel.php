@@ -331,12 +331,12 @@ if ($stmt === false) {
     </form>
     
     <ul id="contCab">
-        <li style="width: 5%;">Grado</li>
-        <li style="width: 25%;">Nombre de Usuario</li>
-        <li style="width: 30%;">Unidad Académica</li>
-        <li style="width: 10%;">Cargo</li>
-        <li style="width: 10%;">Extención</li>
-        <li style="width: 20%;">Modificar Usuario</li>
+        <li style="width: 10%; text-align:center;">Grado</li>
+        <li style="width: 25%; text-align:center;">Nombre de Usuario</li>
+        <li style="width: 30%; text-align:center;">Unidad Académica</li>
+        <li style="width: 10%; text-align:center;">Cargo</li>
+        <li style="width: 10%; text-align:center;">Extención</li>
+        <li style="width: 20%; text-align:center;">Modificar Usuario</li>
     </ul>
     <div id="contTableData">
         <table id="contTable">
@@ -407,9 +407,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td style="width: 10%;">${user.Desc_Cargo}</td>
                 <td style="width: 10%; text-align:center;">${user.Desc_Numero_Telefono}</td>
                 <td style="width: 20%;">
-                    <form method="POST" action="modificarUrA.php">
+                    <form style="display:flex; flex-direction:row; justify-content:center; align-items:center;" method="POST" action="modificarUrA.php">
                         <input type="hidden" name="ustUMA" value="${user.Desc_Correo_Electronico}">
-                        <input class="btnPadm" type="submit" value="Modificar">
+                        <input style=" width:60%; height:40px; padding-left:10px; padding-right:10px;" class="btnPadm" type="submit" value="Modificar">
                     </form>
                 </td>
             `;

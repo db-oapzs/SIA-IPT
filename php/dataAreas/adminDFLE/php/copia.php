@@ -146,6 +146,9 @@
     <link rel="stylesheet" href="../styles/styless.css">
     <link rel="stylesheet" href="../styles/faeData.css">
     <link rel="stylesheet" href="../styles/stylesModalFAE.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+
     <link rel="icon" href="../../../../recursos/multimedia/Logos/SIA Logo.png" type="image/png">
     <script src="../scripts/jquery-3.7.1.min.js"></script>
     <script src="../scripts/scriptt.js" async defer></script>
@@ -192,13 +195,16 @@
             width: 100%;
             height: 100%;
             background: #fff;
-            display: block;
-            justify-content: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
             align-items: center;
+            flex-wrap:wrap;
             padding: 10px;
             border-radius: 5px;
             box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: sroll;
         }
         .resizable {
             position: relative;
@@ -209,33 +215,66 @@
             width: 100%;
             height: 100%;
         }
-        #ModalElimHoja{
+
+
+        .contItems {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            background: #EEEDEB;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px;
+        }
+        .contItems > .contElim {
+            width: 100%;
+            height: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        .contItems > .contElim > .itemBTEL {
+            width: 15px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: 150ms all linear;
+        }
+        .contItems > .contElim > .itemBTEL:hover {
+            cursor: pointer;
+            background: #ccc;
+        }
+        .contItems > .conMsjItm {
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.75);
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            z-index: 99999;
-        }
-        #ModalElimHoja >#modalHijElim{
-            width: 400px;
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             background: #fff;
-            border-radius: 5px;
-
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             overflow: hidden;
+            font-size: 100%;
+        }
+        .contItems > .conMsjItm > * {
+            width: 100%;
+            height: 100%;
+            font-size: 100%;
         }
     </style>
 </head>
 <body>
+    
     <div id="contFormTrans">
         <form id="formDataFAE" method="POST" action="">
             <h1>Datos Actuales</h1>
@@ -310,8 +349,11 @@
 
     <ul id="botonera">
         <li id="btnMH" title="Agrega Hojas al Ofició"><span id="icoMhojas" class="gg-file-add"></span></li>
+        <!--
         <li id="btnArgHj" title="Recuperar Datos"><span id="icoDatos" class="gg-file-document"></span></li>
+        -->
         <li id="btnMT" title="Agrega cuadro de Contenido"><span id="icoMTexto" class="gg-extension-add"></span></li>
+        <li id="btnTxtC" title="Agrega cuadro de texto"><span id="icoCTexto" class="gg-format-text"></span></li>
         <li id="btnImp" title="Imprimir Documento"><span id="icoImprimir" class="gg-printer"></span></li>
         <li id="btnGuardar" title="Guardar FAE"><span id="icoGuardar" class="gg-folder-add"></span></li>
         <li id="btnarrow" title="Regresar"><span id="icoRegresar" class="gg-arrow-left-r"></span></li>
@@ -751,15 +793,15 @@
         </footer>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script>
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-    <script>
+<script>
     var btnMH = document.getElementById('btnMH');
     var contadorHojas = 1;
     var dato = 'dato-0';
-    var btnMH = document.getElementById('btnMH');
-var contadorHojas = 1;
-var dato = 'dato-0';
-var valrod = '';
+    var valrod = '';
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -1017,119 +1059,178 @@ btnMH.addEventListener('click', () => {
     checkElementsInView();
     
     window.addEventListener('afterprint', handleAfterPrint);
-    function simulateCtrlZ() {
-    var event = new KeyboardEvent('keydown', {
-        bubbles: true,
-        cancelable: true,
-        key: 'z', 
-        code: 'KeyZ', 
-        ctrlKey: true
-    });
-    document.dispatchEvent(event);
-    }
-    var btnMT = document.getElementById('btnMT');
-        btnMT.addEventListener('click', () => {
-            console.log("btn 2");
-            console.log(dato);
 
-        var wrapper = document.createElement("div");
-        wrapper.classList.add("resizable");
+let contIndex = 1; // Inicializar el índice para nuevos elementos
+const btnMT = document.getElementById('btnMT');
 
-        var textBox = document.createElement("div");
-        textBox.classList.add("miClase");
-        textBox.setAttribute("contenteditable", true); // Permite que el contenido sea editable
-        textBox.contentEditable = "true";
-        textBox.style.width = "200px";
-        textBox.style.height = "100px";
-        textBox.style.backgroundColor = "#fff";
-        textBox.style.border = "1px solid #ccc";
-        textBox.style.padding = "10px";
-        textBox.style.display = "flex";
-        textBox.style.flexDirection = "column";
-        textBox.style.fontSize = "20px";
-        textBox.style.justifyContent = "center";
-        textBox.style.alignItems = "center";
-        textBox.style.fontWeight = "400";
-        textBox.style.textTransform = "capitalize";
-        textBox.style.letterSpacing = "2px";
-        textBox.style.overflow = "hidden";
+btnMT.addEventListener('click', () => {
+    console.log("btn 2");
+    console.log(dato);
+    const newElement = document.createElement('div');
+    newElement.id = 'cont' + contIndex;
+    newElement.className = 'contItems';
+    newElement.innerHTML = `
+        <header class="contElim">
+            <div class="itemBTEL" data-id="${contIndex}"><span class="gg-close btnElIT"></span></div>
+        </header>
+        <div class="conMsjItm" contenteditable="false">Contenido</div>
+    `;
 
+    document.getElementById(dato).appendChild(newElement);
 
-        wrapper.appendChild(textBox);
-        document.getElementById(dato).appendChild(wrapper);
-        makeDraggable(textBox);
-        // Añadir el evento de pegado al nuevo cuadro de texto
-        textBox.addEventListener('paste', handlePaste);
-        simulateCtrlZ();
-        simulateCtrlZ();
-        simulateCtrlZ();
-        simulateCtrlZ();
-    });
+    // Añadir el evento de pegado al nuevo cuadro de texto
+    newElement.addEventListener('paste', handlePaste);
 
-    function handlePaste(e) {
-        e.preventDefault();
-        var clipboardData = e.clipboardData || window.clipboardData;
-        var items = clipboardData.items;
+    // Hacer que el nuevo elemento sea resizable y draggable
+    $(newElement).resizable();
+    $(newElement).draggable();
 
-        for (var i = 0; i < items.length; i++) {
-            var item = items[i];
-            if (item.type.indexOf("image") !== -1) {
-                var blob = item.getAsFile();
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var img = document.createElement("img");
-                    img.src = event.target.result;
-                    var wrapper = document.createElement("div");
-                    wrapper.classList.add("resizable");
-                    wrapper.appendChild(img);
-                    e.target.appendChild(wrapper);
-                    makeDraggable(textBox);
-                };
-                reader.readAsDataURL(blob);
-            } else if (item.type.indexOf("text/plain") !== -1) {
-                item.getAsString(function (text) {
-                    document.execCommand("insertHTML", false, text);
-                });
-            } else if (item.type.indexOf("text/html") !== -1) {
-                item.getAsString(function (html) {
-                    document.execCommand("insertHTML", false, html);
-                });
-            } else if (item.type.indexOf("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") !== -1) {
-                var file = item.getAsFile();
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var arrayBuffer = event.target.result;
-                    var data = new Uint8Array(arrayBuffer);
-                    var workbook = XLSX.read(data, {type: "array"});
-                    var html = XLSX.utils.sheet_to_html(workbook.Sheets[workbook.SheetNames[0]]);
-                    var wrapper = document.createElement("div");
-                    wrapper.classList.add("resizable");
-                    wrapper.innerHTML = html;
-                    e.target.appendChild(wrapper);
-                    makeDraggable(wrapper);
-                };
-                reader.readAsArrayBuffer(file);
-            }
+    // Añadir el evento de click para eliminar el elemento
+    const deleteButton = newElement.querySelector('.itemBTEL');
+    deleteButton.addEventListener('click', () => {
+        const elementId = deleteButton.getAttribute('data-id');
+        const elementToRemove = document.getElementById('cont' + elementId);
+        if (elementToRemove) {
+            elementToRemove.remove();
+        } else {
+            console.log('Elemento no encontrado: cont' + elementId);
         }
+    });
+
+    contIndex++; // Incrementar el índice para el próximo elemento
+    // Añadir el evento de pegado al nuevo cuadro de texto
+    newElement.addEventListener('paste', handlePaste);
+});
+
+
+function handlePaste(e) {
+    e.preventDefault();
+    var clipboardData = e.clipboardData || window.clipboardData;
+    var items = clipboardData.items;
+
+    // Verificar si hay contenido previo y eliminarlo si es necesario
+    if (e.target.innerHTML.trim() !== '') {
+        e.target.innerHTML = '';
     }
 
-    function makeDraggable(element) {
-        $(element).draggable({
-            containment: "#contPegar",
-            scroll: false
-        });
-        $(element).resizable({
-            handles: 'n, e, s, w, ne, se, sw, nw'
-        });
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        if (item.type.indexOf("image") !== -1) {
+            // Manejar imágenes
+            var blob = item.getAsFile();
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                var img = document.createElement("img");
+                img.src = event.target.result;
+                var wrapper = document.createElement("div");
+                wrapper.classList.add("resizable");
+                wrapper.appendChild(img);
+                e.target.appendChild(wrapper);
+            };
+            reader.readAsDataURL(blob);
+        } 
+    }
+}
+
+
+
+let contIndex1 = 1; // Inicializar el índice para nuevos elementos
+const btnTxtC = document.getElementById('btnTxtC');
+
+// Definir las opciones de la barra de herramientas de Quill
+const toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],       
+  ['blockquote', 'code-block'],
+
+  [{ 'header': 1 }, { 'header': 2 }],               
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],     
+  [{ 'indent': '-1'}, { 'indent': '+1' }],         
+  [{ 'direction': 'rtl' }],                        
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],  
+
+  [{ 'color': [] }, { 'background': [] }],          
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+
+];
+
+btnTxtC.addEventListener('click', () => {
+    console.log("btn 2");
+    console.log(dato);
+    const newElement = document.createElement('div');
+    newElement.id = 'contC' + contIndex1;
+    newElement.className = 'contItems';
+    newElement.innerHTML = `
+        <header class="contElim">
+            <div class="itemBTEL" data-id="${contIndex1}"><span class="gg-close btnElIT"></span></div>
+        </header>
+        <div id="editor${contIndex1}" class="conMsjItm">texto</div>
+    `;
+
+    // Agregar nuevo elemento al DOM
+    document.getElementById(dato).appendChild(newElement);
+
+    // Inicializar Quill después de que el nuevo elemento se haya agregado al DOM
+    const quill = new Quill(`#editor${contIndex1}`, {
+        modules: {
+            toolbar: toolbarOptions
+        },
+        theme: 'snow'
+    });
+
+    // Ajustar el tamaño del contenedor del editor para que ocupe el 100% del espacio
+    const editorContainer = document.getElementById(`editor${contIndex1}`);
+    editorContainer.style.width = '100%';
+    editorContainer.style.height = '100%';
+
+    // Hacer que el nuevo elemento sea resizable y draggable
+    $(newElement).resizable();
+    $(newElement).draggable();
+
+    // Añadir el evento de click para eliminar el elemento
+    const deleteButton = newElement.querySelector('.itemBTEL');
+    deleteButton.addEventListener('click', () => {
+        const elementId = deleteButton.getAttribute('data-id');
+        const elementToRemove = document.getElementById('contC' + elementId);
+        if (elementToRemove) {
+            elementToRemove.remove();
+        } else {
+            console.log('Elemento no encontrado: cont' + elementId);
+        }
+    });
+
+    contIndex1++; // Incrementar el índice para el próximo elemento
+    // Añadir el evento de pegado al nuevo cuadro de texto
+    newElement.addEventListener('paste', handlePaste2);
+});
+
+
+
+
+function handlePaste2(e) {
+    e.preventDefault();
+    var clipboardData = e.clipboardData || window.clipboardData;
+    var items = clipboardData.items;
+
+    // Verificar si hay contenido previo y eliminarlo si es necesario
+    if (e.target.innerHTML.trim() !== '') {
+        e.target.innerHTML = '';
     }
 
-    function submitContent() {
-        var content = document.getElementById('contPegar').innerHTML;
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'save_content.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('content=' + encodeURIComponent(content));
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        if (item.type.indexOf("text/plain") !== -1 || item.type.indexOf("text/html") !== -1) {
+            // Manejar texto plano o HTML
+            item.getAsString(function (text) {
+                document.execCommand("insertHTML", false, text);
+            });
+        } 
     }
+}
+
+
 
     // Función para manejar el evento keydown
     function handleKeyDown(event) {
@@ -1157,8 +1258,6 @@ btnMH.addEventListener('click', () => {
             elementos2[i].style.display = 'block'; // Cambia esto según lo que necesites
         }
     }
-
-
 
 
     $( function() {
@@ -1212,7 +1311,7 @@ btnMH.addEventListener('click', () => {
             ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
         }
         });
-        $( "#btnArgHj" ).tooltip({
+        $( "#btnTxtC" ).tooltip({
         show: null,
         position: {
             my: "left top",
@@ -1231,24 +1330,28 @@ btnMH.addEventListener('click', () => {
 // Función para ocultar los elementos
 function ocultarElementos() {
     var elemento1 = document.getElementById('botonera');
-    var contMenuAd = document.getElementById('contMenuAd');
     var elementos2 = document.getElementsByClassName('ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se');
+    var elementos3 = document.querySelectorAll('.ql-toolbar');
     elemento1.style.display = 'none'; 
-    contMenuAd.style.display = 'none'; 
     for (var i = 0; i < elementos2.length; i++) {
         elementos2[i].style.display = 'none';
+    }
+    for (var i = 0; i < elementos3.length; i++) {
+        elementos3[i].style.display = 'none';
     }
 }
 
 // Función para mostrar los elementos
 function mostrarElementos() {
     var elemento1 = document.getElementById('botonera');
-    var contMenuAd = document.getElementById('contMenuAd');
     var elementos2 = document.getElementsByClassName('ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se');
+    var elementos3 = document.querySelectorAll('.ql-toolbar');
     elemento1.style.display = 'flex'; // Cambia esto según lo que necesites
-    contMenuAd.style.display = 'flex'; // Cambia esto según lo que necesites
     for (var i = 0; i < elementos2.length; i++) {
         elementos2[i].style.display = 'block'; // Cambia esto según lo que necesites
+    }
+    for (var i = 0; i < elementos3.length; i++) {
+        elementos3[i].style.display = 'flex';
     }
 }
 
@@ -1265,17 +1368,6 @@ btnarrow.addEventListener('click', () => {
     console.log("se ha presionado btnarrow");
     history.back();
 });
-let icoDatos = document.getElementById("icoDatos");
-let icoMhojas = document.getElementById("icoMhojas");
-
-icoDatos.addEventListener("click", function handleClick() {
-    let hojas_datos = <?php echo $numeroHojas ?>;
-    for (let i = 0; i < hojas_datos; i++) {
-        icoMhojas.click();
-    }
-    icoDatos.removeEventListener("click", handleClick);
-});
-
     </script>
 </html>
 

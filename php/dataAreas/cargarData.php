@@ -58,7 +58,6 @@ if(count($arrayDataSQL_H) === 0 || count($arrayDataSQL_M) === 0){
 }
 
 
-var_dump($_SESSION);
 ?>
     <div id="contDataForm">
         <div id="headerData">
