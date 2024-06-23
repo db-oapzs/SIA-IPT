@@ -224,7 +224,7 @@ var_dump($Extencion);
                 </select>
                 <label>Nombre : </label>
                 <input class="dtPasado" type="text" value="<?php echo $Nom ?>" readonly />
-                <input type="text" placeholder="$valor_Nuevo" name="nombre" />
+                <input type="text" placeholder="Nuevo Nombre" name="nombre" />
                 <label>Estado bloqueo : </label>
                 <input class="dtPasado" type="text" value="<?php echo $StateBloq ?>" readonly />
                 <select name="opcEstadoBloq">
@@ -277,7 +277,7 @@ var_dump($Extencion);
                 </select>
                 <label>Extención : </label>
                 <input class="dtPasado" type="text" value="<?php echo $Extencion ?>" readonly />
-                <input type="tel" placeholder="$valor_Nuevo" name="extencionTel" maxlength="5"/>
+                <input type="tel" placeholder="Nueva Extención" name="extencionTel" maxlength="5"/>
                 <input type="hidden" name="correo" value="<?php echo $arrayDt7 ?>" />
             </nav>          
             <input type="submit" value="modificar">

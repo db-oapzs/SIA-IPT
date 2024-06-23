@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $datosEncontrados[] = $fila;
                 }
                 if (count($datosEncontrados) > 0) {
-                    if ($datosEncontrados[0]['hora_vencimiento'] <= date('H:i:s')) {
+                    if ($datosEncontrados[0]['hora_vencimiento'] >= date('H:i:s')) {
                         echo "<br><h1>hora valida</h1>";
                         $query = "
                             UPDATE Contrasena_Hash

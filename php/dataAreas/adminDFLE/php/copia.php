@@ -225,7 +225,6 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            border: 1px solid #000;
             border-radius: 5px;
             overflow: hidden;
             margin: 10px;
@@ -237,7 +236,6 @@
             flex-direction: row;
             justify-content: flex-end;
             align-items: center;
-            border: 1px solid #000;
             overflow: hidden;
         }
         .contItems > .contElim > .itemBTEL {
@@ -1281,16 +1279,6 @@ function handlePaste2(e) {
             ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
         }
         });
-        $( "#btnImp" ).tooltip({
-        show: null,
-        position: {
-            my: "left top",
-            at: "left bottom"
-        },
-        open: function( event, ui ) {
-            ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
-        }
-        });
         $( "#btnarrow" ).tooltip({
         show: null,
         position: {
@@ -1332,12 +1320,22 @@ function ocultarElementos() {
     var elemento1 = document.getElementById('botonera');
     var elementos2 = document.getElementsByClassName('ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se');
     var elementos3 = document.querySelectorAll('.ql-toolbar');
+    var headerConts = document.getElementsByClassName('contElim');
+    var container = document.getElementsByClassName('ql-container ql-snow');
+    var contItemss = document.getElementsByClassName('contItems');
     elemento1.style.display = 'none'; 
     for (var i = 0; i < elementos2.length; i++) {
         elementos2[i].style.display = 'none';
     }
     for (var i = 0; i < elementos3.length; i++) {
         elementos3[i].style.display = 'none';
+    }
+    for (var i = 0; i < headerConts.length; i++) {
+        headerConts[i].style.display = 'none';
+    }
+    for (var i = 0; i < contItemss.length; i++) {
+        contItemss[i].style.border = '0px';
+        container[i].style.border = '0px';
     }
 }
 
@@ -1346,12 +1344,22 @@ function mostrarElementos() {
     var elemento1 = document.getElementById('botonera');
     var elementos2 = document.getElementsByClassName('ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se');
     var elementos3 = document.querySelectorAll('.ql-toolbar');
+    var headerConts = document.getElementsByClassName('contElim');
+    var contItemss = document.getElementsByClassName('contItems');
+    var container = document.getElementsByClassName('ql-container ql-snow');
     elemento1.style.display = 'flex'; // Cambia esto según lo que necesites
     for (var i = 0; i < elementos2.length; i++) {
         elementos2[i].style.display = 'block'; // Cambia esto según lo que necesites
     }
     for (var i = 0; i < elementos3.length; i++) {
         elementos3[i].style.display = 'flex';
+    }
+    for (var i = 0; i < headerConts.length; i++) {
+        headerConts[i].style.display = 'flex';
+    }
+    for (var i = 0; i < contItemss.length; i++) {
+        contItemss[i].style.border = '1px solid #ccc';
+        container[i].style.border = '1px solid #ccc';
     }
 }
 

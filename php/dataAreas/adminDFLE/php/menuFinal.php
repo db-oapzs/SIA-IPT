@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['correo'])) {
+        header("Location: ../../../../html/login.php?status=sessionCad");
+        exit();
+    }
+    $correo = $_SESSION['correo'];
+    $nombre_usuario = $_SESSION['nombre_usuario'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,142 +44,227 @@
     
 </head>
 <body>
-    
-    <div class="sidebar">
-            <div class="logo_contenido">
-                <div class="logo">
-                    <img src="../recursos/media/LogoFondoGuinda.png" alt="logo">
-                    <div class="logo_nombre">Sistema de Información de Autoevaluación</div>
-                </div>
-            </div>
-
-            <div class="cont-menu" id="btn-menu">
-                <i class="gg-menu" id="btnggmenu"></i>
-            </div>
-            <i class="gg-close" id="btn-close" style="display: none;"></i>
+    <?php
+    $adCargCaDII ='oapzs99solano@hotmail.com';
+    if($correo === $adCargCaDII){
+        echo '
             
-
-            <div class="nav-list">
-                <div class="cont-links">
-                    <a href="Bienvenida.php" id="btnesNav">
-                        <div class="contenedor-ico">
-                            <i class="gg-home-alt"></i>
+            <div class="sidebar">
+                    <div class="logo_contenido">
+                        <div class="logo">
+                            <img src="../recursos/media/LogoFondoGuinda.png" alt="logo">
+                            <div class="logo_nombre">Sistema de Información de Autoevaluación</div>
                         </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Inicio</span>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="cont-links">
-                    <a href="adminPanel.php" id="btnesNav">
-                        <div class="contenedor-ico">
-                            <i class="gg-user-list"></i>
-                        </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Panel de Usuarios</span>
-                        </div>
-                    </a>
-                </div>
-        
-                <div class="cont-links">
-                    <a href="" id="btnesNav">
-                        <div class="contenedor-ico">
-                            <i class="gg-insights"></i>
-                        </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Dashboard</span>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="cont-links">
-                    <a href="copia.php" id="btnesNav">
-                        <div class="contenedor-ico">
-                            <i class="gg-file-document"></i>
-                        </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">FAE</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cont-links">
-                    <a href="DescargaFormatos.php" id="btnesNav">
-                        <div class="contenedor-ico">
-                            <i class="gg-software-download"></i>
-                        </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Descarga de Archivos</span>
-                        </div>
-                    </a>
-                </div>
-    
-                <div class="cont-links">
-                    <a href="MensajesAdmin.php" id="btnesNav">
-                        <div class="contenedor-ico">
-                            <i class="gg-comment"></i>
-                        </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Mensajes</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="cont-links">
-                    <a href="CargaActiv.php" id="btnesNav">
-                        <div class="contenedor-ico">
-                            <i class="gg-stack"></i>
-                        </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Formación de Profesores</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="cont-links">
-                    <a href="formato1.php" id="btnesNav">
-                        <div class="contenedor-ico">
-                            <i class="gg-play-list-check"></i>
-                        </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Unidades Supervisadas</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cont-links">
-                    <div class="dropdown">
-                    <div id="btnesNav" class="dropbtn" style="cursor: pointer;">
-                        <div class="contenedor-ico">
-                            <i class="gg-extension"></i>
-                        </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Estadísticos</span>
-                            <i class="gg-chevron-down"></i>
-                        </div>
-                    </div> 
-                    <div class="dropdown-content">
-                        <a id="btnesDrop" href="justificacionF2.php">Justificación F2</a>
-                        <a id="btnesDrop" href="archivoF5Justificacion.php">Justificación F5</a>
-                        <a id="btnesDrop" href="archivoF99Justificacion.php">Justificación F9</a>
-                      </div>
                     </div>
-                </div>
 
+                    <div class="cont-menu" id="btn-menu">
+                        <i class="gg-menu" id="btnggmenu"></i>
+                    </div>
+                    <i class="gg-close" id="btn-close" style="display: none;"></i>
+                    
 
-                </div>
+                    <div class="nav-list">
+                        <div class="cont-links">
+                            <a href="Bienvenida.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-home-alt"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Inicio</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="cont-links">
+                            <a href="adminPanel.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-user-list"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Panel de Usuarios</span>
+                                </div>
+                            </a>
+                        </div>
                 
-                <div class="cont-logout">
-                    <a href="">
-                        <div class="contenedor-ico">
-                            <i class="gg-log-out"></i>
+                        <div class="cont-links">
+                            <a href="" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-insights"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Dashboard</span>
+                                </div>
+                            </a>
                         </div>
-                        <div class="contenedor-txtico">
-                            <span class="links_nombres">Cerrar Sesión</span>
-                        </div>
-                    </a>
-                </div>
 
-            </div>
+                        <div class="cont-links">
+                            <a href="DescargaFormatos.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-software-download"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Descarga de Archivos</span>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="cont-links">
+                            <a href="MensajesAdmin.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-comment"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Mensajes</span>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        </div>
+                        
+                        <div class="cont-logout">
+                            <a href="cerrarsesion.php">
+                                <div class="contenedor-ico">
+                                    <i class="gg-log-out"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Cerrar Sesión</span>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                ';
+    }else{
+        echo'
+            <div class="sidebar">
+                    <div class="logo_contenido">
+                        <div class="logo">
+                            <img src="../recursos/media/LogoFondoGuinda.png" alt="logo">
+                            <div class="logo_nombre">Sistema de Información de Autoevaluación</div>
+                        </div>
+                    </div>
+
+                    <div class="cont-menu" id="btn-menu">
+                        <i class="gg-menu" id="btnggmenu"></i>
+                    </div>
+                    <i class="gg-close" id="btn-close" style="display: none;"></i>
+                    
+
+                    <div class="nav-list">
+                        <div class="cont-links">
+                            <a href="Bienvenida.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-home-alt"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Inicio</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                
+                        <div class="cont-links">
+                            <a href="" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-insights"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Dashboard</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="cont-links">
+                            <a href="copia.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-file-document"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">FAE</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="cont-links">
+                            <a href="DescargaFormatos.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-software-download"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Descarga de Archivos</span>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="cont-links">
+                            <a href="MensajesAdmin.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-comment"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Mensajes</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cont-links">
+                            <a href="CargaActiv.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-stack"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Formación de Profesores</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cont-links">
+                            <a href="formato1.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-play-list-check"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Unidades Supervisadas</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="cont-links">
+                            <div class="dropdown">
+                            <div id="btnesNav" class="dropbtn" style="cursor: pointer;">
+                                <div class="contenedor-ico">
+                                    <i class="gg-extension"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Estadísticos</span>
+                                    <i class="gg-chevron-down"></i>
+                                </div>
+                            </div> 
+                            <div class="dropdown-content">
+                                <a id="btnesDrop" href="justificacionF2.php">Justificación F2</a>
+                                <a id="btnesDrop" href="archivoF5Justificacion.php">Justificación F5</a>
+                                <a id="btnesDrop" href="archivoF99Justificacion.php">Justificación F9</a>
+                            </div>
+                            </div>
+                        </div>
+
+
+                        </div>
+                        
+                        <div class="cont-logout">
+                            <a href="cerrarsesion.php">
+                                <div class="contenedor-ico">
+                                    <i class="gg-log-out"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Cerrar Sesión</span>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+        ';
+    }
+    ?>
 
 
     <script>

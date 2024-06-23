@@ -1,4 +1,7 @@
 <?php
+
+
+
 require '../../../vendor/autoload.php';
 header('Content-Type: text/html; charset=utf-8');
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -236,8 +239,15 @@ if ($stmt === false) {
     }
 }
 
-    //include 'menu.php';
-    include 'menuFinal.php';
+//include 'menu.php';
+include 'menuFinal.php';
+
+if ($correo != 'oapzs99solano@hotmail.com') {
+    echo "<script type='text/javascript'>
+            window.location.href = '../../../../html/login.php?status=sessionCad';
+          </script>";
+    exit();
+}
 ?>
 <script src="../scripts/scriptPanelAdmin.js" async defer></script>
 <div id="modalAgUsr">

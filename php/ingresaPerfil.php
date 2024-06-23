@@ -104,10 +104,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["correo"]) && isset($_P
                                             $datosEncontrados = $row;
                                         }
                                         //--- guardo los datos en una session
-                                        $_SESSION['correo'] = $correo;
-                                        $_SESSION['nombre_usuario'] = $datosEncontrados['Desc_Nombre_Unidad_Academica'];
-                                        header("Location: ../php/dataAreas/inicio.php?status=success&correo=".$correo);
-                                        exit(); 
+                                        if($correo === 'operezs1901@alumno.ipn.mx' || $correo === 'oapzs99solano@hotmail.com'){
+                                            $_SESSION['correo'] = $correo;
+                                            $_SESSION['nombre_usuario'] = $datosEncontrados['Desc_Nombre_Unidad_Academica'];
+                                            header("Location: ../php/dataAreas/adminDFLE/php/Bienvenida.php?status=success&correo=".$correo);
+                                            exit(); 
+                                        }else{
+                                            $_SESSION['correo'] = $correo;
+                                            $_SESSION['nombre_usuario'] = $datosEncontrados['Desc_Nombre_Unidad_Academica'];
+                                            header("Location: ../php/dataAreas/inicio.php?status=success&correo=".$correo);
+                                            exit(); 
+                                        }
                                         //var_dump($datosEncontrados);
                                     }
                                     // Liberar el conjunto de resultados

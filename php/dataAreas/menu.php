@@ -128,7 +128,7 @@ sqlsrv_close($connection);
                             <i class="gg-file-document"></i>
                         </div>
                         <div class="contenedor-txticoSIA">
-                            <span class="links_nombresSIA">FAE</span>
+                            <span class="links_nombresSIA">Carga de Alumnos</span>
                         </div>
                     </a>
                 </div>
