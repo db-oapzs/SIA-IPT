@@ -281,67 +281,77 @@
     </div>
     <div id="contFormTrans_pas">
             <h1>Datos Pasados</h1>
-        <form id="formDataFAE_pas" method="POST" action="">
+        <form id="formDataFAE_pas" method="POST" action="FAEdataGuardaVariables.php">
+        <nav class="navContHojaForm">
             <?php
                 for($i = 0; $i < $numeroHojas ; $i++) {
                     echo '
-                        <label name="V1"></label>
+                        <label name="V1">hoja : '.($i+1).' V1</label>
                         <input
-                            id="intTrim1V1"
+                            id="intTrim1V1-'.($i).'"
                             type="text"
-                            name="1erTrimV1"
-                            plaseholder=" "
+                            name="1erTrimV1[]"
+                            value="0"
+                            class="inputDTa"
                         />
                         <input
-                            id="intTrim2V1"
+                            id="intTrim2V1-'.($i).'"
                             type="text"
-                            name="2doTrimV1"
-                            plaseholder=" "
+                            name="2doTrimV1[]"
+                            value="0"
+                            class="inputDTa"
                         />
                         <input
-                            id="intTrim3V1"
+                            id="intTrim3V1-'.($i).'"
                             type="text"
-                            name="3erTrimV1"
-                            plaseholder=" "
+                            name="3erTrimV1[]"
+                            value="0"
+                            class="inputDTa"
                         />
                         <input
-                            id="intTrim4V1"
+                            id="intTrim4V1-'.($i).'"
                             type="text"
-                            name="4toTrimV1"
-                            plaseholder=" "
+                            name="4toTrimV1[]"
+                            value="0"
+                            class="inputDTa"
                         />
                     ';
                     echo '
-                        <label name="V2"></label>
+                        <label name="V2">V2</label>
                         <input
-                            id="intTrim1V2"
+                            id="intTrim1V2-'.($i).'"
                             type="text"
-                            name="1erTrimV2"
-                            plaseholder=" "
+                            name="1erTrimV2[]"
+                            value="0"
+                            class="inputDTa"
                         />
                         <input
-                            id="intTrim2V2"
+                            id="intTrim2V2-'.($i).'"
                             type="text"
-                            name="2doTrimV2"
-                            plaseholder=" "
+                            name="2doTrimV2[]"
+                            value="0"
+                            class="inputDTa"
                         />
                         <input
-                            id="intTrim3V2"
+                            id="intTrim3V2-'.($i).'"
                             type="text"
-                            name="3erTrimV2"
-                            plaseholder=" "
+                            name="3erTrimV2[]"
+                            value="0"
+                            class="inputDTa"
                         />
                         <input
-                            id="intTrim4V2"
+                            id="intTrim4V2-'.($i).'"
                             type="text"
-                            name="4toTrimV2"
-                            plaseholder=" "
+                            name="4toTrimV2[]"
+                            value="0"
+                            class="inputDTa"
                         />
                     ';
                     echo "<br>";
                 }
             ?>
-            <input type="submit" value="Guardar FAE"/>
+                </nav>
+            <input id="enviarFAEData" type="submit" value="Guardar FAE"/>
         </form>
     </div>
 
@@ -460,6 +470,7 @@
                             type="text"
                             name="Trim1V1[]"
                             placeholder="0"
+                            id="Trim1V1-'.$i.'"
                         />
                     </div>
                     <div id="cont-24">
@@ -468,6 +479,7 @@
                             type="text"
                             name="Trim2V1[]"
                             placeholder="0"
+                            id="Trim2V1-'.$i.'"
                         />
                     </div>
                     <div id="cont-25">
@@ -476,6 +488,7 @@
                             type="text"
                             name="Trim3V1[]"
                             placeholder="0"
+                            id="Trim3V1-'.$i.'"
                         />
                     </div>
                     <div id="cont-26">
@@ -484,11 +497,11 @@
                             type="text"
                             name="Trim4V1[]"
                             placeholder="0"
+                            id="Trim4V1-'.$i.'"
                         />
                     </div>
                     <div id="cont-27">
                         <input
-                            class="cData"
                             type="text"
                             name="AcV1[]"
                             placeholder="0"
@@ -501,6 +514,7 @@
                             type="text"
                             name="Trim1V2[]"
                             placeholder="0"
+                            id="Trim1V2-'.$i.'"
                         />
                     </div>
                     <div id="cont-29">
@@ -509,6 +523,7 @@
                             type="text"
                             name="Trim2V2[]"
                             placeholder="0"
+                            id="Trim2V2-'.$i.'"
                         />
                     </div>
                     <div id="cont-30">
@@ -517,6 +532,7 @@
                             type="text"
                             name="Trim3V2[]"
                             placeholder="0"
+                            id="Trim3V2-'.$i.'"
                         />
                     </div>
                     <div id="cont-31">
@@ -525,11 +541,11 @@
                             type="text"
                             name="Trim4V2[]"
                             placeholder="0"
+                            id="Trim4V2-'.$i.'"
                         />
                     </div>
                     <div id="cont-32">
                         <input
-                            class="cData"
                             type="text"
                             name="AcV2[]"
                             placeholder="0"
@@ -797,7 +813,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 <script>
     var btnMH = document.getElementById('btnMH');
-    var contadorHojas = 1;
+    var contadorHojas = <?php echo $numeroHojas?>;
     var dato = 'dato-0';
     var valrod = '';
 
@@ -836,6 +852,79 @@ function debounceCheckElementsInView2() {
 
 window.addEventListener('scroll', debounceCheckElementsInView2);
 checkElementsInView2();
+
+
+    function dataInputDa(){
+    var cData = document.getElementsByClassName('cData');
+    var inputDTaa = document.getElementsByClassName('inputDTa');
+        for(let i = 0 ; i < cData.length ; i++){
+            let dtcpacData = cData[i].getAttribute('id');
+            let dtcpainputDTaa = inputDTaa[i].getAttribute('id');
+            let iunpout = document.getElementById(dtcpacData);
+            let output = document.getElementById(dtcpainputDTaa);
+            console.log(iunpout,output);
+            iunpout.addEventListener('input', ()=>{
+                    output.value =  iunpout.value;
+            });
+        }
+    }
+    function dataInputDa1() {
+    var cData = document.getElementsByClassName('cData');
+    var inputDTaa = document.getElementsByClassName('inputDTa');
+    
+    console.log("Número de elementos con clase cData:", cData.length);
+    console.log("Número de elementos con clase inputDTa:", inputDTaa.length);
+    
+    // Calcular la cantidad de bloques de datos basados en la longitud de cData (asumiendo 8 inputs por bloque)
+    let datosCont = Math.floor(cData.length / 8);
+    
+    console.log("Cantidad de bloques de datos:", datosCont);
+    
+    // Arrays de prefijos para IDs
+    let dtsV1 = [
+        'intTrim1V1-',
+        'intTrim2V1-',
+        'intTrim3V1-',
+        'intTrim4V1-',
+        'intTrim1V2-',
+        'intTrim2V2-',
+        'intTrim3V2-',
+        'intTrim4V2-',
+    ];
+    
+    let dtsV1dac = [
+        'Trim1V1-',
+        'Trim2V1-',
+        'Trim3V1-',
+        'Trim4V1-',
+        'Trim1V2-',
+        'Trim2V2-',
+        'Trim3V2-',
+        'Trim4V2-',
+    ];
+    
+    // Iterar sobre la cantidad de bloques de datos
+    for (let i = 0; i < datosCont; i++) {
+        // Iterar sobre los IDs y construir los IDs completos
+        for (let j = 0; j < dtsV1.length; j++) {
+            let idCompletoInput = dtsV1[j] + (i); // Sumar 1 porque quieres IDs empezando desde 1
+            let idCompletoData = dtsV1dac[j] + (i); // Sumar 1 porque quieres IDs empezando desde 1
+            
+            console.log("ID del input:", idCompletoInput);
+            console.log("ID del dato:", idCompletoData);
+            let d1 = document.getElementById(idCompletoInput);
+            let d2 = document.getElementById(idCompletoData);
+            console.log(d1,d2);
+            d2.addEventListener('input', ()=>{
+                d1.value = d2.value;
+            });
+        }
+    }
+}
+
+    //dataInputDa();
+    dataInputDa1();
+
 
 btnMH.addEventListener('click', () => {
     checkElementsInView2();  // Llamar a la función para encontrar el elemento visible
@@ -930,34 +1019,34 @@ btnMH.addEventListener('click', () => {
                 <p>acumulado</p>
             </div>
             <div id="cont-23">
-                <input class="cData" type="text" name="Trim1V1[]" placeholder="0" />
+                <input id="Trim1V1-${contadorHojas-1}" class="cData" type="text" name="Trim1V1[]" placeholder="0" />
             </div>
             <div id="cont-24">
-                <input class="cData" type="text" name="Trim2V1[]" placeholder="0" />
+                <input id="Trim2V1-${contadorHojas-1}"  class="cData" type="text" name="Trim2V1[]" placeholder="0" />
             </div>
             <div id="cont-25">
-                <input class="cData" type="text" name="Trim3V1[]" placeholder="0" />
+                <input id="Trim3V1-${contadorHojas-1}"  class="cData" type="text" name="Trim3V1[]" placeholder="0" />
             </div>
             <div id="cont-26">
-                <input class="cData" type="text" name="Trim4V1[]" placeholder="0" />
+                <input id="Trim4V1-${contadorHojas-1}"  class="cData" type="text" name="Trim4V1[]" placeholder="0" />
             </div>
             <div id="cont-27">
-                <input class="cData" type="text" name="AcV1[]" placeholder="0" readonly />
+                <input type="text" name="AcV1[]" placeholder="0" readonly />
             </div>
             <div id="cont-28">
-                <input class="cData" type="text" name="Trim1V2[]" placeholder="0" />
+                <input id="Trim1V2-${contadorHojas-1}"  class="cData" type="text" name="Trim1V2[]" placeholder="0" />
             </div>
             <div id="cont-29">
-                <input class="cData" type="text" name="Trim2V2[]" placeholder="0" />
+                <input id="Trim2V2-${contadorHojas-1}"  class="cData" type="text" name="Trim2V2[]" placeholder="0" />
             </div>
             <div id="cont-30">
-                <input class="cData" type="text" name="Trim3V2[]" placeholder="0" />
+                <input id="Trim3V2-${contadorHojas-1}"  class="cData" type="text" name="Trim3V2[]" placeholder="0" />
             </div>
             <div id="cont-31">
-                <input class="cData" type="text" name="Trim4V2[]" placeholder="0" />
+                <input id="Trim4V2-${contadorHojas-1}"  class="cData" type="text" name="Trim4V2[]" placeholder="0" />
             </div>
             <div id="cont-32">
-                <input class="cData" type="text" name="AcV2[]" placeholder="0" readonly />
+                <input type="text" name="AcV2[]" placeholder="0" readonly />
             </div>
             <div id="cont-33">
                 <p>n/a</p>
@@ -995,15 +1084,78 @@ btnMH.addEventListener('click', () => {
             </div>
         </footer>
     `;
+    let htmlinputs = `
+        <label name="V1">hoja : ${contadorHojas}  V1</label>
+        <input
+            id="intTrim1V1-${contadorHojas-1}"
+            type="text"
+            name="1erTrimV1[]"
+            value="0"
+            class="inputDTa"
+        />
+        <input
+            id="intTrim2V1-${contadorHojas-1}"
+            type="text"
+            name="2doTrimV1[]"
+            value="0"
+            class="inputDTa"
+        />
+        <input
+            id="intTrim3V1-${contadorHojas-1}"
+            type="text"
+            name="3erTrimV1[]"
+            value="0"
+            class="inputDTa"
+        />
+        <input
+            id="intTrim4V1-${contadorHojas-1}"
+            type="text"
+            name="4toTrimV1[]"
+            value="0"
+            class="inputDTa"
+        />
+        <label name="V2">V2</label>
+        <input
+            id="intTrim1V2-${contadorHojas-1}"
+            type="text"
+            name="1erTrimV2[]"
+            value="0"
+            class="inputDTa"
+        />
+        <input
+            id="intTrim2V2-${contadorHojas-1}"
+            type="text"
+            name="2doTrimV2[]"
+            value="0"
+            class="inputDTa"
+        />
+        <input
+            id="intTrim3V2-${contadorHojas-1}"
+            type="text"
+            name="3erTrimV2[]"
+            value="0"
+            class="inputDTa"
+        />
+        <input
+            id="intTrim4V2-${contadorHojas-1}"
+            type="text"
+            name="4toTrimV2[]"
+            value="0"
+            class="inputDTa"
+        />
+        <br>
+    `;
+    var navContHojaForm = document.querySelector('.navContHojaForm');
+    navContHojaForm.insertAdjacentHTML('beforeend', htmlinputs);
+
+    
+    
     contpadre.innerHTML = contHTML;
 
     // Encuentra el contenedor visible y lo utiliza para insertar después de este
     var firstContPadre = document.querySelector(`.${valrod}`);
     if (firstContPadre) {
         firstContPadre.parentNode.insertBefore(contpadre, firstContPadre.nextSibling);
-    } else {
-        // Si no hay un contenedor visible, se inserta al final del body
-        document.body.appendChild(contpadre);
     }
 
     // Actualizar números de página
@@ -1016,7 +1168,14 @@ btnMH.addEventListener('click', () => {
             console.log(p.textContent);
         });
     }
-});
+
+
+
+    
+    //dataInputDa();
+    dataInputDa1();
+});    
+
     // Obtener todos los elementos con la clase 'dtaGen'
     var datshojas = document.querySelectorAll('.dtaGno');
 
@@ -1375,6 +1534,12 @@ let btnarrow = document.getElementById("btnarrow");
 btnarrow.addEventListener('click', () => {
     console.log("se ha presionado btnarrow");
     history.back();
+});
+let btnGuardar = document.getElementById("btnGuardar");
+let enviarFAEData = document.getElementById("enviarFAEData");
+btnGuardar.addEventListener('click', () => {
+    console.log("se ha presionado enviarFAEData");
+    enviarFAEData.click();
 });
     </script>
 </html>
