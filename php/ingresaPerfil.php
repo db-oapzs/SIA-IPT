@@ -103,14 +103,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["correo"]) && isset($_P
                                             //print_r($row);
                                             $datosEncontrados = $row;
                                         }
+
+                                        $queryPerfilUser = '
+                                            SELECT 
+                                                CE.Desc_Correo_Electronico, RD.Desc_Rol
+                                            FROM Usuarios_General UG
+                                            JOIN Correo_Electronico CE ON UG.id_CorreoElectronico = CE.ID_CorreoElectronico
+                                            JOIN Rol_Dentro_Del_Sistema RD ON UG.id_Rol = RD.ID_Rol
+                                            WHERE CE.Desc_Correo_Electronico = ?
+                                        ';
+
+                                        $params = array($correo);
+                                        $datoda2 = '';
+
+                                        $stmt = sqlsrv_prepare($connection, $queryPerfilUser, $params);
+                                        if ($stmt === false) {
+                                            // Manejar el error de la consulta preparada
+                                            echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
+                                        } else {
+                                            // Ejecutar la consulta
+                                            $result = sqlsrv_execute($stmt);
+
+                                            if ($result === false) {
+                                                // Manejar el error de la ejecución de la consulta
+                                                echo "Error al ejecutar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
+                                            } else {
+                                                // Mostrar los resultados
+                                                while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                                                    $datoda2 = $row['Desc_Rol'];
+                                                }
+                                            }
+                                            // Liberar el conjunto de resultados
+                                            sqlsrv_free_stmt($stmt);
+                                        }
                                         //--- guardo los datos en una session
-                                        if($correo === 'operezs1901@alumno.ipn.mx' || $correo === 'oapzs99solano@hotmail.com'){
+                                        if(
+                                            $datoda2 === 'Administrador SIA' || 
+                                            $datoda2 === 'DII-Jefe_Analista' || 
+                                            $datoda2 === 'DFLE-Administrado'
+                                        ){
                                             $_SESSION['correo'] = $correo;
+                                            $_SESSION['roll'] = $datoda2;
                                             $_SESSION['nombre_usuario'] = $datosEncontrados['Desc_Nombre_Unidad_Academica'];
                                             header("Location: ../php/dataAreas/adminDFLE/php/Bienvenida.php?status=success&correo=".$correo);
                                             exit(); 
-                                        }else{
+                                        }
+                                        if($datoda2 === 'DFLE-Dependencia-Unidades'){
                                             $_SESSION['correo'] = $correo;
+                                            $_SESSION['roll'] = $datoda2;
                                             $_SESSION['nombre_usuario'] = $datosEncontrados['Desc_Nombre_Unidad_Academica'];
                                             header("Location: ../php/dataAreas/inicio.php?status=success&correo=".$correo);
                                             exit(); 

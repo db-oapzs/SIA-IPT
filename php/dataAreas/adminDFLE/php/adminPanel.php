@@ -241,8 +241,7 @@ if ($stmt === false) {
 
 //include 'menu.php';
 include 'menuFinal.php';
-
-if ($correo != 'oapzs99solano@hotmail.com') {
+if ($roll != 'DII-Jefe_Analista' && $roll != 'Administrador SIA') {
     echo "<script type='text/javascript'>
             window.location.href = '../../../../html/login.php?status=sessionCad';
           </script>";

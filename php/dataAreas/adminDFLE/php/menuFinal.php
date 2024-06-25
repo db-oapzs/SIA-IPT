@@ -6,7 +6,8 @@
     }
     $correo = $_SESSION['correo'];
     $nombre_usuario = $_SESSION['nombre_usuario'];
-
+    $roll = $_SESSION['roll'];
+    //var_dump($_SESSION);
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DFLE</title>
+    <title>DFLE <?php echo $roll ?></title>
     <link rel="stylesheet" href="../styles/stylesmenu.css">
         <link rel="stylesheet" href="../styles/iconos.css">
         <link rel="stylesheet" href="../styles/menu.css">
@@ -45,8 +46,7 @@
 </head>
 <body>
     <?php
-    $adCargCaDII ='oapzs99solano@hotmail.com';
-    if($correo === $adCargCaDII){
+    if($roll === 'Administrador SIA' || $roll === 'DII-Jefe_Analista'){
         echo '
             
             <div class="sidebar">
@@ -135,7 +135,8 @@
 
                     </div>
                 ';
-    }else{
+    }
+    if($roll === 'DFLE-Administrado'){
         echo'
             <div class="sidebar">
                     <div class="logo_contenido">

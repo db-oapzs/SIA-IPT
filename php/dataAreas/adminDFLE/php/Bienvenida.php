@@ -6,8 +6,11 @@
     <div class="container-padre">
         <div class="container-hijo">
             <img src="../recursos/media/logo2.png" alt="">
-            <h1>¡Bienvenido, Administrador!</h1>
-            
+            <h1>¡Bienvenido, 
+                <?php 
+                    echo ($roll === 'DFLE-Administrado') ? 'DFLE-Administrador' : $roll; 
+                ?>
+            </h1>            
             <div class="container-clock">
                 <p id="date">date</p>
                 <p id="time">00:00:00</p>

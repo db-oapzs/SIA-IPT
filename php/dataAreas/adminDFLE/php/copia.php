@@ -1522,7 +1522,6 @@ function mostrarElementos() {
     }
 }
 
-// Asignar eventos beforeprint y afterprint
 window.addEventListener('beforeprint', ocultarElementos);
 window.addEventListener('afterprint', mostrarElementos);
 
