@@ -46,6 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)&& !empty($_POST['unida
         <h1 style="color:#222831 !important; font-size:27px; text-transform: capitalize;">DFLE</h1>
         <p style="color:#222831 !important; font-size:23px;">Este es un correo enviado desde el SIA por la DFLE</p>
         <p style="color:#222831 !important; font-size:18px;">'.$mensaje.'</p>
+        <p style="color:#222831 !important; font-size:13px;">No Responder. Este Correo Solo Es Un Aviso</p>
         <div style="background: #682444; width: 100%; height: 40px; iplay:flex !important; color:#ccc !important; flex-direction: column !important; justify-content: space-around !important; align-items: center !important;"></div>
         </div>
         ';

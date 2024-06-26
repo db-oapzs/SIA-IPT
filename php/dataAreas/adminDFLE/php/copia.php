@@ -430,11 +430,6 @@
                     <div id="cont-7">
                         <p>clave del indicador: <input type="text" id="indCinput-'.$i.'" class="indicadorFAEsPIM" value="'.$Indicador_CVE[$i].'"></p>
                     </div>
-                    <!--
-                    <div id="cont-7">
-                        <p>clave del indicador: <span id="indCinput-'.$i.'" class="indicadorFAEsPIM" contenteditable="true">'.$Indicador_CVE[$i].'</span></p>
-                    </div>
-                    -->
                     <div id="cont-8">
                         <p>resumen de actividades</p>
                     </div>
