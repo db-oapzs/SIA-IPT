@@ -269,6 +269,13 @@
             height: 100%;
             font-size: 100%;
         }
+        .indicadorFAEsPIM{
+            width: auto;
+            border:0;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 10px;
+        }
     </style>
 </head>
 <body>
@@ -286,6 +293,13 @@
             <?php
                 for($i = 0; $i < $numeroHojas ; $i++) {
                     echo '
+                        <input
+                            id="indicadorPIMDFLE-'.($i).'"
+                            type="text"
+                            name="indicadorPIMDFLE[]"
+                            value="'.$Indicador_CVE[$i].'"
+                            class="indiDFLEPIM"
+                        />
                         <label name="V1">hoja : '.($i+1).' V1</label>
                         <input
                             id="intTrim1V1-'.($i).'"
@@ -414,8 +428,13 @@
                     <p> 0'.$Proyecto_CVE[$i].' '.$Proyecto_Nombre[$i].'</p>
                     </div>
                     <div id="cont-7">
-                        <p>clave del indicador: '.$Indicador_CVE[$i].'</p>
+                        <p>clave del indicador: <input type="text" id="indCinput-'.$i.'" class="indicadorFAEsPIM" value="'.$Indicador_CVE[$i].'"></p>
                     </div>
+                    <!--
+                    <div id="cont-7">
+                        <p>clave del indicador: <span id="indCinput-'.$i.'" class="indicadorFAEsPIM" contenteditable="true">'.$Indicador_CVE[$i].'</span></p>
+                    </div>
+                    -->
                     <div id="cont-8">
                         <p>resumen de actividades</p>
                     </div>
@@ -910,11 +929,11 @@ checkElementsInView2();
             let idCompletoInput = dtsV1[j] + (i); // Sumar 1 porque quieres IDs empezando desde 1
             let idCompletoData = dtsV1dac[j] + (i); // Sumar 1 porque quieres IDs empezando desde 1
             
-            console.log("ID del input:", idCompletoInput);
-            console.log("ID del dato:", idCompletoData);
+            //console.log("ID del input:", idCompletoInput);
+            //console.log("ID del dato:", idCompletoData);
             let d1 = document.getElementById(idCompletoInput);
             let d2 = document.getElementById(idCompletoData);
-            console.log(d1,d2);
+            //console.log(d1,d2);
             d2.addEventListener('input', ()=>{
                 d1.value = d2.value;
             });
@@ -925,6 +944,21 @@ checkElementsInView2();
     //dataInputDa();
     dataInputDa1();
 
+
+    function dataIndicadoresUpdate() {
+        let indiDFLEPIM = document.getElementsByClassName('indiDFLEPIM');
+        let indicadorFAEsPIM = document.getElementsByClassName('indicadorFAEsPIM');
+
+        for (let i = 0; i < indiDFLEPIM.length; i++) {
+            let indicador = document.getElementById('indicadorPIMDFLE-' + i);
+            let indiciadoresFae = document.getElementById('indCinput-' + i);
+            indiciadoresFae.addEventListener('input', () => {
+                indicador.value = indiciadoresFae.value;
+            });
+        }
+    }
+
+    dataIndicadoresUpdate();
 
 btnMH.addEventListener('click', () => {
     checkElementsInView2();  // Llamar a la función para encontrar el elemento visible
@@ -971,7 +1005,7 @@ btnMH.addEventListener('click', () => {
             </div>
             <div id="cont-6"></div>
             <div id="cont-7">
-                <p>clave del indicador: F######</p>
+                <p>clave del indicador: <input type="text" id="indCinput-${contadorHojas-1}" class="indicadorFAEsPIM" value="F"></p>
             </div>
             <div id="cont-8">
                 <p>resumen de actividades</p>
@@ -1085,6 +1119,13 @@ btnMH.addEventListener('click', () => {
         </footer>
     `;
     let htmlinputs = `
+        <input
+            id="indicadorPIMDFLE-${contadorHojas-1}"
+            type="text"
+            name="indicadorPIMDFLE[]"
+            value=" "
+            class="indiDFLEPIM"
+        />
         <label name="V1">hoja : ${contadorHojas}  V1</label>
         <input
             id="intTrim1V1-${contadorHojas-1}"
@@ -1174,6 +1215,9 @@ btnMH.addEventListener('click', () => {
     
     //dataInputDa();
     dataInputDa1();
+
+
+    dataIndicadoresUpdate();
 });    
 
     // Obtener todos los elementos con la clase 'dtaGen'
@@ -1540,6 +1584,7 @@ btnGuardar.addEventListener('click', () => {
     console.log("se ha presionado enviarFAEData");
     enviarFAEData.click();
 });
-    </script>
+
+</script>
 </html>
 
