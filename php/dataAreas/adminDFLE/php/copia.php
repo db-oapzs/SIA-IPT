@@ -565,7 +565,9 @@
                         <input
                             type="text"
                             name="AcV1[]"
+                            id="acumVarDto-'.$i.'"
                             placeholder="0"
+                            class="AcumVar"
                             readonly
                         />
                     </div>
@@ -609,7 +611,9 @@
                         <input
                             type="text"
                             name="AcV2[]"
+                            id="acumVarDto-'.$i.'"
                             placeholder="0"
+                            class="AcumVar"
                             readonly
                         />
                     </div>
@@ -1128,7 +1132,7 @@ btnMH.addEventListener('click', () => {
                 <input id="Trim4V1-${contadorHojas-1}"  class="cData" type="text" name="Trim4V1[]" placeholder="0" />
             </div>
             <div id="cont-27">
-                <input type="text" name="AcV1[]" placeholder="0" readonly />
+                <input type="text" id="acumVarDto-${contadorHojas-1}"  class="AcumVar" name="AcV1[]" placeholder="0" readonly />
             </div>
             <div id="cont-28">
                 <input id="Trim1V2-${contadorHojas-1}"  class="cData" type="text" name="Trim1V2[]" placeholder="0" />
@@ -1143,7 +1147,7 @@ btnMH.addEventListener('click', () => {
                 <input id="Trim4V2-${contadorHojas-1}"  class="cData" type="text" name="Trim4V2[]" placeholder="0" />
             </div>
             <div id="cont-32">
-                <input type="text" name="AcV2[]" placeholder="0" readonly />
+                <input type="text" id="acumVarDto-${contadorHojas-1}"  class="AcumVar" name="AcV2[]" placeholder="0" readonly />
             </div>
             <div id="cont-33">
                 <p>n/a</p>
@@ -1653,6 +1657,16 @@ for(let i = 0 ; i < notaFaeUsrDT.length; i++) {
     notaFaeUsrDT[i].addEventListener('input', () => {
         inputNoteFaE[i].value = notaFaeUsrDT[i].value;
     });
+}
+
+
+let cDataIntputSum = document.getElementsByClassName("cData").length;
+let AcumVarDto = document.getElementsByClassName("AcumVar").length;
+let saltoInd = cDataIntputSum/AcumVarDto;
+console.log(saltoInd);
+for(let i = 0 ; i < AcumVarDto ; i++){
+    let dtSumFAE = document.getElementById("acumVarDto-"+i);
+    console.log(dtSumFAE);
 }
 </script>
 </html>
