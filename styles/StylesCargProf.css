@@ -19,8 +19,6 @@
 #contpadre > #conthijo {
   width: 100vw;
   height: 100vh;
-  padding-top: 150px;
-  padding-left: 40%;
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -30,6 +28,7 @@
   float: right;
 }
 #contpadre > #conthijo > #contTable, #contpadre > #conthijo > #contTableZAC {
+  padding-left: 20%;
   width: 100%;
   height: 100%;
   float: right;

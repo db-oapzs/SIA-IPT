@@ -189,8 +189,8 @@
 }
 
 #contDataForm {
-  width: 80%;
-  height: 900px;
+  width: 97vw;
+  height: auto;
   background: #fff;
   float: right;
   box-shadow: inset 0px 0px 19px 5px rgba(0, 0, 0, 0.37);
@@ -199,7 +199,7 @@
 #contDataForm > #headerData {
   width: 100%;
   height: 100px;
-  padding-top: 150px;
+  padding-top: 10px;
   overflow: hidden;
 }
 #contDataForm > #headerData > #formIdioma {
@@ -1702,6 +1702,10 @@
   width: 100%;
   height: 100%;
   color: #ccc !important;
+  font-size: 30px;
+  font-weight: 400;
+  overflow: hidden;
+  font-family: "Montserrat";
 }
 #contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont1 {
   width: 100%;
@@ -1724,6 +1728,10 @@
   width: 100%;
   height: 100%;
   color: #ccc !important;
+  font-size: 30px;
+  font-weight: 400;
+  overflow: hidden;
+  font-family: "Montserrat";
 }
 #contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont1 {
   width: 100%;
@@ -1746,6 +1754,10 @@
   width: 100%;
   height: 100%;
   color: #ccc !important;
+  font-size: 30px;
+  font-weight: 400;
+  overflow: hidden;
+  font-family: "Montserrat";
 }
 #contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont2 {
   width: 100%;
@@ -1768,6 +1780,10 @@
   width: 100%;
   height: 100%;
   color: #ccc !important;
+  font-size: 30px;
+  font-weight: 400;
+  overflow: hidden;
+  font-family: "Montserrat";
 }
 #contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont3 {
   width: 100%;
@@ -1790,6 +1806,10 @@
   width: 100%;
   height: 100%;
   color: #ccc !important;
+  font-size: 30px;
+  font-weight: 400;
+  overflow: hidden;
+  font-family: "Montserrat";
 }
 #contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont4 {
   width: 100%;
@@ -1812,6 +1832,10 @@
   width: 100%;
   height: 100%;
   color: #ccc !important;
+  font-size: 30px;
+  font-weight: 400;
+  overflow: hidden;
+  font-family: "Montserrat";
 }
 #contDataForm > #contMData > #contDtaIdioma > form > #dataTable > #block-cont5 {
   width: 100%;
@@ -1834,6 +1858,10 @@
   width: 100%;
   height: 100%;
   color: #ccc !important;
+  font-size: 30px;
+  font-weight: 400;
+  overflow: hidden;
+  font-family: "Montserrat";
 }
 #contDataForm > #contMData > #contDtaIdioma > form > #footerData {
   width: 100%;

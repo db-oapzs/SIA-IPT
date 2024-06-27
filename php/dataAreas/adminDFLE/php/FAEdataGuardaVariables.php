@@ -85,6 +85,7 @@
 			var_dump($valoresV2);			
 			echo"<br><br>";
 			ejecutaQuery($datosVariables, $valoresV1);
+            ejecutaQuery($datosVariables, $valoresV2);
 		}
 	}
 ?>

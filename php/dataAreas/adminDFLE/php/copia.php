@@ -157,6 +157,7 @@
     <script src="../scripts/ScriptModalElimFAE.js"></script>
     <script src="../scripts/faeData.js"></script>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
         #botonera{
             width:50px;
             height: 330px;
@@ -276,6 +277,34 @@
             padding-right: 10px;
             font-size: 10px;
         }
+        .inputNoteFaE{
+            width: 90%;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .notaFaeUsrDT{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 8px;
+            text-transform:none;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-family: "Montserrat";
+            text-align: justify;
+            overflow: hidden;
+            border:0;
+        }
     </style>
 </head>
 <body>
@@ -365,6 +394,24 @@
                 }
             ?>
                 </nav>
+                <input
+                    type="text"
+                    name="nota1"
+                    id="ntaFAE1"
+                    class="inputNoteFaE"
+                />
+                <input
+                    type="text"
+                    name="nota2"
+                    id="ntaFAE2"
+                    class="inputNoteFaE"
+                />
+                <input
+                    type="text"
+                    name="nota3"
+                    id="ntaFAE3"
+                    class="inputNoteFaE"
+                />
             <input id="enviarFAEData" type="submit" value="Guardar FAE"/>
         </form>
     </div>
@@ -428,7 +475,7 @@
                     <p> 0'.$Proyecto_CVE[$i].' '.$Proyecto_Nombre[$i].'</p>
                     </div>
                     <div id="cont-7">
-                        <p>clave del indicador: <input type="text" id="indCinput-'.$i.'" class="indicadorFAEsPIM" value="'.$Indicador_CVE[$i].'"></p>
+                        <p>clave del indicador: </p><input type="text" id="indCinput-'.$i.'" class="indicadorFAEsPIM" value="'.$Indicador_CVE[$i].'">
                     </div>
                     <div id="cont-8">
                         <p>resumen de actividades</p>
@@ -649,7 +696,13 @@
             <div id="cont-cuerpotable" class="dtaGen lt3">
             <div id="dato-1331" class="dtaGno"></div>
             </div>
-            <div id="cont-pienotas"><h3>Notas :</h3><p contenteditable="true"></p></div>
+            <div id="cont-pienotas"><h3>Notas :</h3>
+            <!--<p contenteditable="true"></p>-->
+            <textarea
+                class="notaFaeUsrDT"
+                id="usrNotaFae1"
+            ></textarea>
+            </div>
         </div>
         <footer id="cont-footer">
             <div id="cont-qr">
@@ -720,7 +773,14 @@
             <div id="cont-cuerpotable" class="dtaGen lt4">
                 <div id="dato-1441" class="dtaGno"></div>
             </div>
-            <div id="cont-pienotas"><h3>Notas :</h3><p contenteditable="true"></p></div>
+            <div id="cont-pienotas">
+                <h3>Notas :</h3>
+            <!--<p contenteditable="true"></p>-->
+            <textarea
+                class="notaFaeUsrDT"
+                id="usrNotaFae2"
+            ></textarea>
+            </div>
         </div>
         <footer id="cont-footer">
             <div id="cont-qr">
@@ -790,7 +850,14 @@
             <div id="cont-cuerpotable" class="dtaGen lt5">
             <div id="dato-4212" class="dtaGno"></div>
             </div>
-            <div id="cont-pienotas"><h3>Notas :</h3><p contenteditable="true"></p></div>
+            <div id="cont-pienotas">
+                <h3>Notas :</h3>
+            <!--<p contenteditable="true"></p>-->
+            <textarea
+                class="notaFaeUsrDT"
+                id="usrNotaFae3"
+            ></textarea>
+            </div>
         </div>
         <footer id="cont-footer">
             <div id="cont-qr">
@@ -1000,7 +1067,8 @@ btnMH.addEventListener('click', () => {
             </div>
             <div id="cont-6"></div>
             <div id="cont-7">
-                <p>clave del indicador: <input type="text" id="indCinput-${contadorHojas-1}" class="indicadorFAEsPIM" value="F"></p>
+                <p>clave del indicador: </p>
+                <input type="text" id="indCinput-${contadorHojas-1}" class="indicadorFAEsPIM" value="F">
             </div>
             <div id="cont-8">
                 <p>resumen de actividades</p>
@@ -1579,7 +1647,13 @@ btnGuardar.addEventListener('click', () => {
     console.log("se ha presionado enviarFAEData");
     enviarFAEData.click();
 });
-
+let notaFaeUsrDT = document.getElementsByClassName("notaFaeUsrDT");
+let inputNoteFaE = document.getElementsByClassName("inputNoteFaE");
+for(let i = 0 ; i < notaFaeUsrDT.length; i++) {
+    notaFaeUsrDT[i].addEventListener('input', () => {
+        inputNoteFaE[i].value = notaFaeUsrDT[i].value;
+    });
+}
 </script>
 </html>
 

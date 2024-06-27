@@ -415,7 +415,7 @@
   overflow: hidden;
 }
 #contpadre > #conthijo #cont-1 > p {
-  font-size: 10px;
+  font-size: 8px;
   font-family: "Montserrat";
   font-weight: 300;
   text-transform: uppercase;
@@ -473,7 +473,7 @@
   overflow: hidden;
 }
 #contpadre > #conthijo #cont-4 > p {
-  font-size: 10px;
+  font-size: 8px;
   font-family: "Montserrat";
   font-weight: 300;
   text-transform: uppercase;
@@ -495,7 +495,7 @@
   overflow: hidden;
 }
 #contpadre > #conthijo #cont-5 > p {
-  font-size: 10px;
+  font-size: 8px;
   font-family: "Montserrat";
   font-weight: 300;
   text-transform: uppercase;
@@ -531,12 +531,12 @@
   grid-row: 10/13;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   overflow: hidden;
 }
 #contpadre > #conthijo #cont-7 > p {
-  font-size: 10px;
+  font-size: 8px;
   font-family: "Montserrat";
   font-weight: 300;
   text-transform: uppercase;
@@ -544,6 +544,13 @@
   margin-left: 5px;
   letter-spacing: 0;
   font-weight: 600;
+}
+#contpadre > #conthijo #cont-7 > input {
+  width: 50px !important;
+  border: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 10px;
 }
 #contpadre > #conthijo #cont-8 {
   width: 100%;
