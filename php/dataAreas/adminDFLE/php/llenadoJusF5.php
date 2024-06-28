@@ -99,34 +99,6 @@ define("NUM_HOJA", 4);
 		
 	}
 	
-	function imprimeTablaDatos($data){
-		if ($data != NULL){
-			
-			// Si el ResultSet no es vacío, se imprime la tabla.
-			echo "<table border='1'>";
-			echo "<tr>";
-			foreach ($data[0] as $key => $value) {
-				echo "<th>$key</th>";
-			}
-			echo "</tr>";
-			foreach ($data as $registro) {
-				echo "<tr>";
-				foreach ($registro as $valor) {
-					echo "<td>$valor</td>";
-				}
-				echo "</tr>";
-			}
-			echo "</table>";
-			
-		}
-		else{
-			
-			echo "ERROR: ¡ResultSet vacío!";
-			//header("Location: ../../html/login.php?status=emptyArray");
-			//exit();
-			
-		}
-	}
 	
 	
 	function construirIndiceCeldas($hojaCalculo, $rango) {
@@ -220,7 +192,5 @@ define("NUM_HOJA", 4);
 		exit();
 	}
 
-	imprimeTablaDatos($data);
-	
 
 ?>

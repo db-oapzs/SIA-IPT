@@ -81,7 +81,7 @@ include '../../../conexion.php';
 			$valorNuevo = $valorActual + $valor;
 			guardarContenidoEnCelda($hoja, $celda, $valorNuevo);
 		} else {
-			echo "Error: Los valores no son numéricos.";
+			//echo "Error: Los valores no son numéricos.";
 		}
 	}
 	
@@ -99,22 +99,22 @@ include '../../../conexion.php';
 	
 	function imprimeTablaDatos($data){
 		// Imprimir la tabla HTML
-		echo "<table border='1'>";
+		//echo "<table border='1'>";
 		// Imprimir la fila de encabezados de la tabla
-		echo "<tr>";
+		//echo "<tr>";
 		foreach ($data[0] as $key => $value) {
-			echo "<th>$key</th>";
+			//echo "<th>$key</th>";
 		}
-		echo "</tr>";
+		//echo "</tr>";
 		// Imprimir los datos de cada fila en la tabla
 		foreach ($data as $registro) {
-			echo "<tr>";
+			//echo "<tr>";
 			foreach ($registro as $valor) {
-				echo "<td>$valor</td>";
+				//echo "<td>$valor</td>";
 			}
-			echo "</tr>";
+			//echo "</tr>";
 		}
-		echo "</table>";
+		//echo "</table>";
 	}
 
 
@@ -158,7 +158,7 @@ include '../../../conexion.php';
 			if (isset($this->poblaciones[$cadena1][$cadena2])) {
 				$this->poblaciones[$cadena1][$cadena2]->sumarHombres($valor);
 			} else {
-				echo "La ubicación especificada no existe.";
+				//echo "La ubicación especificada no existe.";
 			}
 		}
 
@@ -166,7 +166,7 @@ include '../../../conexion.php';
 			if (isset($this->poblaciones[$cadena1][$cadena2])) {
 				$this->poblaciones[$cadena1][$cadena2]->sumarMujeres($valor);
 			} else {
-				echo "La ubicación especificada no existe.";
+				//echo "La ubicación especificada no existe.";
 			}
 		}
 	}
@@ -223,32 +223,36 @@ include '../../../conexion.php';
 				$rangoCeldas = 'B17:B108';
 				$fila = ObtenerCelda($rangoCeldas, $unidad->siglas, $hoja);
 				
-				var_dump($fila);
-				echo"<br>";
-				var_dump($unidad->siglas);
-				echo"<br>";
+				//var_dump($fila);
+				//echo"<br>";
+				//var_dump($unidad->siglas);
+				//echo"<br>";
 				
 				//var_dump($unidad->poblaciones);
 				foreach ($unidad->poblaciones as $poblacion => $niveles){
-					echo"<br>$poblacion<br>";
+					//echo"<br>$poblacion<br>";
 					foreach ($niveles as $nivel => $alumnos){
-						echo"<br>$nivel<br>";
+						//echo"<br>$nivel<br>";
 						$celdaHombres = $columnasDatos[$poblacion][$nivel][0] . $fila;
 						$celdaMujeres = $columnasDatos[$poblacion][$nivel][1] . $fila;
 						guardarContenidoEnCelda($hoja, $celdaHombres, $alumnos->totalHombres);
 						guardarContenidoEnCelda($hoja, $celdaMujeres, $alumnos->totalMujeres);
-						echo ("HOMBRES ($celdaHombres): $alumnos->totalHombres<br>");
-						echo "MUJERES($celdaMujeres): $alumnos->totalMujeres<br>";
+						//echo ("HOMBRES ($celdaHombres): $alumnos->totalHombres<br>");
+						//echo "MUJERES($celdaMujeres): $alumnos->totalMujeres<br>";
 					}
-					echo"<br>";
+					//echo"<br>";
 				}
 
-				echo"<br><br>";
+				//echo"<br><br>";
 			}
 			
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 			$writer->save($ruta);
-			echo "<br><h2>Tabla llenada exitosamente!</h2>";
+			//echo "<br><h2>Tabla llenada exitosamente!</h2>";
+			
+			header("Location: Bienvenida.php?status=Excel_2Generado");
+			exit();
+			//!----------------------------------------------------------------------------------------------------------
 		}
 		else {
             //echo "<br><h1>Error al abrir la hoja del archivo Excel.</h1>";
@@ -334,28 +338,28 @@ include '../../../conexion.php';
 	
 	if ($data != NULL){
 		if (archivoExistencia($nombreunidad)) {
-			echo '<h1>El archivo existe.</h1><br>';
+			//echo '<h1>El archivo existe.</h1><br>';
 			if (copy($rutaArchivoOriginal, $rutaCopiaArchivo)) {
-				echo 'Copia del archivo creada exitosamente.<br>';
+				//echo 'Copia del archivo creada exitosamente.<br>';
 				llenaDatos($data, $rutaCopiaArchivo);
 			} 
 			
 			else {
-				echo '<br><h1>Error al crear la copia del archivo.</h1>';
+				//echo '<br><h1>Error al crear la copia del archivo.</h1>';
 				header("Location: Bienvenida.php?status=excelCopyFailed");
 				exit();
 			}
 		}
 		
 		else{
-			echo '<h1>El archivo No existe.</h1><br>';
+			//echo '<h1>El archivo No existe.</h1><br>';
 			if (copy($rutaArchivoOriginal, $rutaCopiaArchivo)) {
-				echo 'Copia del archivo creada exitosamente.<br>';
+				//echo 'Copia del archivo creada exitosamente.<br>';
 				llenaDatos($data, $rutaCopiaArchivo);
 			} 
 			
 			else {
-				echo '<br><h1>Error al crear la copia del archivo.</h1>';
+				//echo '<br><h1>Error al crear la copia del archivo.</h1>';
 				header("Location: Bienvenida.php?status=excelCopyFailed");
 				exit();
 			}

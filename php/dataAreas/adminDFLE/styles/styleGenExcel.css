@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Montserrat';
+}
+
+.contenedor-padre-GenExcel{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 50px;
+}
+
+.contenedor-hijo-GenExcel{
+    width: 300px;
+    height: 150px;
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    box-shadow: 0px 0px 5px 0px rgba(151, 151, 151, 0.2);
+    overflow: hidden;
+}
+
+.input-GenExcel{
+    padding-top: 10px;
+    font-size: 15px;
+}
+.input-GenExcel > label{
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    text-align: center;
+}
+
+.btn-GenExcel{
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+.btn-GenExcel button{
+    width: 50%;
+    color: #FFFFFF !important;
+    font-size: 13px;
+    border-radius: 5px;
+    height: 40px;
+    border: none;
+    background: #631A3F;
+    overflow: hidden;
+}
+
+.btn-GenExcel button:hover{
+    background-color: #894668;
+    transform: scale(1.02);
+    cursor: pointer;
+}

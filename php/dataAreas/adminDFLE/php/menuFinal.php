@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="../styles/stylesadminMsj.css">
         <link rel="stylesheet" href="../styles/stylesJustF5.css">
         <link rel="stylesheet" href="../styles/stylesJustF22.css">
+        <link rel="stylesheet" href="../styles/styleGenExcel.css">
         <!--
         <link rel="stylesheet" href="../styles/stylesadmin.css">
         -->
@@ -166,12 +167,12 @@
                         
                 
                         <div class="cont-links">
-                            <a href="" id="btnesNav">
+                            <a href="generarExcel.php" id="btnesNav">
                                 <div class="contenedor-ico">
                                     <i class="gg-insights"></i>
                                 </div>
                                 <div class="contenedor-txtico">
-                                    <span class="links_nombres">Dashboard</span>
+                                    <span class="links_nombres">Generar Estadisticos</span>
                                 </div>
                             </a>
                         </div>

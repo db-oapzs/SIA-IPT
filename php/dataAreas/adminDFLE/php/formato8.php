@@ -7,7 +7,7 @@ date_default_timezone_set('America/Mexico_City');
 include '../../../conexion.php';
 
 $fecha = date('Y');
-var_dump($fecha);
+//var_dump($fecha);
 
 $queryData = "
     SELECT CA.Desc_Hombres, CA.Desc_Mujeres, UA.Desc_Nombre_Unidad_Academica, I.Desc_Idioma, CA.Fecha 
@@ -71,12 +71,12 @@ $datosTrim = [
     "JULIO-SEPTIEMBRE" => ["Q", "R", "T", "U"],
     "OCTUBRE - DICIEMBRE" => ["X", "Y", "AA", "AB"]
 ];
-var_dump($datosTrim);
+//var_dump($datosTrim);
 
 foreach ($datosTrim as $trimestre => $letras) {
-    echo "<h2>Trimestre: $trimestre</h2>";
+    //echo "<h2>Trimestre: $trimestre</h2>";
     foreach ($letras as $letra) {
-        echo "<p>fila: $letra</p>";
+        //echo "<p>fila: $letra</p>";
     }
 }
 
@@ -139,6 +139,7 @@ foreach ($datos as $row) {
 
 
 // Ejemplo de uso
+/*
 $fecha = "28-05-2024";
 echo "<br><br><br><br>";
 var_dump($idiomaXls_1);
@@ -150,7 +151,7 @@ var_dump($sumaPorTrimestre1);
 echo "<br><br><br><br>";
 echo "<br><br><br><br>";
 var_dump($sumaPorTrimestre2);
-
+*/
 
 //!--------------------------------------------------------------------------
 
@@ -262,45 +263,47 @@ if (archivoExistencia($nombreArchivo)) {
 
         $rangoCeldas = 'B16:B27';
         //Empieza a escribir el documento
-        echo "<br><br><br><br>";
-        echo "<br><br><br><br>";
+        //echo "<br><br><br><br>";
+        //echo "<br><br><br><br>";
         foreach ($sumaPorTrimestre1 as $key => $value) {
             $celdaR = ObtenerCeldaIdioma($rangoCeldas, $value["idioma"], $hoja);
-            echo "celdaR: " . $celdaR . "<br>";
-            echo "Idioma: " . $value["idioma"] . "<br>";
-            echo "Trimestre: " . $value["trimestre"] . "<br>";
+            //echo "celdaR: " . $celdaR . "<br>";
+            //echo "Idioma: " . $value["idioma"] . "<br>";
+            //echo "Trimestre: " . $value["trimestre"] . "<br>";
             $ultimasColumnas = array_slice($datosTrim[$value["trimestre"]], -2);
             //echo "Columnas: " . implode(", ", $ultimasColumnas) . "<br>";
             list($col1, $col2) = array_slice($ultimasColumnas, 0, 2);
             // Imprimir las columnas sin espacios ni otros caracteres
-            echo "Columna 1: " . (string) $col1 . (string) $celdaR . "<br>";
-            echo "Columna 2: " . (string) $col2 . (string) $celdaR . "<br>";
-            echo "Hombres: " . $value["hombres"] . "<br>";
-            echo "Mujeres: " . $value["mujeres"] . "<br><br>";
+            //echo "Columna 1: " . (string) $col1 . (string) $celdaR . "<br>";
+            //echo "Columna 2: " . (string) $col2 . (string) $celdaR . "<br>";
+            //echo "Hombres: " . $value["hombres"] . "<br>";
+            //echo "Mujeres: " . $value["mujeres"] . "<br><br>";
             guardarContenidoEnCelda($spreadsheet, $col1 . $celdaR, $value["hombres"], 0);
             guardarContenidoEnCelda($spreadsheet, $col2 . $celdaR, $value["mujeres"], 0);
         }
-        echo "<br><br><br><br>";
-        echo "<br><br><br><br>";
+        //echo "<br><br><br><br>";
+        //echo "<br><br><br><br>";
         foreach ($sumaPorTrimestre2 as $key => $value) {
             $celdaR = ObtenerCeldaIdioma($rangoCeldas, $value["idioma"], $hoja);
-            echo "celdaR: " . $celdaR . "<br>";
-            echo "Idioma: " . $value["idioma"] . "<br>";
-            echo "Trimestre: " . $value["trimestre"] . "<br>";
+            //echo "celdaR: " . $celdaR . "<br>";
+            //echo "Idioma: " . $value["idioma"] . "<br>";
+            //echo "Trimestre: " . $value["trimestre"] . "<br>";
             $primerasColumnas = array_slice($datosTrim[$value["trimestre"]], 0, 2);
             //echo "Columnas: " . implode(", ", $primerasColumnas) . "<br>";
             list($col1, $col2) = array_slice($primerasColumnas, 0, 2);
             // Imprimir las columnas sin espacios ni otros caracteres
-            echo "Columna 1: $col1$celdaR<br>";
-            echo "Columna 2: $col2$celdaR<br>";
-            echo "Hombres: " . $value["hombres"] . "<br>";
-            echo "Mujeres: " . $value["mujeres"] . "<br><br>";
+            //echo "Columna 1: $col1$celdaR<br>";
+            //echo "Columna 2: $col2$celdaR<br>";
+            //echo "Hombres: " . $value["hombres"] . "<br>";
+            //echo "Mujeres: " . $value["mujeres"] . "<br><br>";
             guardarContenidoEnCelda($spreadsheet, $col1 . $celdaR, $value["hombres"], 0);
             guardarContenidoEnCelda($spreadsheet, $col2 . $celdaR, $value["mujeres"], 0);
         }
 
         $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
         $writer->save($rutaCopiaArchivo);
+        header("Location: formato9.php");
+        exit();
 
     } else {
         //echo "<br><h1>Error al abrir la hoja del archivo Excel.</h1>";
@@ -319,39 +322,39 @@ if (archivoExistencia($nombreArchivo)) {
 
             $rangoCeldas = 'B16:B27';
             //Empieza a escribir el documento
-            echo "<br><br><br><br>";
-            echo "<br><br><br><br>";
+            //echo "<br><br><br><br>";
+            //echo "<br><br><br><br>";
             foreach ($sumaPorTrimestre1 as $key => $value) {
                 $celdaR = ObtenerCeldaIdioma($rangoCeldas, $value["idioma"], $hoja);
-                echo "celdaR: " . $celdaR . "<br>";
-                echo "Idioma: " . $value["idioma"] . "<br>";
-                echo "Trimestre: " . $value["trimestre"] . "<br>";
+                //echo "celdaR: " . $celdaR . "<br>";
+                //echo "Idioma: " . $value["idioma"] . "<br>";
+                //echo "Trimestre: " . $value["trimestre"] . "<br>";
                 $ultimasColumnas = array_slice($datosTrim[$value["trimestre"]], -2);
                 //echo "Columnas: " . implode(", ", $ultimasColumnas) . "<br>";
                 list($col1, $col2) = array_slice($ultimasColumnas, 0, 2);
                 // Imprimir las columnas sin espacios ni otros caracteres
-                echo "Columna 1: " . (string) $col1 . (string) $celdaR . "<br>";
-                echo "Columna 2: " . (string) $col2 . (string) $celdaR . "<br>";
-                echo "Hombres: " . $value["hombres"] . "<br>";
-                echo "Mujeres: " . $value["mujeres"] . "<br><br>";
+                //echo "Columna 1: " . (string) $col1 . (string) $celdaR . "<br>";
+                //echo "Columna 2: " . (string) $col2 . (string) $celdaR . "<br>";
+                //echo "Hombres: " . $value["hombres"] . "<br>";
+                //echo "Mujeres: " . $value["mujeres"] . "<br><br>";
                 guardarContenidoEnCelda($spreadsheet, $col1 . $celdaR, $value["hombres"], 0);
                 guardarContenidoEnCelda($spreadsheet, $col2 . $celdaR, $value["mujeres"], 0);
             }
-            echo "<br><br><br><br>";
-            echo "<br><br><br><br>";
+            //echo "<br><br><br><br>";
+            //echo "<br><br><br><br>";
             foreach ($sumaPorTrimestre2 as $key => $value) {
                 $celdaR = ObtenerCeldaIdioma($rangoCeldas, $value["idioma"], $hoja);
-                echo "celdaR: " . $celdaR . "<br>";
-                echo "Idioma: " . $value["idioma"] . "<br>";
-                echo "Trimestre: " . $value["trimestre"] . "<br>";
+                //echo "celdaR: " . $celdaR . "<br>";
+                //echo "Idioma: " . $value["idioma"] . "<br>";
+                //echo "Trimestre: " . $value["trimestre"] . "<br>";
                 $primerasColumnas = array_slice($datosTrim[$value["trimestre"]], 0, 2);
                 //echo "Columnas: " . implode(", ", $primerasColumnas) . "<br>";
                 list($col1, $col2) = array_slice($primerasColumnas, 0, 2);
                 // Imprimir las columnas sin espacios ni otros caracteres
-                echo "Columna 1: $col1$celdaR<br>";
-                echo "Columna 2: $col2$celdaR<br>";
-                echo "Hombres: " . $value["hombres"] . "<br>";
-                echo "Mujeres: " . $value["mujeres"] . "<br><br>";
+                //echo "Columna 1: $col1$celdaR<br>";
+                //echo "Columna 2: $col2$celdaR<br>";
+                //echo "Hombres: " . $value["hombres"] . "<br>";
+                //echo "Mujeres: " . $value["mujeres"] . "<br><br>";
                 guardarContenidoEnCelda($spreadsheet, $col1 . $celdaR, $value["hombres"], 0);
                 guardarContenidoEnCelda($spreadsheet, $col2 . $celdaR, $value["mujeres"], 0);
             }
@@ -359,6 +362,8 @@ if (archivoExistencia($nombreArchivo)) {
             $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
             $writer->save($rutaCopiaArchivo);
 
+            header("Location: formato9.php");
+            exit();
         } else {
             //echo "<br><h1>Error al abrir la hoja del archivo Excel.</h1>";
         }

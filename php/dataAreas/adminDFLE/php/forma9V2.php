@@ -7,8 +7,8 @@
 
     $fecha = date('Y'); 
     $fechaPasado = (string)((int)$fecha-1);
-    var_dump($fecha);
-    var_dump($fechaPasado);
+    //var_dump($fecha);
+    //var_dump($fechaPasado);
     $queryData = "
         SELECT CA.Desc_Hombres, CA.Desc_Mujeres, UA.Desc_Nombre_Unidad_Academica, I.Desc_Idioma, CA.Fecha 
         FROM Cantidades_Alumnos CA
@@ -225,30 +225,30 @@ if (archivoExistencia($nombreArchivo)) {
             $rangoCeldas = 'B16:B27';
             
             foreach ($totalesHombres_1 as $idioma => $cantidad) {
-                echo "Idioma: $idioma, Cantidad H: ".$cantidad."<br>";
+                //echo "Idioma: $idioma, Cantidad H: ".$cantidad."<br>";
                 $celdaResult = ObtenerCeldaIdioma($rangoCeldas, $idioma, $hoja);
-                echo "<br><h2> --------- $celdaResult </h2>";
+                //echo "<br><h2> --------- $celdaResult </h2>";
                 guardarContenidoEnCelda($spreadsheet, 'C'.$celdaResult, $cantidad, 1);
             }
             
             foreach ($totalesMujeres_1 as $idioma => $cantidad) {
-                echo "Idioma: $idioma, Cantidad M: ".$cantidad."<br>";
+                //echo "Idioma: $idioma, Cantidad M: ".$cantidad."<br>";
                 $celdaResult = ObtenerCeldaIdioma($rangoCeldas,(string)$idioma,$hoja);
-                echo "<br><h2> --------- $celdaResult </h2>";
+                //echo "<br><h2> --------- $celdaResult </h2>";
                 guardarContenidoEnCelda($spreadsheet, 'D'.$celdaResult, $cantidad, 1);
             }
-            echo "<br><br><br><br><br><br>";
+            //echo "<br><br><br><br><br><br>";
             foreach ($totalesHombres_2 as $idioma => $cantidad) {
-                echo "Idioma: $idioma, Cantidad H: ".$cantidad."<br>";
+                //echo "Idioma: $idioma, Cantidad H: ".$cantidad."<br>";
                 $celdaResult = ObtenerCeldaIdioma($rangoCeldas,(string)$idioma,$hoja);
                 guardarContenidoEnCelda($spreadsheet, 'F'.$celdaResult, $cantidad, 1);
-                echo "<br><h2> --------- $celdaResult </h2>";
+                //echo "<br><h2> --------- $celdaResult </h2>";
             }
             foreach ($totalesMujeres_2 as $idioma => $cantidad) {
-                echo "Idioma: $idioma, Cantidad M: ".$cantidad."<br>";
+                //echo "Idioma: $idioma, Cantidad M: ".$cantidad."<br>";
                 $celdaResult = ObtenerCeldaIdioma($rangoCeldas,(string)$idioma,$hoja);
                 guardarContenidoEnCelda($spreadsheet, 'G'.$celdaResult, $cantidad, 1);
-                echo "<br><h2> --------- $celdaResult </h2>";
+                //echo "<br><h2> --------- $celdaResult </h2>";
             }
             
             //var_dump($totalesHombres_1);
@@ -258,10 +258,12 @@ if (archivoExistencia($nombreArchivo)) {
             $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
             $writer->save($rutaCopiaArchivo);
 
-            echo "<br><h1>¡Hoja abierta con éxito!</h1>";
+            header("Location: Bienvenida.php?status=Exc3-Generado");
+            exit();
+            //echo "<br><h1>¡Hoja abierta con éxito!</h1>";
         } else {
             //echo "<br><h1>Error al abrir la hoja del archivo Excel.</h1>";
-            header("Location: adminPanel.php?status=ErrXls");
+            header("Location: Bienvenida.php?status=ErrXls");
             exit();
         }
 
