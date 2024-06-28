@@ -38,9 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
     $params = array($nombre_usuario,$idioma);
     $stmt = sqlsrv_prepare($connection, $sql, $params);
 
-
-
-
     if ($stmt === false) {
     $img = '';
     //echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
@@ -71,7 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
     }
     echo '<br> ---------------------------------------------------------------';
 
-
     var_dump($arrayDataSQL_H);
     foreach ($arrayDataSQL_H as $key => $value) {
     echo '<br><h3>'.' --- '.$value.'</h3>';
@@ -98,17 +94,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
         $idioma
     );
 
-
     sqlsrv_close($connection);
     $_SESSION['arrayDataSQL_H'] = $arrayDataSQL_H;
     $_SESSION['arrayDataSQL_M'] = $arrayDataSQL_M;
     $_SESSION['idiomaRecolectado'] = $idioma;
 
-
-
-    if(isset($_SESSION['arrayDataSQL_H']) && 
-    isset($_SESSION['arrayDataSQL_M']) && 
-    isset($_SESSION['idiomaRecolectado'])){
+    if(
+        isset($_SESSION['arrayDataSQL_H']) 
+        && 
+        isset($_SESSION['arrayDataSQL_M']) 
+        && 
+        isset($_SESSION['idiomaRecolectado'])){
         header("Location: cargarData.php?status=DataComplete&idioma=".$idioma);
     }
 }else{

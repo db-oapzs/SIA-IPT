@@ -47,8 +47,7 @@ if ($stmt === false) {
 // Cierra la conexión
 sqlsrv_close($connection);
 include 'menu.php';
-
-if(count($arrayDataSQL_H) === 0 || count($arrayDataSQL_M) === 0){
+if(empty($arrayDataSQL_H) && empty($arrayDataSQL_M)){
     //echo "<br><br><br>";
     for($i = 0 ; $i < 24 ; $i++){
         $arrayDataSQL_H[] = 0;
@@ -56,7 +55,6 @@ if(count($arrayDataSQL_H) === 0 || count($arrayDataSQL_M) === 0){
     }
     //var_dump($arrayDataSQL_H);
 }
-
 
 ?>
     <div id="contDataForm">
