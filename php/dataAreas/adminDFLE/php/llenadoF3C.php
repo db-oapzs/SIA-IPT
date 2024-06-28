@@ -63,22 +63,6 @@ $start_time = microtime(true);
 	}
 	
 
-	function imprimeTablaDatos($datos){
-		echo "<table border='1'>";
-		echo "<tr>";
-		foreach ($datos[0] as $clave => $valor) {
-			echo "<th>$clave</th>";
-		}
-		echo "</tr>";
-		foreach ($datos as $registro) {
-			echo "<tr>";
-			foreach ($registro as $valorCelda) {
-				echo "<td>$valorCelda</td>";
-			}
-			echo "</tr>";
-		}
-		echo "</table>";
-	}
 	
 	
 	function arregloNombres($hoja, $rango){
@@ -199,7 +183,7 @@ if ($data != NULL){
 		
 		else {
 			echo '<br><h1>Error al crear la copia del archivo.</h1>';
-			header("Location: ../../../html/login.php?status=excelCopyFailed");
+			header("Location: Bienvenida.php?status=excelCopyFailed");
 			exit();
 		}
 	}
@@ -208,5 +192,4 @@ if ($data != NULL){
 $end_time = microtime(true);
 $execution_time = $end_time - $start_time;
 echo "<br>Tiempo de ejecución: " . $execution_time . " segundos<br><br>";
-imprimeTablaDatos($data);
 ?>

@@ -177,7 +177,9 @@ define("NUM_HOJA", 5);
 			}
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 			$writer->save($ruta);
-			echo "<br><h2>Tabla llenada exitosamente!</h2>";
+			//echo "<br><h2>Tabla llenada exitosamente!</h2>";
+			header("Location: llenadoCF5.php?status=DatosExcel1F6");
+			exit();
 		}
 		
 		else {
@@ -190,29 +192,31 @@ define("NUM_HOJA", 5);
 	
 	function imprimeTablaDatos($data){
 		// Imprimir la tabla HTML
-		echo "<table border='1'>";
+		//echo "<table border='1'>";
 		// Imprimir la fila de encabezados de la tabla
-		echo "<tr>";
+		//echo "<tr>";
 		foreach ($data[0] as $key => $value) {
-			echo "<th>$key</th>";
+			//echo "<th>$key</th>";
 		}
-		echo "</tr>";
+		//echo "</tr>";
 		// Imprimir los datos de cada fila en la tabla
 		foreach ($data as $registro) {
-			echo "<tr>";
+			//echo "<tr>";
 			foreach ($registro as $valor) {
-				echo "<td>$valor</td>";
+				//echo "<td>$valor</td>";
 			}
-			echo "</tr>";
+			//echo "</tr>";
 		}
-		echo "</table>";
+		//echo "</table>";
 	}
 
 
 	// Ruta del archivo original
-    $anio = (string) date('Y');
+    $anio = (string) date('Y');	
+	$mes = date('n');
+	$numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
+	$nombreunidad = "1 DFLE_". $numTrimestre ."T_". $anio ." Unid Acad CELEX obs gfl 2";
     $rutaArchivoOriginal = '../../../exelDFLE/plnatilla/General_Formato_1.xlsx';
-    $nombreunidad = '1 DFLE_4T_'.$anio.' Unid Acad CELEX obs gfl 2';
     // Ruta donde se guardará la copia del archivo
     //$nombreArchivo = 'General_'.$nombreunidad.'_'.$idioma;
     $nombreArchivo = $nombreunidad;
@@ -270,7 +274,7 @@ define("NUM_HOJA", 5);
 	
 	if ($data != NULL){
 		if (archivoExistencia($nombreArchivo)) {
-			echo '<h1>El archivo existe.</h1><br>';
+			//echo '<h1>El archivo existe.</h1><br>';
 			
 			llenaDatos($data, $rutaCopiaArchivo);
 		}
@@ -278,7 +282,7 @@ define("NUM_HOJA", 5);
 		else{
 			echo '<h1>El archivo No existe.</h1><br>';
 			if (copy($rutaArchivoOriginal, $rutaCopiaArchivo)) {
-				echo 'Copia del archivo creada exitosamente.<br>';
+				//echo 'Copia del archivo creada exitosamente.<br>';
 				llenaDatos($data, $rutaCopiaArchivo);
 			} 
 			

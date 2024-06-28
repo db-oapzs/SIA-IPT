@@ -121,9 +121,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Justificacion"]) && is
             return $rango_meses_trimestre_actual;
         }
 
-        $anio = (string) date('Y');
+        $anio = date('Y');
+        $mes = date('n');
+        $numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
         $rutaArchivoOriginal = '../../../exelDFLE/plnatilla/General_Formato_1.xlsx';
-        $nombreArchivo = '1 DFLE_4T_'.$anio.' Unid Acad CELEX obs gfl 2';
+        $nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anio ." Unid Acad CELEX obs gfl 2";
         $rutaCopiaArchivo = '../../../exelDFLE/unidades/' . $nombreArchivo . '.xlsx';
         $rutafinal = $rutaCopiaArchivo;
         $fechaCorte = 'FECHA DE CORTE: 31 DE DICIEMBRE DE '.$anio;

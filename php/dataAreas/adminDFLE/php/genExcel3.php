@@ -20,5 +20,6 @@
         //var_dump($_POST);
         //echo"<br><h3> formatos : 8 y 9 </h3>";
         header('Location: formato8.php');
+        exit();
     }
 ?>

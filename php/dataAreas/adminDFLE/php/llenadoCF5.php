@@ -63,32 +63,12 @@ $start_time = microtime(true);
 	}
 	
 
-	function imprimeTablaDatos($datos){
-		echo "<table border='1'>";
-		echo "<tr>";
-		foreach ($datos[0] as $clave => $valor) {
-			echo "<th>$clave</th>";
-		}
-		echo "</tr>";
-		foreach ($datos as $registro) {
-			echo "<tr>";
-			foreach ($registro as $valorCelda) {
-				echo "<td>$valorCelda</td>";
-			}
-			echo "</tr>";
-		}
-		echo "</table>";
-	}
-	
-	
 	function llenaDatos($listaIdiomas){
 		
 		global $queryIdiomaFecha, $anioActual, $anioAnterior, $rutaArchivoCopia;
 		$unidadesAnterior = ejecutaQuery($queryIdiomaFecha, array("%".$anioAnterior."%"));
 		$unidadesActual = ejecutaQuery($queryIdiomaFecha, array("%".$anioActual."%"));
 		
-		imprimeTablaDatos($unidadesAnterior);
-		imprimeTablaDatos($unidadesActual);
 		
 		$arrayAnioAnterior = array();
 		$arrayAnioActual = array();
@@ -150,35 +130,51 @@ $start_time = microtime(true);
 			$hoja->setCellValue('I13', "ENERO - DICIEMBRE DE ".$anioActual);
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 			$writer->save($rutaArchivoCopia);
+			header("Location: llenadoF4C.php?status=Excel1F5Generado");
+			exit();
 		}
 	}
 
-	
 	class Idioma {
-		// Variables de clase inicializadas a 0
-		public $nivelMedioSuperior = 0;
-		public $nivelSuperior = 0;
-		public $centrosDeInvestigacion = 0;
-		public $centrosVinculacionYDesarrolloRegional = 0;
-		public $centroDeLenguasExtranjeras = 0;
-
+		// Variables de clase
+		public $nivelMedioSuperior;
+		public $nivelSuperior;
+		public $centrosDeInvestigacion;
+		public $centrosVinculacionYDesarrolloRegional;
+		public $centroDeLenguasExtranjeras;
+	
+		// Constructor para inicializar las variables con valores predeterminados
+		public function __construct(
+			$nivelMedioSuperior = 0,
+			$nivelSuperior = 0,
+			$centrosDeInvestigacion = 0,
+			$centrosVinculacionYDesarrolloRegional = 0,
+			$centroDeLenguasExtranjeras = 0
+		) {
+			$this->nivelMedioSuperior = $nivelMedioSuperior;
+			$this->nivelSuperior = $nivelSuperior;
+			$this->centrosDeInvestigacion = $centrosDeInvestigacion;
+			$this->centrosVinculacionYDesarrolloRegional = $centrosVinculacionYDesarrolloRegional;
+			$this->centroDeLenguasExtranjeras = $centroDeLenguasExtranjeras;
+		}
+	
 		// Función para sumar valor a la variable correspondiente
 		public function agregarValor($nombreVariable) {
 			switch ($nombreVariable) {
 				case 'NMS':
-					$this->nivelMedioSuperior ++;
+					$this->nivelMedioSuperior++;
 					break;
 				case 'NS':
-					$this->nivelSuperior ++;
+					$this->nivelSuperior++;
 					break;
 				case 'C INV':
-					$this->centrosDeInvestigacion ++;
+					$this->centrosDeInvestigacion++;
 					break;
 				case 'CVDR':
-					$this->centrosVinculacionYDesarrolloRegional ++;
+					$this->centrosVinculacionYDesarrolloRegional++;
 					break;
 				case 'CENLEX':
-					$this->centroDeLenguasExtranjeras ++;
+					$this->centroDeLenguasExtranjeras++;
 					break;
 				default:
 					echo "Nombre de variable no válido.\n";
@@ -186,6 +182,7 @@ $start_time = microtime(true);
 			}
 		}
 	}
+	
 
 	
 // Consulta SQL para obtener unidades académicas y sus tipos filtradas por idioma y fecha
@@ -209,7 +206,7 @@ $anioAnterior = $anioActual - 1;
 // Ruta del archivo original y copia
 $mes = date('n');
 $numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
-$nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anioActual ." Unid Acad CELEX obs gfl 2";
+$nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anioActual ." Unid Acad CELEX obs gfl 2";
 $rutaArchivoOriginal = '../../../exelDFLE/plnatilla/General_Formato_1.xlsx';
 $rutaArchivoCopia = '../../../exelDFLE/unidades/' . $nombreArchivo . '.xlsx';
 
@@ -234,16 +231,15 @@ if ($listaIdiomas != NULL){
 		
 		else {
 			echo '<br><h1>Error al crear la copia del archivo.</h1>';
-			header("Location: ../../html/login.php?status=excelCopyFailed");
+			header("Location: Bienvenida.php?status=excelCopyFailed");
 			exit();
 		}
 	}
-	
-	imprimeTablaDatos($listaIdiomas);
+
 	
 }
    else{
-	header("Location: ../../html/login.php?status=emptyArray");
+	header("Location: Bienvenida.php?status=emptyArray");
 	exit();
 }
 

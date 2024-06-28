@@ -18,8 +18,8 @@
 
     $fecha = date('Y'); 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)){
-        var_dump($_POST);
-
-        
+        //var_dump($_POST);
+        header('Location: llenadoEx1F6.php');
+        exit();
     }
 ?>

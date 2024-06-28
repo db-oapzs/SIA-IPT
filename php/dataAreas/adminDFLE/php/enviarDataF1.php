@@ -10,11 +10,11 @@ include '../../../trimestre.php';
 define("NUM_HOJA", 0);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && isset($_POST["selectNivelA"]) && $_POST['selectNivelA'] != "") {
-    echo "<br><h2>Envia a la base de datos Formal</h2><br>";
-    var_dump($_POST);
+    //echo "<br><h2>Envia a la base de datos Formal</h2><br>";
+    //var_dump($_POST);
     $nombreArchivo =  'UNIDADES ACADÉMICAS QUE CUENTAN CON CELEX Y SUPERVISADAS';
     $fecha = date('d-m-Y H:i:s');
-    echo "<br><h2>" . count($_POST) . "</h2>";
+    //echo "<br><h2>" . count($_POST) . "</h2>";
     $dataSeparada = array();
 	
 	foreach ($_POST as $key => $value) {
@@ -23,11 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && iss
     }
 	
 	foreach ($_POST as $key => $value) {
-        echo "$key<br>";
+        //echo "$key<br>";
     }
 	
-    var_dump($dataSeparada);
-	echo"<br><br>";
+    //var_dump($dataSeparada);
+	//echo"<br><br>";
 	
 // ------------------ CÓDIGO QUE VACÍA LOS DATOS AL EXCEL (FORMATO 1 -> SUPERVISIÓN ACADÉMICA AL CELEX) ------------------
 	
@@ -61,20 +61,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && iss
 	}
 
 	function imprimeTablaDatos($datos){
-		echo "<table border='1'>";
-		echo "<tr>";
+		//echo "<table border='1'>";
+		//echo "<tr>";
 		foreach ($datos[0] as $clave => $valor) {
 			echo "<th>$clave</th>";
 		}
-		echo "</tr>";
+		//echo "</tr>";
 		foreach ($datos as $registro) {
-			echo "<tr>";
+			//echo "<tr>";
 			foreach ($registro as $valorCelda) {
-				echo "<td>$valorCelda</td>";
+				//echo "<td>$valorCelda</td>";
 			}
-			echo "</tr>";
+			//echo "</tr>";
 		}
-		echo "</table>";
+		//echo "</table>";
 	}
 	
 	function arregloNombres($hoja, $rango){
@@ -169,11 +169,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && iss
 					$unidad = "ESIME Zacatenco";
 					break;
 			}
-			echo($unidad . " " . $trimestre);
-			echo "<br>";
+			//echo($unidad . " " . $trimestre);
+			//echo "<br>";
 			
 			$posicion = buscarCadena($unidad, $nombres);
-			echo "POS: $posicion<br>";
+			//echo "POS: $posicion<br>";
 			if($posicion >= 0){
 				$arregloDatos[$posicion][$trimestre-1] = 1;
 			}
@@ -235,11 +235,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && iss
 				
 			}
 			
-			echo($unidad . " " . $trimestre);
-			echo "<br>";
+			//echo($unidad . " " . $trimestre);
+			//echo "<br>";
 			
 			$posicion = buscarCadena($unidad, $nombres);
-			echo "POS: $posicion<br>";
+			//echo "POS: $posicion<br>";
 			if($posicion >= 0){
 				$arregloDatos[$posicion][$trimestre-1] = 1;
 			}
@@ -317,11 +317,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && iss
 					break;
 			}
 			
-			echo($unidad . " " . $trimestre);
-			echo "<br>";
+			//echo($unidad . " " . $trimestre);
+			//echo "<br>";
 			
 			$posicion = buscarCadena($unidad, $nombres);
-			echo "POS: $posicion<br>";
+			//echo "POS: $posicion<br>";
 			if($posicion >= 0){
 				$arregloDatos[$posicion][$trimestre-1] = 1;
 			}
@@ -363,6 +363,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && iss
 			
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 			$writer->save($rutaArchivoCopia);
+			header("Location: Bienvenida.php?status=excel1F1Gen");
+			exit();
 		}
 	}
 
@@ -373,27 +375,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && iss
 	// Ruta del archivo original y copia
 	$mes = date('n');
 	$numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
-	$nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anioActual ." Unid Acad CELEX obs gfl 2";
+	$nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anioActual ." Unid Acad CELEX obs gfl 2";
 	$rutaArchivoOriginal = '../../../exelDFLE/plnatilla/General_Formato_1.xlsx';
 	$rutaArchivoCopia = '../../../exelDFLE/unidades/' . $nombreArchivo . '.xlsx';
 
 	if ($_POST != NULL){
 		if (archivoExistencia($nombreArchivo)) {
-			echo '<h1>El archivo existe.</h1><br>';
+			//echo '<h1>El archivo existe.</h1><br>';
 			
 			llenaDatos($_POST);
 		}
 		
 		else{
-			echo '<h1>El archivo No existe.</h1><br>';
+			//echo '<h1>El archivo No existe.</h1><br>';
 			if (copy($rutaArchivoOriginal, $rutaArchivoCopia)) {
-				echo 'Copia del archivo creada exitosamente.<br>';
+				//echo 'Copia del archivo creada exitosamente.<br>';
 				llenaDatos($_POST);
 			} 
 			
 			else {
-				echo '<br><h1>Error al crear la copia del archivo.</h1>';
-				header("Location: ../../../../html/login.php?status=excelCopyFailed");
+				//echo '<br><h1>Error al crear la copia del archivo.</h1>';
+				header("Location: Bienvenida.php?status=excelCopyFailed");
 				exit();
 			}
 		}
@@ -401,10 +403,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["selectNivelA"]) && iss
 
 	$end_time = microtime(true);
 	$execution_time = $end_time - $start_time;
-	echo "Tiempo de ejecución: " . $execution_time . " segundos";
+	//echo "Tiempo de ejecución: " . $execution_time . " segundos";
 
 } else {
-    header("Location: formato1.php?status=Ni");
+    header("Location: Bienvenida.php?status=Ni");
     exit();
 }
 ?>

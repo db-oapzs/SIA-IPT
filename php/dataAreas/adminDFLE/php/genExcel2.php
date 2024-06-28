@@ -19,5 +19,6 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)){
         var_dump($_POST);
         header('Location: llenadoEx2F7.php');
+        exit();
     }
 ?>

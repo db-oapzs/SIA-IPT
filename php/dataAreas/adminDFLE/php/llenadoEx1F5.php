@@ -117,35 +117,7 @@ define("NUM_HOJA", 4);
         }
 		
 	}
-	
-	function imprimeTablaDatos($data){
-		if ($data != NULL){
-			
-			// Si el ResultSet no es vacío, se imprime la tabla.
-			echo "<table border='1'>";
-			echo "<tr>";
-			foreach ($data[0] as $key => $value) {
-				echo "<th>$key</th>";
-			}
-			echo "</tr>";
-			foreach ($data as $registro) {
-				echo "<tr>";
-				foreach ($registro as $valor) {
-					echo "<td>$valor</td>";
-				}
-				echo "</tr>";
-			}
-			echo "</table>";
-			
-		}
-		else{
-			
-			echo "ERROR: ¡ResultSet vacío!";
-			//header("Location: ../../html/login.php?status=emptyArray");
-			//exit();
-			
-		}
-	}
+
 	
 	
 	function construirIndiceCeldas($hojaCalculo, $rango) {
@@ -170,7 +142,9 @@ define("NUM_HOJA", 4);
 
 	// Ruta del archivo original
 	$anio = date('Y');
-	$nombreunidad = "1 DFLE_4T_". $anio ." Unid Acad CELEX obs gfl 2";
+	$mes = date('n');
+	$numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
+	$nombreunidad = "1 DFLE_". $numTrimestre ."T_". $anio ." Unid Acad CELEX obs gfl 2";
     $rutaArchivoOriginal = '../../../exelDFLE/plnatilla/General_Formato_1.xlsx';
     // Ruta donde se guardará la copia del archivo
     //$nombreArchivo = 'General_'.$nombreunidad.'_'.$idioma;
@@ -214,14 +188,14 @@ define("NUM_HOJA", 4);
 	
 	if ($data != NULL){
 		if (archivoExistencia($nombreArchivo)) {
-			echo '<h1>El archivo existe.</h1><br>';
+			//echo '<h1>El archivo existe.</h1><br>';
 			llenaDatos($data, $rutaCopiaArchivo);
 		}
 		
 		else{
-			echo '<h1>El archivo No existe.</h1><br>';
+			//echo '<h1>El archivo No existe.</h1><br>';
 			if (copy($rutaArchivoOriginal, $rutaCopiaArchivo)) {
-				echo 'Copia del archivo creada exitosamente.<br>';
+				//echo 'Copia del archivo creada exitosamente.<br>';
 				llenaDatos($data, $rutaCopiaArchivo);
 			} 
 			
@@ -237,8 +211,5 @@ define("NUM_HOJA", 4);
 		header("Location: Bienvenida.php?status=emptyArray");
 		exit();
 	}
-
-	imprimeTablaDatos($data);
-	
 
 ?>
