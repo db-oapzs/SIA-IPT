@@ -113,7 +113,6 @@ sqlsrv_close($connection);
     </header>
     <nav id="menuLateral">
         <a href="inicio.php">Inicio</a>
-        <a href="Dashboard.php">Dashboard data</a>
         <a href="cargarData.php">Carga de datos</a>
         <?php
         

@@ -1,5 +1,26 @@
 <?php
 include '../../../conexion.php';
+
+	function ejecutaQuery($sqlQuery, $params = NULL){
+		global $connection;
+		$data = array();
+		$stmt = sqlsrv_prepare($connection, $sqlQuery, $params);
+		if ($stmt === false) {
+			echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
+		} else {
+			$result = sqlsrv_execute($stmt);
+		
+			if ($result === false) {
+			} else {
+				while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+					$data[] = $row;
+				}
+			}
+			sqlsrv_free_stmt($stmt);
+		}
+		return $data;
+	}
+
 if(isset($_GET['status'])) {
     include '../../../errors.php';
     $status = $_GET["status"];
@@ -16,30 +37,48 @@ if(isset($_GET['status'])) {
         ';
     }
 }
+
 $sql = 'SELECT Desc_Idioma FROM idiomas';
-
-$idiomas = array(); 
-$stmt = sqlsrv_prepare($connection, $sql);
-if ($stmt === false) {
-    //echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
-} else {
-    $result = sqlsrv_execute($stmt);
-
-    if ($result === false) {
-        //echo "Error al ejecutar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
-    } else {
-        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-            //echo "<br>";
-            //print_r($row);
-            $idiomas[] = $row['Desc_Idioma'];
-        }
-    }
-    // Liberar el conjunto de resultados
-    sqlsrv_free_stmt($stmt);
+$queryDatos = 'SELECT DISTINCT CA.Fecha, UA.Siglas, TUA.Desc_SiglasTipo, I.Desc_Idioma
+					FROM Cantidades_Alumnos CA
+					JOIN Unidades_Academicas UA ON
+					CA.id_UnidadAcademica = UA.ID_UnidadAcademica
+					JOIN TipoUnidadAcademica TUA ON 
+					UA.id_TipoUnidadAcademica = TUA.ID_TipoUnidadAcademica
+					JOIN Idiomas I ON CA.id_Idioma = I.ID_Idioma
+					where Fecha LIKE ?';
+$anio = date('Y'); 
+$contador  = ["NMS" => 0, "NS" =>0, "C INV" => 0, "CVDR" => 0, "CENLEX" => 0];
+$idiomas = array_column(ejecutaQuery($sql), "Desc_Idioma");
+foreach($idiomas as $registroIdioma){
+	$arregloContadores[$registroIdioma] = $contador;
+	$arregloContadoresAnterior[$registroIdioma] = $contador;
 }
 
-// Cierra la conexión
-sqlsrv_close($connection);
+$datos = ejecutaQuery($queryDatos, array('%'.$anio.'%'));
+$datosAnterior = ejecutaQuery($queryDatos, array('%'. $anio-1 .'%'));
+
+foreach($datos as &$item){
+	unset($item["Fecha"]);
+}
+
+foreach($datosAnterior as &$item){
+	unset($item["Fecha"]);
+}
+
+$valoresUnicos = array_unique($datos, SORT_REGULAR);
+$valoresUnicosAnterior = array_unique($datosAnterior, SORT_REGULAR);
+
+foreach($valoresUnicos as $registro){
+	$arregloContadores[$registro['Desc_Idioma']][$registro['Desc_SiglasTipo']] ++;
+}
+
+foreach($valoresUnicosAnterior as $registro){
+	$arregloContadoresAnterior[$registro['Desc_Idioma']][$registro['Desc_SiglasTipo']] ++;
+}
+
+$json_array = json_encode($arregloContadores);
+$json_array2 = json_encode($arregloContadoresAnterior);
 
     //include 'menu.php';
     include 'menuFinal.php';
@@ -60,7 +99,7 @@ sqlsrv_close($connection);
                 
             </div>
             <div class="TablaP">
-                <div id="Header"><?php echo 'ENERO - DICIEMBRE '.(string)((int)date('Y')-1)?></div>
+                <div id="Header">ENERO - DICIEMBRE <?php echo $anio-1?></div>
                 <div id="Subheader1">NMS</div>
                 <div id="Subheader2">NS</div>
                 <div id="Subheader3">C INV</div>
@@ -75,7 +114,7 @@ sqlsrv_close($connection);
                 <div class="V6" id="VTOTALA">0</div>
             </div>
             <div class="TablaP">
-                <div id="Header"><?php echo 'ENERO - DICIEMBRE '.(string)(date('Y'))?></div>
+                <div id="Header">ENERO - DICIEMBRE <?php echo $anio?></div>
                 <div id="Subheader1">NMS</div>
                 <div id="Subheader2">NS</div>
                 <div id="Subheader3">C INV</div>
@@ -106,22 +145,57 @@ sqlsrv_close($connection);
     
 </body>
 <script type="text/javascript">
-    
+    const arrayJS = <?php echo $json_array; ?>;
     const selectIdioma = document.getElementById('SelectorIdioma');
     const idioma = document.getElementById('idioma');
     const TextInput = document.getElementById('TextInput');
+    const nmsActual = document.getElementById('VNMSB');
+    const nsActual = document.getElementById('VNSB');
+    const cinvActual = document.getElementById('VCINVB');
+    const cvdrActual = document.getElementById('VCVDRB');
+    const cenlexActual = document.getElementById('VCENLEXB');
+    const totalActual = document.getElementById('VTOTALB');
+	const nmsAnterior = document.getElementById('VNMSA');
+    const nsAnterior = document.getElementById('VNSA');
+    const cinvAnterior = document.getElementById('VCINVA');
+    const cvdrAnterior = document.getElementById('VCVDRA');
+    const cenlexAnterior = document.getElementById('VCENLEXA');
+    const totalAnterior = document.getElementById('VTOTALA');
+	const varPorcentual = document.getElementById('VP');
 
     // Agregar un event listener para el evento 'change'
     selectIdioma.addEventListener('change', () => {
         // Obtener el valor seleccionado del select
         const idiomaSeleccionado = selectIdioma.value;
-        
+        var arrayJS = <?php echo $json_array; ?>;
+		var contadorAnterior = <?php echo $json_array2; ?>;
         // Verificar si se ha seleccionado un idioma válido
         if (idiomaSeleccionado !== "") {
             // Se ha seleccionado un idioma, puedes realizar acciones aquí
             console.log("Se ha seleccionado el idioma: " + idiomaSeleccionado);
             idioma.value = idiomaSeleccionado;
             TextInput.removeAttribute('readonly');
+			var valores = arrayJS[idiomaSeleccionado];
+            nmsActual.innerHTML = valores['NMS'];	
+            nsActual.innerHTML = valores['NS'];
+            cinvActual.innerHTML = valores['C INV'];
+            cvdrActual.innerHTML = valores['CVDR'];
+            cenlexActual.innerHTML = valores['CENLEX'];
+			var sum = Object.values(valores).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+            totalActual.innerHTML = sum;
+			
+			var arrayIdiomaAnterior = contadorAnterior[idiomaSeleccionado];
+            nmsAnterior.innerHTML = arrayIdiomaAnterior['NMS'];	
+            nsAnterior.innerHTML = arrayIdiomaAnterior['NS'];
+            cinvAnterior.innerHTML = arrayIdiomaAnterior['C INV'];
+            cvdrAnterior.innerHTML = arrayIdiomaAnterior['CVDR'];
+            cenlexAnterior.innerHTML = arrayIdiomaAnterior['CENLEX'];
+			var sum2 = Object.values(arrayIdiomaAnterior).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+            totalAnterior.innerHTML = sum2;
+			
+			var variacionPorcentual = sum2 !== 0 ? sum / sum2 - 1 : " ";
+			var formattedVariacion = (variacionPorcentual * 100).toFixed(2) + "%";
+			varPorcentual.innerHTML = formattedVariacion;
 
         } else {
             // No se ha seleccionado ningún idioma válido

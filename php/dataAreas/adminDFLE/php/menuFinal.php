@@ -90,12 +90,12 @@
                         </div>
                 
                         <div class="cont-links">
-                            <a href="" id="btnesNav">
+                            <a href="dashboardDFLE.php" id="btnesNav">
                                 <div class="contenedor-ico">
                                     <i class="gg-insights"></i>
                                 </div>
                                 <div class="contenedor-txtico">
-                                    <span class="links_nombres">Dashboard</span>
+                                    <span class="links_nombres">tabla de datos</span>
                                 </div>
                             </a>
                         </div>
@@ -190,6 +190,17 @@
                             </a>
                         </div>
                         
+                        <div class="cont-links">
+                            <a href="dashboardDFLE.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-collage"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Tabla de Datos</span>
+                                </div>
+                            </a>
+                        </div>
+
                         <div class="cont-links">
                             <a href="copia.php" id="btnesNav">
                                 <div class="contenedor-ico">

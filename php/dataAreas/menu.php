@@ -111,16 +111,6 @@ sqlsrv_close($connection);
                 </div>
 
         
-                <div class="cont-linksSIA">
-                    <a href="Dashboard.php" id="btnesNavSIA">
-                        <div class="contenedor-icoSIA">
-                            <i class="gg-insights"></i>
-                        </div>
-                        <div class="contenedor-txticoSIA">
-                            <span class="links_nombresSIA">Dashboard</span>
-                        </div>
-                    </a>
-                </div>
                 
                 <div class="cont-linksSIA">
                     <a href="cargarData.php" id="btnesNavSIA">
