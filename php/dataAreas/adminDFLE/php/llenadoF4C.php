@@ -134,7 +134,7 @@ $start_time = microtime(true);
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 			$writer->save($rutaArchivoCopia);
 			//header("Location: llenadoF3C.php?status=Excel1F4Gen");
-			header("Location: Bienvenida.php?status=Excel1F4Gen");
+			header("Location: llenadoF3C.php?status=Excel1F4Gen");
 			exit();
 		}
 	}

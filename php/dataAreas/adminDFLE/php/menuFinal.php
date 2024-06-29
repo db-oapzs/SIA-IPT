@@ -23,6 +23,8 @@
         <link rel="stylesheet" href="../styles/stylesJustF5.css">
         <link rel="stylesheet" href="../styles/stylesJustF22.css">
         <link rel="stylesheet" href="../styles/styleGenExcel.css">
+        
+        <link rel="stylesheet" href="../styles/styleSemaforo.css">
         <!--
         <link rel="stylesheet" href="../styles/stylesadmin.css">
         -->
@@ -116,6 +118,17 @@
                                 </div>
                                 <div class="contenedor-txtico">
                                     <span class="links_nombres">Mensajes</span>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="cont-links">s
+                            <a href="semaforoUnidades.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-eye"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Semaforo de Actividades</span>
                                 </div>
                             </a>
                         </div>

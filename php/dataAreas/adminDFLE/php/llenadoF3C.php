@@ -143,6 +143,8 @@ $start_time = microtime(true);
 			llenaSeccion($hoja, 'A106:A107', 'N106', $data);
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 			$writer->save($rutaArchivoCopia);
+			header("Location: llenadoF1C.php?status=dataEx1F3gen");
+			exit();
 		}
 	}
 

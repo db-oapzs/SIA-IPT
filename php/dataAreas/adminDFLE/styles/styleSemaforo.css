@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+
+.flex-contStatus {
+  width: 97%;
+  display: flex;
+  float: right;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+Table {
+  width: 95%;
+  float: right;
+  right: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#TablaSemaforo thead {
+  display: block;
+}
+
+#TablaSemaforo tbody{
+  display: block;
+  max-height: 650px;
+  overflow-y: auto; 
+  width: 100%;
+}
+
+#TablaSemaforo thead th {
+  position: sticky;
+  top: 0; 
+  z-index: 1; 
+  width: 800px;
+}
+
+#TablaSemaforo tbody td {
+  width: 300px;
+}
+
+.HUnidadesSemaforo, .HEstadoProceso {
+  background: #6c1d45;
+  color: white;
+  height: 50px;
+  font-size: 18px;
+}
+
+.SHEstadoNoTrab, .SHEstadoEnProceso, .SHEstadoFinPUnidad, .SHEstadoRevAnalista, .SHEstadoRevPJefe {
+  background: #838383;
+  color: white;
+  height: 50px;
+  font-size: 16px;
+}
+
+.VUnidadesSemaforo {
+  word-break: break-all;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px;
+  border-bottom: 2px solid #6c1d45;
+}
+
+.VEstadoProcesoNo-trabajado, .VEstadoProcesoEn-proceso, .VEstadoProcesoFinalizado, .VEstadoProcesoRevisado-analista, .VEstadoProcesoRevisado-jefe {
+  text-align: center;
+  padding: 15px;
+  border-bottom: 2px solid #fff;
+}
+
+.VEstadoProcesoNo-trabajado {
+  background: #9C1811;
+}
+
+.VEstadoProcesoEn-proceso {
+  background: #cc7e13;
+}
+
+.VEstadoProcesoFinalizado {
+  background: #FFDA35;
+}
+
+.VEstadoProcesoRevisado-analista {
+  background: #b4bc00;
+}
+
+.VEstadoProcesoRevisado-jefe {
+  background: #3a7931;
+}
+
+.search-barSemaforo {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  gap: 15px;
+}
+
+#searchInputSemaforo {
+  width: 900px;
+  height: 30px;
+  border: 1px solid #6c1d45;
+  border-radius: 7px;
+  padding-left: 10px;
+}
+
+.btnBusquedaSemaforo {
+  width: 70px;
+  height: 35px;
+  padding: auto;
+  color: #FFFFFF !important;
+  font-size: 12px;
+  border-radius: 7px;
+  border: none;
+  background: #6c1d45;
+}
+
+.btnBusquedaSemaforo:hover {
+  background-color: #894668;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.paginacionSemaforo
+{
+  display: flex;
+  height: 90px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.paginacionSemaforo > .itempag
+{
+  width: 50px;
+  height: 50px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;  
+  background:#ccc;
+  margin-right: 10px;
+  overflow: hidden;
+  margin-left: 10px;
+  cursor:pointer;
+}
+
+/*# sourceMappingURL=StylesStatusProceso.css.map */

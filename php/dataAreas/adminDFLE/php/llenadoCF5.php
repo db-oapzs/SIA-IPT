@@ -38,6 +38,11 @@ $start_time = microtime(true);
 		}
 	}
 	
+	function arregloNombres($hoja, $rango){
+		$dataArray = $hoja->rangeToArray($rango, NULL, TRUE, TRUE, FALSE);
+		return $dataArray;
+	}
+	
 	function ejecutaQuery($sqlQuery, $params = NULL){
 		global $connection;
 		$data = array();
@@ -63,69 +68,72 @@ $start_time = microtime(true);
 	}
 	
 
+	function imprimeTablaDatos($datos){
+		echo "<table border='1'>";
+		echo "<tr>";
+		foreach ($datos[0] as $clave => $valor) {
+			echo "<th>$clave</th>";
+		}
+		echo "</tr>";
+		foreach ($datos as $registro) {
+			echo "<tr>";
+			foreach ($registro as $valorCelda) {
+				echo "<td>$valorCelda</td>";
+			}
+			echo "</tr>";
+		}
+		echo "</table>";
+	}
+	
+	
 	function llenaDatos($listaIdiomas){
 		
 		global $queryIdiomaFecha, $anioActual, $anioAnterior, $rutaArchivoCopia;
 		$unidadesAnterior = ejecutaQuery($queryIdiomaFecha, array("%".$anioAnterior."%"));
 		$unidadesActual = ejecutaQuery($queryIdiomaFecha, array("%".$anioActual."%"));
 		
+		imprimeTablaDatos($unidadesAnterior);
+		imprimeTablaDatos($unidadesActual);
 		
-		$arrayAnioAnterior = array();
-		$arrayAnioActual = array();
 		$data = array();
 		$dataActual = array();
+		$arrayAnioActual = array();
+		$arrayAnioAnterior = array();
+		$idiomas = array_column($listaIdiomas, "Desc_Idioma");
+		$contador  = ["NMS" => 0, "NS" =>0, "C INV" => 0, "CVDR" => 0, "CENLEX" => 0];
 		
-		foreach ($listaIdiomas as $idioma){
-			$nuevoIdioma = new Idioma($idioma['Desc_Idioma']);
-			$nuevoIdioma2 = new Idioma($idioma['Desc_Idioma']);
-			$arrayAnioAnterior[$idioma['Desc_Idioma']] = $nuevoIdioma;
-			$arrayAnioActual[$idioma['Desc_Idioma']] = $nuevoIdioma2;
+		foreach($idiomas as $registroIdioma){
+			$arregloContadores[$registroIdioma] = $contador;
+			$arregloContadoresAnterior[$registroIdioma] = $contador;
 		}
 		
-		foreach ($unidadesAnterior as $unidad){
-			if (strpos($unidad['Siglas'], "CENLEX") === 0){
-				$arrayAnioAnterior[$unidad['Desc_Idioma']]->agregarValor('CENLEX');
-			}
-			else{
-				$arrayAnioAnterior[$unidad['Desc_Idioma']]->agregarValor($unidad['Desc_SiglasTipo']);
-			}
+		foreach($unidadesAnterior as &$item){
+			unset($item["Fecha"]);
 		}
 		
-		foreach ($unidadesActual as $unidad){
-			if (strpos($unidad['Siglas'], "CENLEX") === 0){
-				$arrayAnioActual[$unidad['Desc_Idioma']]->agregarValor('CENLEX');
-			}
-			else{
-				$arrayAnioActual[$unidad['Desc_Idioma']]->agregarValor($unidad['Desc_SiglasTipo']);
-			}
+		foreach($unidadesActual as &$item){
+			unset($item["Fecha"]);
+		}
+		$unidadesAnterior = array_unique($unidadesAnterior, SORT_REGULAR);
+		$unidadesActual = array_unique($unidadesActual, SORT_REGULAR);
+		
+		foreach($unidadesAnterior as $registro){
+			$arregloContadoresAnterior[$registro['Desc_Idioma']][$registro['Desc_SiglasTipo']] ++;
 		}
 		
-		foreach ($arrayAnioAnterior as $nombreIdioma => $filaDatos){
-			$row = array();
-			$row[] = (string)$filaDatos->nivelMedioSuperior;
-			$row[] = (string)$filaDatos->nivelSuperior;
-			$row[] = (string)$filaDatos->centrosDeInvestigacion;
-			$row[] = (string)$filaDatos->centrosVinculacionYDesarrolloRegional;
-			$row[] = (string)$filaDatos->centroDeLenguasExtranjeras;
-			$data[] = $row;
+		foreach($unidadesActual as $registro){
+			$arregloContadores[$registro['Desc_Idioma']][$registro['Desc_SiglasTipo']] ++;
 		}
 		
-		foreach ($arrayAnioActual as $nombreIdioma => $filaDatos){
-			$row = array();
-			$row[] = (string)$filaDatos->nivelMedioSuperior;
-			$row[] = (string)$filaDatos->nivelSuperior;
-			$row[] = (string)$filaDatos->centrosDeInvestigacion;
-			$row[] = (string)$filaDatos->centrosVinculacionYDesarrolloRegional;
-			$row[] = (string)$filaDatos->centroDeLenguasExtranjeras;
-			$dataActual[] = $row;
-		}
+		$dataAnterior = array_map('array_values', array_values($arregloContadoresAnterior));
+		$dataActual = array_map('array_values', array_values($arregloContadores));
 
 		$spreadsheet = IOFactory::load($rutaArchivoCopia);
 		if ($spreadsheet){
 			$hoja = $spreadsheet->getSheet(NUM_HOJA);
 			fechas($hoja, 'Q6');
-			$hoja->fromArray($data, null, 'C16');
-			$hoja->fromArray($dataActual, null, 'I16');
+			$hoja->fromArray($dataAnterior, ' ', 'C16');
+			$hoja->fromArray($dataActual, ' ', 'I16');
 			$hoja->setCellValue('C13', "ENERO - DICIEMBRE DE ".$anioAnterior);
 			$hoja->setCellValue('I13', "ENERO - DICIEMBRE DE ".$anioActual);
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
@@ -134,55 +142,6 @@ $start_time = microtime(true);
 			exit();
 		}
 	}
-
-	class Idioma {
-		// Variables de clase
-		public $nivelMedioSuperior;
-		public $nivelSuperior;
-		public $centrosDeInvestigacion;
-		public $centrosVinculacionYDesarrolloRegional;
-		public $centroDeLenguasExtranjeras;
-	
-		// Constructor para inicializar las variables con valores predeterminados
-		public function __construct(
-			$nivelMedioSuperior = 0,
-			$nivelSuperior = 0,
-			$centrosDeInvestigacion = 0,
-			$centrosVinculacionYDesarrolloRegional = 0,
-			$centroDeLenguasExtranjeras = 0
-		) {
-			$this->nivelMedioSuperior = $nivelMedioSuperior;
-			$this->nivelSuperior = $nivelSuperior;
-			$this->centrosDeInvestigacion = $centrosDeInvestigacion;
-			$this->centrosVinculacionYDesarrolloRegional = $centrosVinculacionYDesarrolloRegional;
-			$this->centroDeLenguasExtranjeras = $centroDeLenguasExtranjeras;
-		}
-	
-		// Función para sumar valor a la variable correspondiente
-		public function agregarValor($nombreVariable) {
-			switch ($nombreVariable) {
-				case 'NMS':
-					$this->nivelMedioSuperior++;
-					break;
-				case 'NS':
-					$this->nivelSuperior++;
-					break;
-				case 'C INV':
-					$this->centrosDeInvestigacion++;
-					break;
-				case 'CVDR':
-					$this->centrosVinculacionYDesarrolloRegional++;
-					break;
-				case 'CENLEX':
-					$this->centroDeLenguasExtranjeras++;
-					break;
-				default:
-					echo "Nombre de variable no válido.\n";
-					break;
-			}
-		}
-	}
-	
 
 	
 // Consulta SQL para obtener unidades académicas y sus tipos filtradas por idioma y fecha
@@ -193,7 +152,7 @@ $queryIdiomaFecha = 'SELECT DISTINCT CA.Fecha, UA.Siglas, TUA.Desc_SiglasTipo, I
 					JOIN TipoUnidadAcademica TUA ON 
 					UA.id_TipoUnidadAcademica = TUA.ID_TipoUnidadAcademica
 					JOIN Idiomas I ON CA.id_Idioma = I.ID_Idioma
-					where Fecha LIKE ?';
+					where Fecha LIKE ?';
 
 
 //	Consulta SQL para obtener la lista de los idiomas		
@@ -231,11 +190,12 @@ if ($listaIdiomas != NULL){
 		
 		else {
 			echo '<br><h1>Error al crear la copia del archivo.</h1>';
-			header("Location: Bienvenida.php?status=excelCopyFailed");
+			header("Location: Bienvenida.php?status=errorArray");
 			exit();
 		}
 	}
-
+	
+	imprimeTablaDatos($listaIdiomas);
 	
 }
    else{

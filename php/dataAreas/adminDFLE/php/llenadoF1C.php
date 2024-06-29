@@ -124,6 +124,8 @@ $start_time = microtime(true);
 			llenaSeccion($hoja, 'B89:B104', 'C89', $data);
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 			$writer->save($rutaArchivoCopia);
+			header("Location: Bienvenida.php?status=Ex1cGen");
+			exit();
 		}
 	}
 
@@ -161,7 +163,7 @@ if ($data != NULL){
 		
 		else {
 			echo '<br><h1>Error al crear la copia del archivo.</h1>';
-			header("Location: ../../../html/login.php?status=excelCopyFailed");
+			header("Location: Bienvenida.php?status=excelCopyFailed");
 			exit();
 		}
 	}
