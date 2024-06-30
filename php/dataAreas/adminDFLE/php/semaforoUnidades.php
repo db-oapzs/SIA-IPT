@@ -268,37 +268,32 @@ function dataUniExcel($connection, $archivos4T, $dato,$stadoQ) {
             AND RV.NombreDelExcel = ?;
         ';
     }
-    // Parámetros para la consulta
+
     $params = [$dato, buscarEnArreglo($archivos4T, $dato)];
 
-    // Preparar la consulta
     $stmt = sqlsrv_prepare($connection, $queryVerifi, $params);
     if ($stmt === false) {
         echo "Error al preparar la consulta para obtener información de la unidad académica: " . sqlsrv_errors()[0]['message'] . "\n";
         return '<div class="trabajadoItem gg-close-r"></div>'; // Devolver HTML de error en caso de fallo
     }
 
-    // Ejecutar la consulta
     $result = sqlsrv_execute($stmt);
     if ($result === false) {
         echo "Error al ejecutar la consulta para obtener información de la unidad académica: " . sqlsrv_errors()[0]['message'] . "\n";
         return '<div class="trabajadoItem gg-close-r"></div>'; // Devolver HTML de error en caso de fallo
     }
 
-    // Obtener el resultado de la consulta
-    $registroExiste = false; // Inicializar como false por defecto
+    $registroExiste = false; 
     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $registroExiste = $row['ValidadoAnalista']; // Convertir a booleano
+        $registroExiste = $row['ValidadoAnalista']; 
     }
 
-    // Liberar el conjunto de resultados
     sqlsrv_free_stmt($stmt);
 
-    // Devolver HTML condicional según el resultado
     if ($registroExiste === 1) {
-        return '<div class="trabajadoItem gg-check-r"></div>'; // HTML si el registro existe
+        return '<div class="trabajadoItem gg-check-r"></div>';
     } else {
-        return '<div class="trabajadoItem gg-close-r"></div>'; // HTML si el registro no existe
+        return '<div class="trabajadoItem gg-close-r"></div>'; 
     }
 }
 
@@ -357,13 +352,11 @@ function dataUniExcel($connection, $archivos4T, $dato,$stadoQ) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Manejar cambios en el campo de búsqueda
             $('#searchInputSemaforo').on('input', function () {
                 var searchTerm = $(this).val();
                 loadTable(1, searchTerm);
             });
 
-            // Manejar clics en los elementos de paginación
             $(document).on('click', '.itempag', function () {
                 var page = $(this).text();
                 var searchTerm = $('#searchInputSemaforo').val();
@@ -385,13 +378,11 @@ function dataUniExcel($connection, $archivos4T, $dato,$stadoQ) {
                 });
             }
 
-            // Función para limpiar búsqueda
             $("#btnclearTable").on("click", function () {
                 $("#searchInputSemaforo").val("");
                 loadTable(1, "");
             });
 
-            // Cargar la tabla con la página 1 y sin búsqueda al iniciar
             loadTable(1, "");
         });
     </script>

@@ -344,6 +344,17 @@
                         </div>
             
                         <div class="cont-links">
+                            <a href="copia.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-file-document"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">FAE</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="cont-links">
                             <a href="excelesVerificacion.php" id="btnesNav">
                                 <div class="contenedor-ico">
                                     <i class="gg-toolbox"></i>

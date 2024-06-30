@@ -305,6 +305,28 @@
             overflow: hidden;
             border:0;
         }
+        .AcumVar{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border:0;
+            overflow: hidden;
+        }
+        .ContNADtUser , .ContAvCuADtu{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border:0;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -563,11 +585,11 @@
                     </div>
                     <div id="cont-27">
                         <input
+                            class="AcumVar"
                             type="text"
                             name="AcV1[]"
                             id="acumVarDto-'.$i.'"
                             placeholder="0"
-                            class="AcumVar"
                             readonly
                         />
                     </div>
@@ -609,11 +631,11 @@
                     </div>
                     <div id="cont-32">
                         <input
+                            class="AcumVar"
                             type="text"
                             name="AcV2[]"
                             id="acumVarDto-'.$i.'"
                             placeholder="0"
-                            class="AcumVar"
                             readonly
                         />
                     </div>
@@ -623,8 +645,24 @@
                     <div id="cont-34">
                         <p>avance en el cumplimiento anual</p>
                     </div>
-                    <div id="cont-35"></div>
-                    <div id="cont-36"></div>
+                    <div id="cont-35">
+                        <input
+                            type="text"
+                            placeholder="0"
+                            name="NaUsr[]"
+                            class="ContNADtUser"
+                            id="contNaU-'.$i.'"
+                        />
+                    </div>
+                    <div id="cont-36">
+                        <input
+                            type="text"
+                            placeholder="0"
+                            name="AvCaU[]"
+                            class="ContAvCuADtu"
+                            id="avanceCAn-'.$i.'"
+                        />
+                    </div>
                 </div>
                 <footer id="cont-footer">
                     <div id="cont-qr">
@@ -1132,7 +1170,7 @@ btnMH.addEventListener('click', () => {
                 <input id="Trim4V1-${contadorHojas-1}"  class="cData" type="text" name="Trim4V1[]" placeholder="0" />
             </div>
             <div id="cont-27">
-                <input type="text" id="acumVarDto-${contadorHojas-1}"  class="AcumVar" name="AcV1[]" placeholder="0" readonly />
+                <input id="acumVarDto-${contadorHojas-1}"  class="AcumVar" type="text"name="AcV1[]" placeholder="0" readonly />
             </div>
             <div id="cont-28">
                 <input id="Trim1V2-${contadorHojas-1}"  class="cData" type="text" name="Trim1V2[]" placeholder="0" />
@@ -1147,7 +1185,7 @@ btnMH.addEventListener('click', () => {
                 <input id="Trim4V2-${contadorHojas-1}"  class="cData" type="text" name="Trim4V2[]" placeholder="0" />
             </div>
             <div id="cont-32">
-                <input type="text" id="acumVarDto-${contadorHojas-1}"  class="AcumVar" name="AcV2[]" placeholder="0" readonly />
+                <input id="acumVarDto-${contadorHojas-1}"  class="AcumVar" type="text" name="AcV2[]" placeholder="0" readonly />
             </div>
             <div id="cont-33">
                 <p>n/a</p>
@@ -1155,8 +1193,24 @@ btnMH.addEventListener('click', () => {
             <div id="cont-34">
                 <p>avance en el cumplimiento anual</p>
             </div>
-            <div id="cont-35"></div>
-            <div id="cont-36"></div>
+            <div id="cont-35">
+                <input
+                    type="text"
+                    placeholder="0"
+                    name="NaUsr[]"
+                    class="ContNADtUser"
+                    id="contNaU-${contadorHojas-1}"
+                />
+            </div>
+            <div id="cont-36">
+                <input
+                    type="text"
+                    placeholder="0"
+                    name="AvCaU[]"
+                    class="ContAvCuADtu"
+                    id="avanceCAn-${contadorHojas-1}"
+                />
+            </div>
         </div>
         <footer id="cont-footer">
             <div id="cont-qr">
@@ -1285,6 +1339,50 @@ btnMH.addEventListener('click', () => {
 
 
     dataIndicadoresUpdate();
+
+
+    
+    // Obtener las colecciones de elementos
+    let cDataElements = document.getElementsByClassName("cData");
+    let AcumVarElements = document.getElementsByClassName('AcumVar');
+    let sssainputDTaElements = document.getElementsByClassName("inputDTa");
+
+    // Obtener las longitudes de las colecciones
+    let cDataIntputSum = cDataElements.length;
+    let AcumVarDto = AcumVarElements.length;
+    let sssainputDTa = sssainputDTaElements.length;
+
+    // Calcular saltoInd
+    let saltoInd = cDataIntputSum / AcumVarDto;
+    //console.log(saltoInd);
+
+    // Función para actualizar las sumas
+    function updateSums() {
+        for (let i = 0; i < AcumVarDto; i++) {
+            let sum = 0;
+            for (let j = 0; j < 4; j++) {
+                let index = i * 4 + j;
+                if (index < cDataIntputSum) {
+                    let value = parseFloat(cDataElements[index].value) || 0;
+                    sum += value;
+                }
+            }
+            AcumVarElements[i].value = sum;
+            //console.log(`Elemento AcumVar-${i}: ${AcumVarElements[i].value}`);
+        }
+    }
+
+    // Añadir event listeners a los elementos cDataElements
+    for (let i = 0; i < cDataIntputSum; i++) {
+        cDataElements[i].addEventListener('input', updateSums);
+    }
+
+    // Inicializar las sumas al cargar la página
+    updateSums();
+
+
+
+
 });    
 
     // Obtener todos los elementos con la clase 'dtaGen'
@@ -1659,15 +1757,44 @@ for(let i = 0 ; i < notaFaeUsrDT.length; i++) {
     });
 }
 
+// Obtener las colecciones de elementos
+let cDataElements = document.getElementsByClassName("cData");
+let AcumVarElements = document.getElementsByClassName('AcumVar');
+let sssainputDTaElements = document.getElementsByClassName("inputDTa");
 
-let cDataIntputSum = document.getElementsByClassName("cData").length;
-let AcumVarDto = document.getElementsByClassName("AcumVar").length;
-let saltoInd = cDataIntputSum/AcumVarDto;
+// Obtener las longitudes de las colecciones
+let cDataIntputSum = cDataElements.length;
+let AcumVarDto = AcumVarElements.length;
+let sssainputDTa = sssainputDTaElements.length;
+
+// Calcular saltoInd
+let saltoInd = cDataIntputSum / AcumVarDto;
 console.log(saltoInd);
-for(let i = 0 ; i < AcumVarDto ; i++){
-    let dtSumFAE = document.getElementById("acumVarDto-"+i);
-    console.log(dtSumFAE);
+
+// Función para actualizar las sumas
+function updateSums() {
+    for (let i = 0; i < AcumVarDto; i++) {
+        let sum = 0;
+        for (let j = 0; j < 4; j++) {
+            let index = i * 4 + j;
+            if (index < cDataIntputSum) {
+                let value = parseFloat(cDataElements[index].value) || 0;
+                sum += value;
+            }
+        }
+        AcumVarElements[i].value = sum;
+        //console.log(`Elemento AcumVar-${i}: ${AcumVarElements[i].value}`);
+    }
 }
+
+// Añadir event listeners a los elementos cDataElements
+for (let i = 0; i < cDataIntputSum; i++) {
+    cDataElements[i].addEventListener('input', updateSums);
+}
+
+// Inicializar las sumas al cargar la página
+updateSums();
+
 </script>
 </html>
 
