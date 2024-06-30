@@ -138,6 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["correo"]) && isset($_P
                                         if(
                                             $datoda2 === 'Administrador SIA' || 
                                             $datoda2 === 'DII-Jefe_Analista' || 
+                                            $datoda2 === 'DII-Analista' || 
                                             $datoda2 === 'DFLE-Administrado'
                                         ){
                                             $_SESSION['correo'] = $correo;

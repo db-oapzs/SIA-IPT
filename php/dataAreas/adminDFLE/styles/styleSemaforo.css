@@ -144,12 +144,14 @@ Table {
 }
 
 .btnBusquedaSemaforo {
-  width: 70px;
+  width: 180px;
   height: 35px;
   padding: auto;
   color: #FFFFFF !important;
   font-size: 12px;
   border-radius: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
   border: none;
   background: #6c1d45;
 }
