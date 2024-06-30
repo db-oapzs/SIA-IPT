@@ -320,11 +320,11 @@ function dataUniExcel($connection, $archivos4T, $dato,$stadoQ) {
                 </tr>
                 <tr>
                     <th class="HUnidadesSemaforo">Nombre de la Unidad</th>
-                    <th class="SHEstadoNoTrab">No Trabajado</th>
+                    <th class="SHEstadoNoTrab">Trabajado</th>
                     <th class="SHEstadoEnProceso">En Proceso</th>
                     <th class="SHEstadoFinPUnidad">Finalizado por Unidad</th>
                     <th class="SHEstadoRevAnalista">Revisado por Analista</th>
-                    <th class="SHEstadoRevPJefe">Final (Revisado por Jefe)</th>
+                    <th class="SHEstadoRevPJefe">Revisado por Jefe</th>
                 </tr>
             </thead>
             <tbody id="SemaforoBody">
