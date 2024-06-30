@@ -211,6 +211,99 @@ function dataUnidad2($_unidad, $connection)
         return '<div class="trabajadoItem gg-close-r"></div>';
     }
 }
+
+
+
+
+// Directorio de archivos
+$ficheroArchivos = '../../../exelDFLE/unidades';
+
+// Verificar si el directorio existe
+if (!is_dir($ficheroArchivos)) {
+    die("El directorio no existe.");
+}
+
+// Arrays para clasificar los archivos
+$archivos4T = [];
+
+// Abrir el directorio
+if ($handle = opendir($ficheroArchivos)) {
+    while (false !== ($entry = readdir($handle))) {
+        if ($entry != "." && $entry != "..") {
+            if (strpos($entry, "4 DFLE_") !== false) {
+                $archivos4T[] = $entry;
+            }
+        }
+    }
+    closedir($handle);
+} else {
+    die("No se pudo abrir el directorio.");
+}
+
+// Función para buscar en el arreglo
+function buscarEnArreglo($archivos4T, $dato) {
+    foreach ($archivos4T as $archivo) {
+        if (strpos($archivo, $dato) !== false) {
+            return $archivo;
+        }
+    }
+    return 'false';
+}
+function dataUniExcel($connection, $archivos4T, $dato,$stadoQ) {
+    if($stadoQ === 1){
+        $queryVerifi = '
+            SELECT COALESCE(MAX(CASE WHEN ValidadoAnalista = 1 THEN 1 ELSE 0 END), 0) AS ValidadoAnalista
+            FROM [DFLE_Desarrollo].[dbo].[RegistroValidaciones] RV
+            JOIN [DFLE_Desarrollo].[dbo].[Unidades_Academicas] UA ON RV.id_UnidadAcademica = UA.ID_UnidadAcademica
+            WHERE UA.Desc_Nombre_Unidad_Academica = ?
+            AND RV.NombreDelExcel = ?
+        ';
+    } 
+    if($stadoQ === 2){
+        $queryVerifi = '
+            SELECT COALESCE(MAX(CASE WHEN [ValidadoJefeAnalistas] = 1 THEN 1 ELSE 0 END), 0) AS ValidadoAnalista
+            FROM [DFLE_Desarrollo].[dbo].[RegistroValidaciones] RV
+            JOIN [DFLE_Desarrollo].[dbo].[Unidades_Academicas] UA ON RV.id_UnidadAcademica = UA.ID_UnidadAcademica
+            WHERE UA.Desc_Nombre_Unidad_Academica = ?
+            AND RV.NombreDelExcel = ?;
+        ';
+    }
+    // Parámetros para la consulta
+    $params = [$dato, buscarEnArreglo($archivos4T, $dato)];
+
+    // Preparar la consulta
+    $stmt = sqlsrv_prepare($connection, $queryVerifi, $params);
+    if ($stmt === false) {
+        echo "Error al preparar la consulta para obtener información de la unidad académica: " . sqlsrv_errors()[0]['message'] . "\n";
+        return '<div class="trabajadoItem gg-close-r"></div>'; // Devolver HTML de error en caso de fallo
+    }
+
+    // Ejecutar la consulta
+    $result = sqlsrv_execute($stmt);
+    if ($result === false) {
+        echo "Error al ejecutar la consulta para obtener información de la unidad académica: " . sqlsrv_errors()[0]['message'] . "\n";
+        return '<div class="trabajadoItem gg-close-r"></div>'; // Devolver HTML de error en caso de fallo
+    }
+
+    // Obtener el resultado de la consulta
+    $registroExiste = false; // Inicializar como false por defecto
+    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+        $registroExiste = $row['ValidadoAnalista']; // Convertir a booleano
+    }
+
+    // Liberar el conjunto de resultados
+    sqlsrv_free_stmt($stmt);
+
+    // Devolver HTML condicional según el resultado
+    if ($registroExiste === 1) {
+        return '<div class="trabajadoItem gg-check-r"></div>'; // HTML si el registro existe
+    } else {
+        return '<div class="trabajadoItem gg-close-r"></div>'; // HTML si el registro no existe
+    }
+}
+
+
+
 ?>
 
     <div class="flex-contStatus">
@@ -243,8 +336,8 @@ function dataUnidad2($_unidad, $connection)
                             <td class="VEstadoProcesoNo-trabajado">' . dataUnidad($unidad, $connection) . '</td>
                             <td class="VEstadoProcesoEn-proceso">' . dataUnidad($unidad, $connection) . '</td>
                             <td class="VEstadoProcesoFinalizado">' . dataUnidad2($unidad, $connection) . '</td>
-                            <td class="VEstadoProcesoRevisado-analista"></td>
-                            <td class="VEstadoProcesoRevisado-jefe"></td>
+                            <td class="VEstadoProcesoRevisado-analista">'.dataUniExcel($connection, $archivos4T, $unidad, 1).'</td>
+                            <td class="VEstadoProcesoRevisado-jefe">'.dataUniExcel($connection, $archivos4T, $unidad , 2).'</td>
                         </tr>
                     ';
                 }
