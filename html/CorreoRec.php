@@ -26,9 +26,10 @@
             <ul id="modalCorreo">
                 <li id="cont-btnclose"><p id="btncloss"><span class="gg-close"></p></span></li>
                 <li id="cont-datamodal">
-                <p>Ingresa tu correo electrónico para enviarte una contraseña temporal.</p>
-                <p>Con ella podrás cambiar tu contraseña actual</p>
-                <p>y se te permitirá el acceso al sistema SIA.</p>
+                <p>Por favor, introduce tu correo electrónico 
+                   para recibir una contraseña temporal. 
+                   Con esta podrás cambiar 
+                   tu contraseña actual y acceder al sistema SIA.</p>
                 </li>
             </ul>
     </nav>

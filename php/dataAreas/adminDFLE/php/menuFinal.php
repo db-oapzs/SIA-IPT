@@ -33,18 +33,20 @@
         <link rel="stylesheet" href="../styles/stylesbadmin.css">
         <link rel="stylesheet" href="../styles/stylesJustF9.css">
         <link rel="stylesheet" href="../styles/UCelexS.css">
+        
+        <link rel="stylesheet" href="../styles/StylesDescVali.css">
 
         <link rel="stylesheet" href="../styles/CargActiv.css">
         <link rel="stylesheet" href="../styles/DFStyles.css">
         <link rel="stylesheet" href="../styles/stylesPanelAdmin.css">
         <link rel="stylesheet" href="../../../../scripts/jqueryUI/jquery-ui.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <script src="../../../scripts/menu.js" async defer></script>  
         <script src="../scripts/jquery-3.7.1.min.js" async defer></script>  
         <script src="../../../../scripts/jqueryUI/jquery-ui.js"></script>
         <script src="../scripts/ScriptModal.js" async defer></script>
         <script src="../scripts/bootstrap.js" async defer></script>
         <script src="../scripts/clock.js" async defer></script>
+        <script src="../scripts/TablaValDes.js" async defer></script>
     
 </head>
 <body>
@@ -122,13 +124,23 @@
                             </a>
                         </div>
             
-                        <div class="cont-links">s
+                        <div class="cont-links">
                             <a href="semaforoUnidades.php" id="btnesNav">
                                 <div class="contenedor-ico">
                                     <i class="gg-eye"></i>
                                 </div>
                                 <div class="contenedor-txtico">
                                     <span class="links_nombres">Semaforo de Actividades</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cont-links">
+                            <a href="excelesVerificacion.php" id="btnesNav">
+                                <div class="contenedor-ico">
+                                    <i class="gg-toolbox"></i>
+                                </div>
+                                <div class="contenedor-txtico">
+                                    <span class="links_nombres">Validacion de Exceles</span>
                                 </div>
                             </a>
                         </div>
@@ -293,22 +305,24 @@
     ?>
 
 
-    <script>
+<script>
+    (function() {
         let btnMenu = document.querySelector("#btn-menu");
         let sidebar = document.querySelector(".sidebar");
         let btnClose = document.querySelector("#btn-close");
 
-        btnMenu.onclick = function() {
-            sidebar.classList.add("active");
-            btnMenu.style.display = "none";
-            btnClose.style.display = "block";
-        }
+        if (btnMenu && sidebar && btnClose) {
+            btnMenu.onclick = function() {
+                sidebar.classList.add("active");
+                btnMenu.style.display = "none";
+                btnClose.style.display = "block";
+            }
 
-        btnClose.onclick = function() {
-            sidebar.classList.remove("active");
-            btnMenu.style.display = "block";
-            btnClose.style.display = "none";
+            btnClose.onclick = function() {
+                sidebar.classList.remove("active");
+                btnMenu.style.display = "block";
+                btnClose.style.display = "none";
+            }
         }
-
-        
-    </script>
+    })();
+</script>

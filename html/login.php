@@ -13,7 +13,7 @@
                 <ul id="modalCorreo">
                     <li id="cont-btnclose"><p id="btncloss"><span class="gg-close"></span></p></li>
                     <li id="cont-datamodal">
-                        <p>' . $status . ': ' . $statusErrors[$status] . '</p>
+                        <p>' . $statusErrors[$status] . '</p>
                     </li>
                 </ul>
             </nav>

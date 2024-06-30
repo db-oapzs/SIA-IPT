@@ -175,13 +175,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
 
 
 
-
+// Ruta del archivo original y copia
                 // Ruta del archivo original
                 $anio = (string)date('Y');
                 $rutaArchivoOriginal = '../exelDFLE/plnatilla/General.xlsx';
                 // Ruta donde se guardará la copia del archivo
                 //$nombreArchivo = 'General_'.$nombreunidad.'_'.$idioma;
-                $nombreArchivo = '4 DFLE_4T_'.$anio.' ' . $nombreunidad;
+                $mes = date('n');
+                $numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
+                $nombreArchivo = '4 DFLE_'.$numTrimestre.'T_'.$anio.' ' . $nombreunidad;
                 $rutaCopiaArchivo = '../exelDFLE/unidades/' . $nombreArchivo . '.xlsx';
                 $RutanombreArchivo = $rutaCopiaArchivo;
                 $rutafinal = $rutaCopiaArchivo;

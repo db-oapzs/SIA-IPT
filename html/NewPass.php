@@ -30,9 +30,9 @@ if(isset($_SESSION["correo"])) {
             <ul id="modalCorreo">
                 <li id="cont-btnclose"><p id="btncloss"><span class="gg-close"></p></span></li>
                 <li id="cont-datamodal">
-                <p>Ingresa la contraseña temporal que te fue enviada por correo</p>
-                <p>para poder realizar la actualización de tu contraseña correctamente</p>
-                <p>y poder tener acceso al sistema SIA</p>
+                <p>Por favor, ingresa la contraseña
+                   temporal que te fue enviada por correo electrónico
+                   para actualizar tu contraseña y acceder al sistema SIA.</p>
                 </li>
             </ul>
     </nav>

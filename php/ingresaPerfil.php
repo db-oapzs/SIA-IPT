@@ -133,8 +133,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["correo"]) && isset($_P
                                                     $datoda2 = $row['Desc_Rol'];
                                                 }
                                             }
-                                            // Liberar el conjunto de resultados
-                                            sqlsrv_free_stmt($stmt);
                                         }
                                         //--- guardo los datos en una session
                                         if(
