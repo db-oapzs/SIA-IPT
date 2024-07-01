@@ -41,35 +41,35 @@
     //!------------------------------------------------------------------------
 
     $queryDataFAE = '
-    SELECT MP.Indicador_CVE, 
-    MP.Eje_Fundamental_Transversal_Nombre, 
-    MP.Proyecto_CVE, MP.Proyecto_Nombre, 
-    MP.Accion_Descripcion, 
-    MP.Indicador_NombreDelIndicador, 
-    MP.Indicador_MetodoDeCalculo, 
-    MP.Meta_2024_Meta,
-    MP.Area_Operativa_AreaOperativa,
-    NU.Desc_Nombre_Usuario,
-    C.Desc_Cargo,
-    CE.Desc_Correo_Electronico,
-    NT.Desc_Numero_Telefono
-    FROM MatrizPIMP MP, Usuarios_General UG
-    LEFT JOIN
-    Nombre_Usuarios NU ON UG.id_NombreUsuario = NU.ID_NombreUsuario
-    LEFT JOIN 
-    Cargos C ON UG.id_Cargo = C.ID_Cargo
-    LEFT JOIN
-    Correo_Electronico CE ON UG.id_CorreoElectronico = CE.ID_CorreoElectronico
-    LEFT JOIN
-    Numero_Telefono NT ON UG.id_NumeroTelefono = NT.ID_NumeroTelefono
-    WHERE 
-    Indicador_NivelDelIndicador = ? 
-    AND 
-    Area_Operativa_AreaOperativa = ? 
-    AND UG.id_UnidadAcademica = (
-        SELECT ID_UnidadAcademica 
-        FROM Unidades_Academicas 
-        Where Siglas = ?)
+        SELECT MP.Indicador_CVE, 
+        MP.Eje_Fundamental_Transversal_Nombre, 
+        MP.Proyecto_CVE, MP.Proyecto_Nombre, 
+        MP.Accion_Descripcion, 
+        MP.Indicador_NombreDelIndicador, 
+        MP.Indicador_MetodoDeCalculo, 
+        MP.Meta_2024_Meta,
+        MP.Area_Operativa_AreaOperativa,
+        NU.Desc_Nombre_Usuario,
+        C.Desc_Cargo,
+        CE.Desc_Correo_Electronico,
+        NT.Desc_Numero_Telefono
+        FROM MatrizPIMP MP, Usuarios_General UG
+        LEFT JOIN
+        Nombre_Usuarios NU ON UG.id_NombreUsuario = NU.ID_NombreUsuario
+        LEFT JOIN 
+        Cargos C ON UG.id_Cargo = C.ID_Cargo
+        LEFT JOIN
+        Correo_Electronico CE ON UG.id_CorreoElectronico = CE.ID_CorreoElectronico
+        LEFT JOIN
+        Numero_Telefono NT ON UG.id_NumeroTelefono = NT.ID_NumeroTelefono
+        WHERE 
+        Indicador_NivelDelIndicador = ? 
+        AND 
+        Area_Operativa_AreaOperativa = ? 
+        AND UG.id_UnidadAcademica = (
+            SELECT ID_UnidadAcademica 
+            FROM Unidades_Academicas 
+            Where Siglas = ?)
     ';
     $PIMP = 'PIMP';
     $DFLE = 'DFLE';
@@ -149,8 +149,76 @@
 
 
 
-    
-    //var_dump($notasDatoFaeS_notes);
+
+    $queriVariablesUltimas = '
+            SELECT 
+            Clave_Indicador,
+            Variable,
+            PRIMER_TRIM,
+            SEGUNDO_TRIM,
+            TERCER_TRIM,
+            CUARTO_TRIM,
+            Fecha
+        FROM 
+            [FAES_DFLE_Indicadores_Temporal]
+        WHERE
+            Fecha = (SELECT TOP 1 Fecha FROM FAES_DFLE_Indicadores_Temporal ORDER BY Fecha DESC)
+    ';
+
+    $stmt = sqlsrv_prepare($connection, $queriVariablesUltimas);
+
+    $variablesFaeDaTAuni = array();
+    $PRIMER_TRIM = array();
+    $SEGUNDO_TRIM = array();
+    $TERCER_TRIM = array();
+    $CUARTO_TRIM = array();
+    $Variable = array();
+
+    if ($stmt === false) {
+        echo "Error al preparar la consulta: " . print_r(sqlsrv_errors(), true) . "\n";
+    } else {
+        $result = sqlsrv_execute($stmt);
+        if ($result === false) {
+            echo "Error al ejecutar la consulta: " . print_r(sqlsrv_errors(), true) . "\n";
+        } else {
+            // Mostrar los resultados
+            while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                $variablesFaeDaTAuni[] = $row;
+                $PRIMER_TRIM[] = $row['PRIMER_TRIM'];
+                $SEGUNDO_TRIM[] = $row['SEGUNDO_TRIM'];
+                $TERCER_TRIM[] = $row['TERCER_TRIM'];
+                $CUARTO_TRIM[] = $row['CUARTO_TRIM'];
+                $Variable[] = $row['Variable'];
+            }
+        }
+        sqlsrv_free_stmt($stmt);
+    }
+
+/*
+
+    var_dump($variablesFaeDaTAuni);
+    echo "<br><br>";
+    var_dump($PRIMER_TRIM);
+    echo "<br><br>";
+    var_dump($SEGUNDO_TRIM);
+    echo "<br><br>";
+    var_dump($TERCER_TRIM);
+    echo "<br><br>";
+    var_dump($CUARTO_TRIM);
+    echo "<br><br>";
+    var_dump($Variable);
+    echo "<br><br>";
+    for ($i = 0; $i < $numeroHojas*2; $i++) {
+        echo '
+            <br> Variable: ' . $variablesFaeDaTAuni[$i]['Variable'] . '
+            <br> PRIMER_TRIM: ' . $variablesFaeDaTAuni[$i]['PRIMER_TRIM'] . '
+            <br> SEGUNDO_TRIM: ' . $variablesFaeDaTAuni[$i]['SEGUNDO_TRIM'] . '
+            <br> TERCER_TRIM: ' . $variablesFaeDaTAuni[$i]['TERCER_TRIM'] . '
+            <br> CUARTO_TRIM: ' . $variablesFaeDaTAuni[$i]['CUARTO_TRIM'] . '
+        ';
+    }
+*/
+//var_dump($notasDatoFaeS_notes);
 
     //var_dump($dataFAE);
     /*
@@ -608,6 +676,7 @@
                             name="Trim1V1[]"
                             placeholder="0"
                             id="Trim1V1-'.$i.'"
+                            value="'.$PRIMER_TRIM[$i].'"
                         />
                     </div>
                     <div id="cont-24">
@@ -617,6 +686,7 @@
                             name="Trim2V1[]"
                             placeholder="0"
                             id="Trim2V1-'.$i.'"
+                            value="'.$SEGUNDO_TRIM[$i].'"
                         />
                     </div>
                     <div id="cont-25">
@@ -626,6 +696,7 @@
                             name="Trim3V1[]"
                             placeholder="0"
                             id="Trim3V1-'.$i.'"
+                            value="'.$TERCER_TRIM[$i].'"
                         />
                     </div>
                     <div id="cont-26">
@@ -635,6 +706,7 @@
                             name="Trim4V1[]"
                             placeholder="0"
                             id="Trim4V1-'.$i.'"
+                            value="'.$CUARTO_TRIM[$i].'"
                         />
                     </div>
                     <div id="cont-27">
@@ -654,6 +726,7 @@
                             name="Trim1V2[]"
                             placeholder="0"
                             id="Trim1V2-'.$i.'"
+                            value="'.$PRIMER_TRIM[$i+1].'"
                         />
                     </div>
                     <div id="cont-29">
@@ -663,6 +736,7 @@
                             name="Trim2V2[]"
                             placeholder="0"
                             id="Trim2V2-'.$i.'"
+                            value="'.$SEGUNDO_TRIM[$i+1].'"
                         />
                     </div>
                     <div id="cont-30">
@@ -672,6 +746,7 @@
                             name="Trim3V2[]"
                             placeholder="0"
                             id="Trim3V2-'.$i.'"
+                            value="'.$TERCER_TRIM[$i+1].'"
                         />
                     </div>
                     <div id="cont-31">
@@ -681,6 +756,7 @@
                             name="Trim4V2[]"
                             placeholder="0"
                             id="Trim4V2-'.$i.'"
+                            value="'.$CUARTO_TRIM[$i+1].'"
                         />
                     </div>
                     <div id="cont-32">
