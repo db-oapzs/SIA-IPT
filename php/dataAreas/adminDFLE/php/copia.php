@@ -398,6 +398,7 @@
             padding-left: 10px;
             padding-right: 10px;
             font-size: 10px;
+            text-transform: uppercase;
         }
         .inputNoteFaE{
             width: 90%;
@@ -619,7 +620,7 @@
                     <p> 0'.$Proyecto_CVE[$i].' '.$Proyecto_Nombre[$i].'</p>
                     </div>
                     <div id="cont-7">
-                        <p>clave del indicador: </p><input type="text" id="indCinput-'.$i.'" class="indicadorFAEsPIM" value="'.$Indicador_CVE[$i].'">
+                        <p>clave del indicador: </p><input type="text" id="indCinput-'.$i.'" class="indicadorFAEsPIM" readonly value="'.$Indicador_CVE[$i].'">
                     </div>
                     <div id="cont-8">
                         <p>resumen de actividades</p>
@@ -1250,15 +1251,18 @@ btnMH.addEventListener('click', () => {
             </div>
             <div id="cont-9">
                 <p>acción institucional:</p>
+                <p contenteditable="true" ></p>
             </div>
             <div id="cont-10">
                 <p>Nombre del indicador:</p>
+                <p contenteditable="true" ></p>
             </div>
             <div id="cont-11">
                 <p>método de cálculo</p>
+                <p contenteditable="true" ></p>
             </div>
             <div id="cont-12">
-                <p>indicador meta 2024 :</p>
+                <p contenteditable="true">indicador meta 2024 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             </div>
             <div id="cont-13" contenteditable="false" class="dtaGen con${contadorHojas}">
                 <div id="dato-${contadorHojas}" class="dtaGno"></div>
@@ -1873,9 +1877,10 @@ btnImp.addEventListener('click', () => {
 });
 let btnarrow = document.getElementById("btnarrow");
 btnarrow.addEventListener('click', () => {
-    console.log("se ha presionado btnarrow");
-    history.back();
+    console.log("Se ha presionado btnarrow");
+    window.location.href = "Bienvenida.php?status=FaeReturn";
 });
+
 let btnGuardar = document.getElementById("btnGuardar");
 let enviarFAEData = document.getElementById("enviarFAEData");
 btnGuardar.addEventListener('click', () => {
@@ -1920,7 +1925,6 @@ function updateSums() {
     }
 }
 
-// Añadir event listeners a los elementos cDataElements
 for (let i = 0; i < cDataIntputSum; i++) {
     cDataElements[i].addEventListener('input', updateSums);
 }
