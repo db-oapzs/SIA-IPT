@@ -1,5 +1,10 @@
 <?php
-	
+	// Incluir la clase de PHP Spreadsheet
+	header('Content-Type: text/html; charset=utf-8');
+	require '../../../vendor/autoload.php';
+	use PhpOffice\PhpSpreadsheet\IOFactory;
+	date_default_timezone_set('America/Mexico_City');
+		
 	include '../../../conexion.php';
 	
     session_start();
@@ -18,10 +23,14 @@
 			$stmt = sqlsrv_prepare($connection, $sqlQuery, $params);
 			if ($stmt === false) {
 				echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
+				header("Location: copia.php?status=errorConsulta");
+				exit();
 			} else {
 				$result = sqlsrv_execute($stmt);
 			
 				if ($result === false) {
+					header("Location: copia.php?status=errorDtFAE");
+					exit();
 				} else {
 					while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
 						$data[] = $row;
@@ -57,8 +66,8 @@
 		}
 
 		$indicadores = $_POST['indicadorPIMDFLE'];
-		
-		var_dump($_POST);
+		$notas = $_POST['notas'];
+
 		$datosVariables = ' 
 			INSERT INTO FAES_DFLE_Indicadores_Temporal(
 			Clave_Indicador, 
@@ -72,7 +81,6 @@
 		';
 		$fecha = date('d-m-Y H:i:s');
 		
-		echo"<br><br>";
 		
 		for ($i = 0; $i < count($_POST['1erTrimV1']); $i++){
 			$variables = obtenerValoresEnPosicion($_POST, $i);
@@ -80,12 +88,42 @@
 			array_splice($valoresV1, 2, 0, $variables["V1"]);
 			$valoresV2 = [$indicadores[$i], "V2", $fecha];
 			array_splice($valoresV2, 2, 0, $variables["V2"]);
-			var_dump($valoresV1);
-			echo"<br>";
-			var_dump($valoresV2);			
-			echo"<br><br>";
 			ejecutaQuery($datosVariables, $valoresV1);
             ejecutaQuery($datosVariables, $valoresV2);
 		}
+
+
+		$queryNotas = '
+			INSERT INTO NOTAS_FAE_DFLE (
+			Notas,
+			Tipo_Resumen,
+			Area_Operativa, 
+			Fecha)
+			VALUES 
+			?,?,?,?
+		';
+		$fechaDarafae = (string)date('Y-m-d H:i:s');
+	
+		
+		$queryNotas = '
+			INSERT INTO NOTAS_FAE_DFLE_Temporal (
+				Notas,
+				Tipo_Resumen,
+				Area_Operativa, 
+				Fecha
+			) VALUES (?, ?, ?, ?)
+		';
+		$fechaDarafae = date('Y-m-d H:i:s');
+	
+		for ($i = 0; $i < count($notas); $i++) {
+			$params = [$i + 1, $notas[$i], $nombre_usuario, $fechaDarafae];
+			ejecutaQuery($queryNotas, $params);
+			//echo"nota insertada - $i - <br>";
+		}
+		
+		header("Location: copia.php?status=FaeGuardado");
+		exit();
 	}
+
+
 ?>

@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
 <?php
-    require '../../../vendor/autoload.php';
-    header('Content-Type: text/html; charset=utf-8');
-    use PhpOffice\PhpSpreadsheet\IOFactory;
+	// Incluir la clase de PHP Spreadsheet
+	header('Content-Type: text/html; charset=utf-8');
+	require '../../../vendor/autoload.php';
+	use PhpOffice\PhpSpreadsheet\IOFactory;
+	date_default_timezone_set('America/Mexico_City');
+		
+	include '../../../conexion.php';
+	
+    session_start();
+    if (!isset($_SESSION['correo'])) {
+        header("Location: ../../../../html/login.php?status=sessionCad");
+        exit();
+    }
+	
+	$correo = $_SESSION['correo'];
+	$nombre_usuario = $_SESSION['nombre_usuario'];
 
-    date_default_timezone_set('America/Mexico_City');
-    include '../../../conexion.php';
     include '../../../trimestre.php';
     $rango_trimestre = obtenerRangoMesesTrimestre();
     $metas = [1,2,3,4,5];
@@ -97,6 +108,49 @@
     }
     
     $numeroHojas = count($dataFAE);
+
+    $queryNotasSalve = '
+        SELECT TOP 3
+            [Notas],
+            [Tipo_Resumen],
+            [Fecha],
+            [Area_Operativa]
+        FROM 
+            [DFLE_Desarrollo].[dbo].[NOTAS_FAE_DFLE_Temporal]
+        WHERE 
+            [Area_Operativa] = ?
+        ORDER BY 
+            [Fecha] DESC;
+    ';
+
+    $params = [$nombre_usuario];
+    $stmt = sqlsrv_prepare($connection, $queryNotasSalve, $params);
+    $notasDatoFaeS_notes = array();
+
+    if ($stmt === false) {
+        echo "Error al preparar la consulta: " . print_r(sqlsrv_errors(), true) . "\n";
+    } else {
+        $result = sqlsrv_execute($stmt);
+        if ($result === false) {
+            echo "Error al ejecutar la consulta: " . print_r(sqlsrv_errors(), true) . "\n";
+        } else {
+            // Mostrar los resultados
+            while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                $notasDatoFaeS_notes[] = $row['Tipo_Resumen'];
+            }
+
+            // Verificar si el arreglo está vacío y rellenarlo con espacios vacíos
+            if (empty($notasDatoFaeS_notes)) {
+                $notasDatoFaeS_notes = array_fill(0, 3, " ");
+            }
+        }
+        sqlsrv_free_stmt($stmt);
+    }
+
+
+
+    
+    //var_dump($notasDatoFaeS_notes);
 
     //var_dump($dataFAE);
     /*
@@ -418,19 +472,19 @@
                 </nav>
                 <input
                     type="text"
-                    name="nota1"
+                    name="notas[]"
                     id="ntaFAE1"
                     class="inputNoteFaE"
                 />
                 <input
                     type="text"
-                    name="nota2"
+                    name="notas[]"
                     id="ntaFAE2"
                     class="inputNoteFaE"
                 />
                 <input
                     type="text"
-                    name="nota3"
+                    name="notas[]"
                     id="ntaFAE3"
                     class="inputNoteFaE"
                 />
@@ -743,7 +797,8 @@
             <textarea
                 class="notaFaeUsrDT"
                 id="usrNotaFae1"
-            ></textarea>
+                value="<?php echo $notasDatoFaeS_notes[0] ?>"
+            ><?php echo $notasDatoFaeS_notes[0] ?></textarea>
             </div>
         </div>
         <footer id="cont-footer">
@@ -821,7 +876,8 @@
             <textarea
                 class="notaFaeUsrDT"
                 id="usrNotaFae2"
-            ></textarea>
+                value="<?php echo $notasDatoFaeS_notes[1] ?>"
+            ><?php echo $notasDatoFaeS_notes[1] ?></textarea>
             </div>
         </div>
         <footer id="cont-footer">
@@ -898,7 +954,8 @@
             <textarea
                 class="notaFaeUsrDT"
                 id="usrNotaFae3"
-            ></textarea>
+                value="<?php echo $notasDatoFaeS_notes[2] ?>"
+            ><?php echo $notasDatoFaeS_notes[2] ?></textarea>
             </div>
         </div>
         <footer id="cont-footer">
