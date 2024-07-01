@@ -136,7 +136,7 @@ $anioAnterior = $anioActual - 1;
 // Ruta del archivo original y copia
 $mes = date('n');
 $numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
-$nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anioActual ." Unid Acad CELEX obs gfl 2";
+$nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anioActual ." Unid Acad CELEX obs gfl 2";
 $rutaArchivoOriginal = '../../../exelDFLE/plnatilla/General_Formato_1.xlsx';
 $rutaArchivoCopia = '../../../exelDFLE/unidades/' . $nombreArchivo . '.xlsx';
 

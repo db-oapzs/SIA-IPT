@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        echo "<br><h2>  Datos por enviar </h2><br>";
-        var_dump($_POST);
+        //echo "<br><h2>  Datos por enviar </h2><br>";
+        //var_dump($_POST);
 
         // Extraer el primer elemento
         $selectIdioma = $_POST['selectIdioma'];
@@ -28,20 +28,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Depuración para verificar los resultados
-        echo "<br><h2>  selectIdioma </h2><br>";
-        var_dump($selectIdioma);
+       // echo "<br><h2>  selectIdioma </h2><br>";
+       // var_dump($selectIdioma);
 
-        echo "<br><h2>  Nuevos Datos </h2><br>";
-        var_dump($nuevosDatos);
+        //echo "<br><h2>  Nuevos Datos </h2><br>";
+        //var_dump($nuevosDatos);
 
         foreach ($nuevosDatos as $key => $value) {
-            echo "<br><br><br>";
-            echo "  -- key : " . $key . "   valor  : ";
-            print_r($value); // O var_dump($value);
+            //echo "<br><br><br>";
+            //echo "  -- key : " . $key . "   valor  : ";
+            //print_r($value); // O var_dump($value);
         }
 
         for ($i = 1; $i <= count($nuevosDatos); $i++) {
-            echo "<br>";
+            //echo "<br>";
             // var_dump($nuevosDatos['dato'.$i]);
         }
         //!---------------------------------------------------------------------------------------
@@ -175,14 +175,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Si todo va bien, imprimir un mensaje de éxito
-            echo "<br><h1>Datos insertados</h1>";
+            //echo "<br><h1>Datos insertados</h1>";
             return true; // Indicar que la operación fue exitosa
         }
 
 
         $anio = (string) date('Y');
+    
+
+        $mes = date('n');
+        $numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
         $rutaArchivoOriginal = '../../../exelDFLE/plnatilla/General_Formato_5.xlsx';
-        $nombreArchivo = '5 DFLE_4T_' . $anio . ' ACCIONES DE FORMACION DOCENTE';
+        $nombreArchivo = "5 DFLE_". $numTrimestre ."T_". $anio . " ACCIONES DE FORMACION DOCENTE";
         $rutaCopiaArchivo = '../../../exelDFLE/unidades/' . $nombreArchivo . '.xlsx';
         $rutafinal = $rutaCopiaArchivo;
         $fechaCorte = 'FECHA DE CORTE: 31 DE DICIEMBRE DE ' . $anio;
@@ -239,6 +243,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
                 $writer->save($rutaCopiaArchivo);
+                header("Location: CargaActiv.php?status=DatosInsertados");
+                exit();
             } else {
                 echo "La hoja 1 no existe en el archivo Excel.";
             }
@@ -295,6 +301,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
                     $writer->save($rutaCopiaArchivo);
+                    header("Location: CargaActiv.php?status=DatosInsertados");
+                    exit();
                 } else {
                     echo "La hoja 1 no existe en el archivo Excel.";
                 }

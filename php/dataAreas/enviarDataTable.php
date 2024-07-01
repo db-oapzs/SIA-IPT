@@ -176,6 +176,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
 
 
 // Ruta del archivo original y copia
+    
+
                 // Ruta del archivo original
                 $anio = (string)date('Y');
                 $rutaArchivoOriginal = '../exelDFLE/plnatilla/General.xlsx';

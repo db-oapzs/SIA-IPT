@@ -9,8 +9,8 @@ include '../../../trimestre.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['selectIdioma']) && !empty($_POST['selectIdioma'])) {
-        echo "<br><h2>  Datos por enviar </h2><br>";
-        var_dump($_POST);
+        //echo "<br><h2>  Datos por enviar </h2><br>";
+        //var_dump($_POST);
 
         // Extraer el primer elemento
         $selectIdioma = $_POST['selectIdioma'];
@@ -23,20 +23,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Depuración para verificar los resultados
-        echo "<br><h2>  selectIdioma </h2><br>";
-        var_dump($selectIdioma);
+        //echo "<br><h2>  selectIdioma </h2><br>";
+        //var_dump($selectIdioma);
 
-        echo "<br><h2>  Nuevos Datos </h2><br>";
-        var_dump($nuevosDatos);
+        //echo "<br><h2>  Nuevos Datos </h2><br>";
+        //var_dump($nuevosDatos);
 
         foreach ($nuevosDatos as $key => $value) {
-            echo "<br><br><br>";
-            echo "  -- key : " . $key . "   valor  : ";
-            print_r($value); // O var_dump($value);
+            //echo "<br><br><br>";
+            //echo "  -- key : " . $key . "   valor  : ";
+            //print_r($value); // O var_dump($value);
         }
 
         for ($i = 1; $i <= count($nuevosDatos); $i++) {
-            echo "<br>";
+            //echo "<br>";
             // var_dump($nuevosDatos['dato'.$i]);
         }
         //!---------------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Si todo va bien, imprimir un mensaje de éxito
-            echo "<br><h1>Datos insertados</h1>";
+            //echo "<br><h1>Datos insertados</h1>";
             return true; // Indicar que la operación fue exitosa
         }
 
@@ -149,6 +149,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     subirData($connection, $params);
 
+                    header("Location: CargaActiv.php?status=DatosInsertados");
+                    exit();
                 }
             }
         }

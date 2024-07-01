@@ -5,9 +5,9 @@ require '../../../vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 date_default_timezone_set('America/Mexico_City');
 
-define("NUM_HOJA", 2);
-
 include '../../../conexion.php';
+
+define("NUM_HOJA", 2);
 	
 $start_time = microtime(true);
 
@@ -63,51 +63,86 @@ $start_time = microtime(true);
 	}
 	
 
-	
-	
-	function arregloNombres($hoja, $rango){
-		$dataArray = $hoja->rangeToArray($rango, NULL, TRUE, TRUE, FALSE);
-		return $dataArray;
+	function imprimeTablaDatos($datos){
+		echo "<table border='1'>";
+		echo "<tr>";
+		foreach ($datos[0] as $clave => $valor) {
+			echo "<th>$clave</th>";
+		}
+		echo "</tr>";
+		foreach ($datos as $registro) {
+			echo "<tr>";
+			foreach ($registro as $valorCelda) {
+				echo "<td>$valorCelda</td>";
+			}
+			echo "</tr>";
+		}
+		echo "</table>";
 	}
 	
-	function buscarCadena($cadena, $arreglo) {
-		foreach ($arreglo as $indice => $subArreglo) {
-			if (isset($subArreglo[0]) && $subArreglo[0] === $cadena) {
-				return $indice;
+	
+	function arregloNombres($hoja, $rango) {
+		$dataArray = $hoja->rangeToArray($rango, NULL, TRUE, TRUE, FALSE);
+		return array_map(function($subArray) {
+			return $subArray[0];
+		}, $dataArray);
+	}
+	
+	function imprimirTablaFinal($programaIdioma) {
+		echo '<table border="1">';
+		
+		foreach ($programaIdioma as $idioma => $filas) {
+			echo '<tr><th colspan="5">' . $idioma . '</th></tr>';
+			foreach ($filas as $fila) {
+				echo '<tr>';
+				foreach ($fila as $celda) {
+					echo '<td>' . var_export($celda, true) . '</td>';
+				}
+				echo '</tr>';
 			}
 		}
-		return -1; // Devuelve -1 si la cadena no se encuentra en el arreglo
+		
+		echo '</table>';
 	}
 	
 	
-	function llenaSeccion($hoja, $rangoNombres, $celdaDatos, $data){
-		$idiomas=["INGLÉS" => 0, "ALEMÁN" => 10, "JAPONÉS" => 20, "COREANO" => 25,
-		"PORTUGUÉS" => 30, "SEÑAS MEXICANAS" => 36, "FRANCÉS" => 41];
+	function llenaSeccion($hoja, $rangoNombres, $filaDatos, $data){
+		echo "Llenando seccion: $rangoNombres <br>";
+		$idiomas = ["INGLÉS", "ALEMÁN", "JAPONÉS", "COREANO", "PORTUGUÉS", "SEÑAS MEXICANAS", "FRANCÉS"];
+		$arregloPosiciones = ["INGLÉS" => 'N', "ALEMÁN" => 'X', "JAPONÉS" => 'AH', "COREANO" => 'AM',
+		"PORTUGUÉS" => 'AR', "SEÑAS MEXICANAS" => 'AX', "FRANCÉS" => 'BC'];
+		$arregloFinal = array();
 		
-		$nombres = arregloNombres($hoja, $rangoNombres);
-		$tamanio = count($nombres);
-		$arregloDatos = array_fill(0, $tamanio, array_fill(0, 45, NULL));
 		
-		foreach($data as $unidad){
-			$posicion = buscarCadena($unidad['Siglas'], $nombres);
-			echo ($unidad['Siglas']);
-			echo (" POSICION: " . $posicion . "<br>");
-			if($posicion >= 0 && isset($idiomas[$unidad['Desc_Idioma']])){
-				$fecha = DateTime::createFromFormat('d-m-Y H:i:s', $unidad['Fecha']);
-				$mes = (int)$fecha->format('m');
-				$numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => -1};
-				echo ($unidad['Siglas'] . " Fecha:" . $unidad['Fecha'] . " Mes: " . $mes . " Trimestre: " . $numTrimestre);
-				$posicionArreglo = $numTrimestre + $idiomas[$unidad['Desc_Idioma']]-1;
-				echo " ProgramaG: ";
-				echo($unidad['ProgramaGeneral']);
-				echo "<br>";
-				if((int)$unidad['ProgramaGeneral'] === 1){
-					$arregloDatos[$posicion][$posicionArreglo] = 1;
+		$arregloUnidades = arregloNombres($hoja, $rangoNombres);
+		$programaIdioma = array_fill(0, count($arregloUnidades), array_fill(0, 4, NULL));
+		foreach ($idiomas as $idioma){
+			$arregloFinal[$idioma] =  $programaIdioma;
+		}
+		
+		foreach ($data as $registro){
+			$posicion = array_search($registro['Siglas'], $arregloUnidades);
+			if($posicion !== false){
+				if($registro['ProgramaGeneral'] === 1){
+					$mes = date("n", strtotime($registro['Fecha']));
+					$trimestre = match (true) {$mes <= 3 => 0, $mes <= 6 => 1, $mes <= 9 => 2, $mes <= 12 => 3, default => -1};
+					if($trimestre != -1){
+						$arregloFinal[$registro['Desc_Idioma']][$posicion][$trimestre] = 1;
+						echo ("&nbsp;Unidad: " . $registro['Siglas'] . " Posicion: " . $posicion . " Trimestre: " . $trimestre . "<br>");
+					}
+					
 				}
 			}
+			else{
+				continue;
+			}
+			
 		}
 		
-		$hoja->fromArray($arregloDatos, NULL, $celdaDatos);
+		foreach ($arregloFinal as $idioma => $matrizIdioma){
+			$hoja->fromArray($matrizIdioma,' ', $arregloPosiciones[$idioma] . (string)$filaDatos);
+		}
+		echo "<br>";
 	}
 	
 	function llenaAnios($hoja){
@@ -136,13 +171,16 @@ $start_time = microtime(true);
 			$hoja = $spreadsheet->getSheet(NUM_HOJA);
 			fechas($hoja, 'BN4');
 			llenaAnios($hoja);
-			llenaSeccion($hoja, 'A15:A34', 'N15', $data);
-			llenaSeccion($hoja, 'A36:A67', 'N36', $data);
-			llenaSeccion($hoja, 'A69:A87', 'N69', $data);
-			llenaSeccion($hoja, 'A89:A104', 'N89', $data);
-			llenaSeccion($hoja, 'A106:A107', 'N106', $data);
+			
+			llenaSeccion($hoja, 'A15:A34', 15, $data);
+			llenaSeccion($hoja, 'A36:A67', 36, $data);
+			llenaSeccion($hoja, 'A69:A87', 69, $data);
+			llenaSeccion($hoja, 'A89:A104', 89, $data);
+			llenaSeccion($hoja, 'A106:A107', 106, $data);
+
 			$writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 			$writer->save($rutaArchivoCopia);
+
 			header("Location: llenadoF1C.php?status=dataEx1F3gen");
 			exit();
 		}
@@ -155,7 +193,7 @@ $anioAnterior = $anioActual - 1;
 // Ruta del archivo original y copia
 $mes = date('n');
 $numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
-$nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anioActual ." Unid Acad CELEX obs gfl 2";
+$nombreArchivo = "1 DFLE_". $numTrimestre ."T_". $anioActual ." Unid Acad CELEX obs gfl 2";
 $rutaArchivoOriginal = '../../../exelDFLE/plnatilla/General_Formato_1.xlsx';
 $rutaArchivoCopia = '../../../exelDFLE/unidades/' . $nombreArchivo . '.xlsx';
 
@@ -189,9 +227,15 @@ if ($data != NULL){
 			exit();
 		}
 	}
+	
+	imprimeTablaDatos($data);
+}
+else{
+	echo "Sin datos";
 }
 
 $end_time = microtime(true);
 $execution_time = $end_time - $start_time;
 echo "<br>Tiempo de ejecución: " . $execution_time . " segundos<br><br>";
+
 ?>

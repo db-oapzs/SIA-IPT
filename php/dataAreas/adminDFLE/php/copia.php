@@ -454,12 +454,6 @@
 </head>
 <body>
     
-    <div id="contFormTrans">
-        <form id="formDataFAE" method="POST" action="">
-            <h1>Datos Actuales</h1>
-
-        </form>
-    </div>
     <div id="contFormTrans_pas">
             <h1>Datos Pasados</h1>
         <form id="formDataFAE_pas" method="POST" action="FAEdataGuardaVariables.php">
