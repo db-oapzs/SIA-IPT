@@ -4,10 +4,17 @@
 require '../vendor/autoload.php';
 header('Content-Type: text/html; charset=utf-8');
 use PhpOffice\PhpSpreadsheet\IOFactory;
+
 date_default_timezone_set('America/Mexico_City');
 include '../conexion.php';
 $rutafinal;
-
+session_start();
+if (!isset($_SESSION['correo'])) {
+    header("Location: ../../html/login.php?status=sessionCad");
+    exit();
+}
+$correo = $_SESSION['correo'];
+$nombre_usuario = $_SESSION['nombre_usuario'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idioma"]) && $_POST['idioma'] != '' && $_POST['idioma'] != 'Selecciona una lengua') {
     //echo "<br><h2>Envia datos a la tabla temporal</h2><br>";
@@ -175,17 +182,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
 
 
 
-// Ruta del archivo original y copia
-    
+                // Ruta del archivo original y copia
+
 
                 // Ruta del archivo original
-                $anio = (string)date('Y');
+                $anio = (string) date('Y');
                 $rutaArchivoOriginal = '../exelDFLE/plnatilla/General.xlsx';
                 // Ruta donde se guardará la copia del archivo
                 //$nombreArchivo = 'General_'.$nombreunidad.'_'.$idioma;
                 $mes = date('n');
-                $numTrimestre = match (true) {$mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
-                $nombreArchivo = '4 DFLE_'.$numTrimestre.'T_'.$anio.' ' . $nombreunidad;
+                $numTrimestre = match (true) { $mes <= 3 => 1, $mes <= 6 => 2, $mes <= 9 => 3, $mes <= 12 => 4, default => "Mes inválido"};
+                $nombreArchivo = '4 DFLE_' . $numTrimestre . 'T_' . $anio . ' ' . $nombreunidad;
                 $rutaCopiaArchivo = '../exelDFLE/unidades/' . $nombreArchivo . '.xlsx';
                 $RutanombreArchivo = $rutaCopiaArchivo;
                 $rutafinal = $rutaCopiaArchivo;
@@ -623,6 +630,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
                 }
 
                 //?----------------------------------------------------------------------
+
+
+                $queryVigencia = ' 
+                    INSERT INTO 
+                    Vigencia(
+                    Id_Idioma,
+                    id_UnidadAcademica,
+                    FechaInicio) 
+                    VALUES(
+                    (select 
+                    ID_Idioma 
+                    from Idiomas 
+                    where  
+                    Desc_Idioma = ?),
+                    (SELECT 
+                    ID_UnidadAcademica 
+                    from 
+                    Unidades_Academicas 
+                    where 
+                    Desc_Nombre_Unidad_Academica = ?),
+                    ?)
+                ';
+                $vigenciaFch = $_POST['fechaVigencia'];
+                // Crear un objeto DateTime a partir de la fecha recibida
+                $fecha = new DateTime($vigenciaFch);
+
+                // Sumar 5 años a la fecha
+                $fecha->modify('+5 years');
+
+                // Obtener la nueva fecha en el mismo formato 'Y-m-d'
+                $nuevaFecha = $fecha->format('Y-m-d');
+                $params = [
+                    $idioma,
+                    $nombre_usuario,
+                    $nuevaFecha
+                ];
+                // Preparar la consulta
+                $stmt = sqlsrv_prepare($connection, $queryVigencia, $params);
+                if ($stmt === false) {
+                    // Manejar el error de la consulta preparada
+                    echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
+                } else {
+                    // Ejecutar la consulta
+                    $result = sqlsrv_execute($stmt);
+
+                    if ($result === false) {
+                        // Manejar el error de la ejecución de la consulta
+                        echo "Error al ejecutar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
+                    } else {
+                        echo 'consulta hecha vigencia';
+                    }
+                }
+
+
                 header("Location: cargarData.php?status=InsertSuccess");
                 exit();
             }
@@ -632,7 +693,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
     }
 
 } else {
-    header("Location: cargarData.php?status=IdiomamErr");
-    exit();
+    //header("Location: cargarData.php?status=IdiomamErr");
+    //exit();
 }
 ?>

@@ -560,9 +560,9 @@ if(empty($arrayDataSQL_H) && empty($arrayDataSQL_M)){
                     <div id="footerData">
                         <div id="contVigencia">
                         <label>Vigencia</label>
-                        <input type="date" name="fechaVigencia"/>
+                        <input type="date" name="fechaVigencia" value="<?php echo $fechaInicioUaId ?>" required/>
                         <input id="contIdiomaPost" type="hidden" name="idioma"/>
-                        <input id="idContUnidadAca" type="hidden" name="unidadAcademica" value="<?php echo $nombre_usuario; ?>"/>
+                        <input id="idContUnidadAca" type="hidden" name="unidadAcademica" value="<?php echo $nombre_usuario ?>"/>
                         </div>
                         <input id="btnGuardar" type="submit" value="Guardar"/>
                         <input id="btnEnviar" type="submit" value="Enviar"/>

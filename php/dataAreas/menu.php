@@ -15,6 +15,7 @@ if(isset($_SESSION['arrayDataSQL_H']) &&
     isset($_SESSION['idiomaRecolectado'])){
     $arrayDataSQL_H = $_SESSION['arrayDataSQL_H'];
     $arrayDataSQL_M = $_SESSION['arrayDataSQL_M'];
+    $fechaInicioUaId = $_SESSION['fechaInicioUaId'];
     $idiomaRecolectado = $_SESSION['idiomaRecolectado'];
 }else{
     for($i = 0 ; $i < 24 ; $i++){
@@ -130,17 +131,6 @@ sqlsrv_close($connection);
                         </div>
                         <div class="contenedor-txticoSIA">
                             <span class="links_nombresSIA">Descarga de Archivos</span>
-                        </div>
-                    </a>
-                </div>
-    
-                <div class="cont-linksSIA">
-                    <a href="status.php" id="btnesNavSIA">
-                        <div class="contenedor-icoSIA">
-                            <i class="gg-extension-add"></i>
-                        </div>
-                        <div class="contenedor-txticoSIA">
-                            <span class="links_nombresSIA">Carga de Datos</span>
                         </div>
                     </a>
                 </div>

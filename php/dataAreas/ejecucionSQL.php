@@ -35,26 +35,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
     ORDER BY Fecha DESC;
     ';
     $idioma = $_POST['idioma'];
-    $params = array($nombre_usuario,$idioma);
+    $params = array($nombre_usuario, $idioma);
     $stmt = sqlsrv_prepare($connection, $sql, $params);
 
     if ($stmt === false) {
-    $img = '';
-    //echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
-    } else {
-    $result = sqlsrv_execute($stmt);
-    if ($result === false) {
         $img = '';
+        //echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
     } else {
-        // Mostrar los resultados
-        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-            $arrayDataSQL_H[] = $row['Desc_Hombres'];
-            $arrayDataSQL_M[] = $row['Desc_Mujeres'];
-            $arrayDataDecNivCom[] = $row['id_Competencia'];
-            $arrayDataDecNivEd[] = $row['id_NivelEducativo'];
+        $result = sqlsrv_execute($stmt);
+        if ($result === false) {
+            $img = '';
+        } else {
+            // Mostrar los resultados
+            while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                $arrayDataSQL_H[] = $row['Desc_Hombres'];
+                $arrayDataSQL_M[] = $row['Desc_Mujeres'];
+                $arrayDataDecNivCom[] = $row['id_Competencia'];
+                $arrayDataDecNivEd[] = $row['id_NivelEducativo'];
+            }
         }
+        sqlsrv_free_stmt($stmt);
     }
-    sqlsrv_free_stmt($stmt);
+
+
+    $queryDtaVal = '
+        SELECT FechaInicio
+        FROM Vigencia
+        WHERE 
+        id_UnidadAcademica = (
+        SELECT ID_UnidadAcademica 
+        FROM Unidades_Academicas 
+        WHERE 
+        Desc_Nombre_Unidad_Academica = ?)
+        AND id_Idioma =  (
+        SELECT ID_Idioma 
+        FROM Idiomas WHERE Desc_Idioma = ?)
+    ';
+    
+    $idioma = $_POST['idioma'];
+    $fechaInicioUaId = '';
+    $params = array($nombre_usuario, $idioma);
+    $stmt = sqlsrv_prepare($connection, $queryDtaVal, $params);
+
+    if ($stmt === false) {
+        $img = '';
+        //echo "Error al preparar la consulta: " . sqlsrv_errors()[0]['message'] . "\n";
+    } else {
+        $result = sqlsrv_execute($stmt);
+        if ($result === false) {
+            $img = '';
+        } else {
+            // Mostrar los resultados
+            while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+                $fechaInicioUaId = $row['FechaInicio'];
+            }
+        }
+        sqlsrv_free_stmt($stmt);
     }
 
     /*
@@ -98,18 +134,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST) && isset($_POST["idiom
     $_SESSION['arrayDataSQL_H'] = $arrayDataSQL_H;
     $_SESSION['arrayDataSQL_M'] = $arrayDataSQL_M;
     $_SESSION['idiomaRecolectado'] = $idioma;
+    $_SESSION['fechaInicioUaId'] = $fechaInicioUaId;
 
-    if(
-        isset($_SESSION['arrayDataSQL_H']) 
-        && 
-        isset($_SESSION['arrayDataSQL_M']) 
-        && 
-        isset($_SESSION['idiomaRecolectado'])){
-        header("Location: cargarData.php?status=DataComplete&idioma=".$idioma);
+    if (
+        isset($_SESSION['arrayDataSQL_H'])
+        &&
+        isset($_SESSION['arrayDataSQL_M'])
+        &&
+        isset($_SESSION['idiomaRecolectado'])
+    ) {
+        header("Location: cargarData.php?status=DataComplete&idioma=" . $idioma);
     }
-}else{
+} else {
     $arrayDataSQL_H[] = 0;
-    for($i = 0 ; $i < 24 ; $i++){
+    for ($i = 0; $i < 24; $i++) {
         $arrayDataSQL_H[$i] = 0;
         $arrayDataSQL_M[$i] = 0;
     }
