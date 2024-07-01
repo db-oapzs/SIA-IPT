@@ -191,9 +191,10 @@
 #contDataForm {
   width: 97vw;
   height: auto;
+  float:right;
+  right: 0;
   background: #fff;
   float: right;
-  box-shadow: inset 0px 0px 19px 5px rgba(0, 0, 0, 0.37);
   overflow: hidden;
 }
 #contDataForm > #headerData {

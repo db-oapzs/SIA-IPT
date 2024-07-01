@@ -10,13 +10,18 @@
 
 #contInicioBV {
   height: 93.5vh !important;
+  width: 90vw;
+  float: right;
+  right: 0;
+  margin-right: 20px;
 }
 
 #conPowerBy, #contInicioBV, #contStatus {
-  width: 98vw;
+  width: 90vw;
   height: 100vh;
   background: #fff;
   float: right;
+  right: 0;
   padding-top: 50px;
   display: flex;
   flex-direction: column;
